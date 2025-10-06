@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create vite@latest inteople-ts -- --template react-ts)",
+      "Bash(npm install)",
+      "Bash(npm install framer-motion lucide-react swiper @types/node tailwindcss postcss autoprefixer)",
+      "Bash(npx tailwindcss init -p)",
+      "Bash(npm install react-router-dom)",
+      "Bash(npm run dev)",
+      "Bash(npm install @tailwindcss/postcss)",
+      "Bash(pkill -f \"npm run dev\")",
+      "Bash(pkill -f \"npm\")",
+      "Bash(npm run build)",
+      "Read(//Users/alisohel/Desktop/ws/inteople/**)",
+      "Bash(git init)",
+      "Bash(git add .)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
