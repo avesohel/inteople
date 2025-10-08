@@ -946,8 +946,12 @@
 					
 					<!-- Contact Form -->
 					<div class="contact-form col-md-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms" style="margin-bottom: 30px;">
-						<form id="contact-form" class="contact-form" style="background: rgba(24,26,29,0.9); padding: 30px; border-radius: 10px; color: white;">
-      <h3 style="color: #ffffffa3; margin-bottom: 20px;">Send Us Your Information</h3>
+						<form id="contact-form" class="contact-form">
+      <div class="form-header">
+        <h3><i class="tf-ion-graduation-cap"></i> Apply For Courses</h3>
+        <p>Start your learning journey with our expert-led training programs. Whether you're interested in web development, AI, IoT, or freelancing skills - we have the perfect course for you!</p>
+        <p class="course-cta"><i class="tf-ion-star"></i> Apply for any course or ask us anything!</p>
+      </div>
 
       <div class="form-group" style="margin-bottom: 20px;">
           <input type="text" name="name" placeholder="Your Name" required class="form-control" style="background: rgba(255,255,255,0.1); border: none; color: 
@@ -990,11 +994,14 @@
   rgba(255,255,255,0.1); border: none; color: white; padding: 12px; border-radius: 5px;"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-main btn-block" style="width: 100%; padding: 12px; font-weight: bold;">Send Application</button>
+      <button type="submit" class="btn btn-primary">Send Application</button>
   </form>
-  <div id="success-message" style="display: none; text-align: center; margin-top: 15px; padding: 15px; background: rgba(76, 175, 80, 0.8); border-radius: 5px; 
+  <div id="success-message" class="success-message" style="display: none; text-align: center; margin-top: 15px; padding: 15px; background: rgba(76, 175, 80, 0.8); border-radius: 5px;
   color: white;">
-      <h4>Thank you! Your application has been sent. We'll get back to you shortly.</h4>
+      <i class="tf-ion-checkmark-circled"></i>
+      <h4>Application Sent!</h4>
+      <p>Thank you for your course application! We've received your information and will contact you within 24-48 hours to discuss your enrollment.</p>
+      <p class="course-highlight">🎓 <strong>Next Steps:</strong> Our team will reach out to confirm your course details, schedule, and payment options.</p>
   </div>
 					</div>
 					<!-- ./End Contact Form -->
@@ -1101,30 +1108,16 @@
 				const form = this;
 				const formData = new FormData(form);
 
-				// Check if file is selected
-				const fileInput = form.querySelector('input[type="file"]');
-				if (!fileInput.files[0]) {
-					alert('Please select a CV file to upload');
-					return;
-				}
-
 				const data = {
 					name: formData.get('name'),
 					email: formData.get('email'),
 					phone: formData.get('phone'),
-					interest: formData.get('interest'),
-					message: formData.get('message'),
-					cv: fileInput.files[0].name,
-					cv_attachment: fileInput.files[0] // Attach the actual file
+					preferred_date: formData.get('preferred_date'),
+					course_title: formData.get('course_title'),
+					message: formData.get('message')
 				};
 
 				emailjs.send('service_3kupjv5', 'template_7jbbqlh', data)
-					.then(function(response) {
-						document.getElementById('success-message').style.display = 'block';
-						form.reset();
-					}, function(error) {
-						alert('Error, try again: ' + error.text);
-					});
 					.then(function(response) {
 						document.getElementById('success-message').style.display = 'block';
 						form.reset();
