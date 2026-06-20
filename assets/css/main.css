@@ -665,6 +665,23 @@ p {
   transform: scale(1.04);
 }
 
+/* Designed marketing graphic (not a screenshot) — show it whole instead of
+   cropping. The artwork has a white background, so a white backdrop makes the
+   letterbox invisible. */
+.product-media .pm-media--contain {
+  background: #fff;
+}
+.product-media .pm-media--contain img {
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Scene image whose key content sits at the top — anchor the cover crop to the
+   top so trimming happens at the bottom instead of clipping the top. */
+.product-media .pm-media--top img {
+  object-position: top center;
+}
+
 /* "Featured" ribbon on the image */
 .product-media .pm-ribbon {
   position: absolute;
@@ -764,6 +781,98 @@ p {
   height: 4px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   z-index: 2;
+}
+
+/* ---------- Wide CTA card — "Let's build your next product" ----------
+   Spans two columns to fill the trailing gap; gradient panel + split layout. */
+.product-cta {
+  position: relative;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.2rem 2.4rem;
+  border-color: rgba(255, 106, 80, 0.35);
+  background: linear-gradient(135deg, var(--surface), var(--bg-2));
+}
+.product-cta .cta-glow {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 60%;
+  height: 180%;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 106, 80, 0.18),
+    transparent
+  );
+  pointer-events: none;
+}
+.product-cta .cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 60ch;
+}
+.product-cta .badge {
+  display: inline-block;
+  margin: 0 0 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(255, 106, 80, 0.35);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+.product-cta h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+.product-cta p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+.product-cta .cta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.product-cta .cta-chips span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+}
+.product-cta .cta-action {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.product-cta .cta-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+@media (max-width: 720px) {
+  .product-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
+    padding: 1.8rem;
+  }
+  .product-cta .cta-action {
+    align-items: flex-start;
+    width: 100%;
+  }
 }
 
 /* ---------- Process ---------- */
