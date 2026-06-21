@@ -66,8 +66,9 @@
 
   <div class="toast" id="toast"></div>
 
-  <script>window.PERSON = {"slug":"nasim","name":"Mohammad Nasim Ahmen","role":"Director, Admin","org":"Inteople","email":"nasim@inteople.com","phone":"","website":"https://inteople.com","linkedin":"https://www.linkedin.com/company/inteople/","photo":"","bio":"Director of Admin at Inteople, leading administration and operations."};</script>
-  <script src="/js/vendor/qrcode.min.js"></script>
+  <script src="/assets/js/config.js"></script>
+  <script>window.PERSON = (window.INTEOPLE.people || {}).nasim;</script>
+  <script src="/assets/js/vendor/qrcode.min.js"></script>
   <script src="/vc/vc.js"></script>
 </body>
 </html>

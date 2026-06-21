@@ -113,21 +113,11 @@
 
     <div class="toast" id="toast"></div>
 
+    <script src="/assets/js/config.js"></script>
     <script>
-      window.PERSON = {
-        slug: "alisohel",
-        name: "SM Mohammad Ali",
-        role: "Founder & CTO",
-        org: "Inteople",
-        email: "hello@inteople.com",
-        phone: "",
-        website: "https://inteople.com",
-        linkedin: "https://www.linkedin.com/in/avesohel/",
-        photo: "/assets/img/sohel.webp",
-        bio: "Founder & CTO of Inteople. Building AI, SaaS, mobile and IoT products for healthtech, fintech, agrotech and edutech.",
-      };
+      window.PERSON = (window.INTEOPLE.people || {}).alisohel;
     </script>
-    <script src="/js/vendor/qrcode.min.js"></script>
+    <script src="/assets/js/vendor/qrcode.min.js"></script>
     <script src="/vc/vc.js"></script>
   </body>
 </html>

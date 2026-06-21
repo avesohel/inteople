@@ -67,40 +67,65 @@
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
-  /* Contact form (EmailJS optional, graceful fallback to mailto) */
+  /* ---- Inject config-driven links (single source of truth: config.js) ---- */
+  var cfg = window.INTEOPLE || {};
+  var contactEmail = (cfg.contact && cfg.contact.email) || "hello@inteople.com";
+  document.querySelectorAll("[data-link]").forEach(function (el) {
+    var key = el.getAttribute("data-link"); // e.g. "social.linkedin", "contact.email"
+    var val = key.split(".").reduce(function (o, k) {
+      return o && o[k];
+    }, cfg);
+    if (!val) return;
+    if (el.tagName === "A") {
+      el.setAttribute("href", key === "contact.email" ? "mailto:" + val : val);
+    } else {
+      el.textContent = val;
+    }
+  });
+
+  /* Contact form — submits to Netlify Forms via AJAX, mailto fallback */
   var form = document.getElementById("contact-form");
   if (form) {
     var status = document.getElementById("form-status");
+    var setStatus = function (cls, msg) {
+      if (!status) return;
+      status.className = "form-status " + cls;
+      status.textContent = msg;
+    };
+    var mailtoFallback = function (data) {
+      var body = encodeURIComponent(
+        "Name: " + (data.name || "") + "\nEmail: " + (data.email || "") +
+        "\nCompany: " + (data.company || "") + "\nInterest: " + (data.interest || "") +
+        "\n\n" + (data.message || "")
+      );
+      window.location.href = "mailto:" + contactEmail + "?subject=" +
+        encodeURIComponent("Project inquiry — " + (data.name || "Website")) + "&body=" + body;
+    };
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var data = Object.fromEntries(new FormData(form).entries());
-      var setStatus = function (cls, msg) {
-        if (!status) return;
-        status.className = "form-status " + cls;
-        status.textContent = msg;
-      };
+      var fd = new FormData(form);
+      var data = Object.fromEntries(fd.entries());
+      var btn = form.querySelector("[type=submit]");
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
-      if (window.emailjs && form.dataset.service && form.dataset.template) {
-        var btn = form.querySelector("[type=submit]");
-        if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
-        window.emailjs.send(form.dataset.service, form.dataset.template, data).then(function () {
-          setStatus("ok", "Thanks " + (data.name || "") + "! We'll get back to you within one business day.");
-          form.reset();
-        }).catch(function () {
-          setStatus("err", "Something went wrong. Please email us at hello@inteople.com.");
-        }).finally(function () {
-          if (btn) { btn.disabled = false; btn.textContent = "Send message"; }
-        });
-      } else {
-        var body = encodeURIComponent(
-          "Name: " + (data.name || "") + "\nEmail: " + (data.email || "") +
-          "\nCompany: " + (data.company || "") + "\nInterest: " + (data.interest || "") +
-          "\n\n" + (data.message || "")
-        );
-        window.location.href = "mailto:hello@inteople.com?subject=" +
-          encodeURIComponent("Project inquiry — " + (data.name || "Website")) + "&body=" + body;
-        setStatus("ok", "Opening your email app… or write to us at hello@inteople.com.");
-      }
+      // Netlify Forms expects url-encoded body posted to the site root.
+      var encoded = new URLSearchParams(fd).toString();
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded,
+      }).then(function (res) {
+        if (!res.ok) throw new Error("Bad status " + res.status);
+        setStatus("ok", "Thanks " + (data.name || "") + "! We'll get back to you within one business day.");
+        form.reset();
+      }).catch(function () {
+        // Network/local-preview failure — never lose the inquiry.
+        setStatus("err", "We couldn't submit the form just now — opening your email app so you can reach us at " + contactEmail + ".");
+        mailtoFallback(data);
+      }).finally(function () {
+        if (btn) { btn.disabled = false; btn.textContent = "Send message"; }
+      });
     });
   }
 })();
