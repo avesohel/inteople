@@ -153,77 +153,159 @@
         </div>
 
         <div class="hero-visual">
-          <div class="hero-card">
-            <div class="row">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.75"
-                  stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <rect x="6" y="8" width="12" height="11" rx="2.5" />
-                  <path d="M12 8V4M9 4h6" />
-                  <circle cx="9.5" cy="13" r="1" />
-                  <circle cx="14.5" cy="13" r="1" />
-                  <path d="M3 12v3M21 12v3" /></svg
-              ></span>
-              <div>
-                <b>AI & Automation</b><small>LLM apps, agents, copilots</small>
+          <div class="hero-orbit" aria-hidden="true"></div>
+
+          <div class="hero-card" aria-label="Inteople delivery console">
+            <div class="hc-glow" aria-hidden="true"></div>
+            <div class="hc-grid" aria-hidden="true"></div>
+
+            <div class="hc-inner">
+              <!-- Console header -->
+              <div class="hc-top">
+                <span class="hc-core" aria-hidden="true">
+                  <span class="hc-core-ring"></span>
+                  <span class="hc-core-ring"></span>
+                  <span class="hc-core-dot"></span>
+                </span>
+                <div class="hc-id">
+                  <b>Delivery Console</b>
+                  <span>inteople.studio · prod</span>
+                </div>
+                <span class="hc-live"><i></i> live</span>
               </div>
-            </div>
-            <div class="row">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.75"
-                  stroke-linecap="round"
-                  stroke-linejoin="round">
+
+              <!-- KPI tiles -->
+              <div class="hc-kpis">
+                <div class="hc-kpi">
+                  <span class="hc-kpi-label">On-time</span>
+                  <b class="hc-kpi-num" data-count="98" data-suffix="%">98%</b>
+                  <span class="hc-kpi-trend up">▲ 4%</span>
+                </div>
+                <div class="hc-kpi">
+                  <span class="hc-kpi-label">Deploys / wk</span>
+                  <b class="hc-kpi-num" data-count="42" data-suffix="">42</b>
+                  <span class="hc-kpi-trend up">▲ 12</span>
+                </div>
+                <div class="hc-kpi">
+                  <span class="hc-kpi-label">Uptime</span>
+                  <b class="hc-kpi-num" data-count="99.9" data-suffix="%">99.9%</b>
+                  <span class="hc-kpi-trend">SLA</span>
+                </div>
+              </div>
+
+              <!-- Velocity chart -->
+              <div class="hc-chart">
+                <div class="hc-chart-head">
+                  <span>Shipping velocity</span>
+                  <span class="hc-chart-tag">last 12 sprints</span>
+                </div>
+                <svg
+                  class="hc-spark"
+                  viewBox="0 0 320 96"
+                  preserveAspectRatio="none"
+                  aria-hidden="true">
+                  <defs>
+                    <linearGradient id="hcFillGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ff6a50" stop-opacity="0.42" />
+                      <stop offset="100%" stop-color="#ff6a50" stop-opacity="0" />
+                    </linearGradient>
+                    <linearGradient id="hcLineGrad" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#7aa8ff" />
+                      <stop offset="55%" stop-color="#ff8a73" />
+                      <stop offset="100%" stop-color="#ff6a50" />
+                    </linearGradient>
+                  </defs>
                   <path
-                    d="M7 18a4 4 0 010-8 5.5 5.5 0 0110.6-1.5A4 4 0 0117 18z" /></svg
-              ></span>
-              <div>
-                <b>SaaS & Cloud</b><small>Multi-tenant platforms</small>
+                    class="hc-spark-area"
+                    d="M0,74 L26,66 52,70 78,52 104,58 130,40 156,46 182,30 208,36 234,22 260,26 286,14 320,18 L320,96 L0,96 Z" />
+                  <path
+                    class="hc-spark-line"
+                    d="M0,74 L26,66 52,70 78,52 104,58 130,40 156,46 182,30 208,36 234,22 260,26 286,14 320,18" />
+                  <circle class="hc-spark-dot" cx="320" cy="18" r="3.5" />
+                </svg>
               </div>
-            </div>
-            <div class="row">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.75"
-                  stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <rect x="7" y="3" width="10" height="18" rx="2.5" />
-                  <path d="M11 18h2" /></svg
-              ></span>
-              <div>
-                <b>Mobile & Web Apps</b><small>iOS, Android, web</small>
+
+              <!-- Build pipeline -->
+              <div class="hc-pipe">
+                <div class="hc-stage done">
+                  <span class="hc-stage-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span class="hc-stage-label">Design</span>
+                </div>
+                <span class="hc-pipe-link done"></span>
+                <div class="hc-stage done">
+                  <span class="hc-stage-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span class="hc-stage-label">Build</span>
+                </div>
+                <span class="hc-pipe-link active"></span>
+                <div class="hc-stage active">
+                  <span class="hc-stage-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3" />
+                      <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" />
+                    </svg>
+                  </span>
+                  <span class="hc-stage-label">Ship</span>
+                </div>
+                <span class="hc-pipe-link"></span>
+                <div class="hc-stage">
+                  <span class="hc-stage-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 17l6-6 4 4 8-8" /><path d="M21 7v5M21 7h-5" />
+                    </svg>
+                  </span>
+                  <span class="hc-stage-label">Scale</span>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.75"
-                  stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="6" cy="6" r="2.2" />
-                  <circle cx="18" cy="6" r="2.2" />
-                  <circle cx="12" cy="18" r="2.2" />
-                  <path d="M7.6 7.6l3 8.8M16.4 7.6l-3 8.8M8 6h8" /></svg
-              ></span>
-              <div>
-                <b>IoT & Embedded</b><small>ESP32, edge, telemetry</small>
+
+              <!-- Stack ticker -->
+              <div class="hc-stack" aria-hidden="true">
+                <span class="hc-chip">AI agents</span>
+                <span class="hc-chip">SaaS</span>
+                <span class="hc-chip">Cloud</span>
+                <span class="hc-chip">Mobile</span>
+                <span class="hc-chip">IoT</span>
+                <span class="hc-chip">Edge</span>
               </div>
             </div>
           </div>
+
+          <span class="hc-badge hc-badge--ai">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.9"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z" />
+              <path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" />
+            </svg>
+            AI-first
+          </span>
+          <span class="hc-badge hc-badge--ship">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.9"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+            Ships in weeks
+          </span>
         </div>
       </div>
     </section>
@@ -1391,7 +1473,9 @@
             <a href="#contact">Start a project</a
             ><a href="mailto:hello@inteople.com" data-link="contact.email"
               >hello@inteople.com</a
-            ><a href="/vc/alisohel.html">Founder's card</a>
+            ><a href="/vc/propel.html">CEO's card</a>
+            <a href="/vc/alisohel.html">Founder's card</a>
+            <a href="https://www.privacypolicytemplate.net/live.php?token=LbrCKs4TiGUSXXqfbMuNO5l1F5IyD4H4" target="_blank" style="color:#3d5aa3">See Privacy Policy</a>
           </div>
         </div>
         <div class="footer-bottom">
@@ -1399,6 +1483,11 @@
             >© <span id="year">2026</span> Inteople Limited. All rights
             reserved.</span
           >
+               <!-- <P class="text-center" style="font-weight: 400; font-family: 'Quattrocento Sans', sans-serif;color: #afbac4;">
+								<a href='#'>Visitor Count</a> 
+								<script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=a12a2e73435816cc3134cb02eb0b898ca8d62bf0'></script>
+								<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/430311/t/9"></script>
+							</P> -->
           <span
             >Built with care · HealthTech · FinTech · AgroTech · EduTech</span
           >
