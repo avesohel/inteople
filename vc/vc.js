@@ -17,8 +17,39 @@
       "ORG:" + (p.org || "Inteople"),
       "TITLE:" + (p.role || "")
     ];
-    if (p.email) lines.push("EMAIL;TYPE=INTERNET,WORK:" + p.email);
-    if (p.phone) lines.push("TEL;TYPE=CELL:" + p.phone);
+    if (p.nickname) lines.push("NICKNAME:" + p.nickname);
+    var emails = p.emails && p.emails.length ? p.emails : (p.email ? [p.email] : []);
+    emails.forEach(function (em, i) {
+      lines.push("EMAIL;TYPE=INTERNET" + (i === 0 ? ",WORK,PREF" : "") + ":" + em);
+    });
+
+    var phones = p.phones && p.phones.length
+      ? p.phones
+      : (p.phone ? [{ number: p.phone }] : []);
+    phones.forEach(function (ph, i) {
+      var num = typeof ph === "string" ? ph : ph.number;
+      if (!num) return;
+      var types = ["CELL"];
+      if (i === 0) types.push("PREF");
+      lines.push("TEL;TYPE=" + types.join(",") + ":" + num);
+      if (ph && ph.whatsapp) {
+        lines.push("X-SOCIALPROFILE;TYPE=whatsapp:https://wa.me/" + num.replace(/[^\d]/g, ""));
+      }
+    });
+
+    if (p.address) {
+      var a = p.address;
+      // ADR: PO box; extended; street; locality; region; postal code; country
+      lines.push(
+        "ADR;TYPE=WORK:;;" +
+          (a.street || "") + ";" +
+          (a.locality || "") + ";" +
+          (a.region || "") + ";" +
+          (a.postalCode || "") + ";" +
+          (a.country || "")
+      );
+    }
+
     if (p.website) lines.push("URL:" + p.website);
     if (p.linkedin) lines.push("X-SOCIALPROFILE;TYPE=linkedin:" + p.linkedin);
     lines.push("URL;TYPE=card:" + pageUrl);
@@ -48,16 +79,27 @@
     setTimeout(function () { t.classList.remove("show"); }, 2200);
   }
 
-  /* ---- QR pointing at this card URL ---- */
+  /* ---- QR: use the printed QR image if provided, else generate one ---- */
   function renderQR() {
     var el = document.getElementById("qr");
-    if (!el || typeof qrcode === "undefined") return;
+    if (!el) return;
+    var alt = "QR code for " + (p.name || "this contact");
+    // Static QR (identical to the printed business card) takes precedence.
+    if (p.qr) {
+      var staticImg = document.createElement("img");
+      staticImg.src = p.qr;
+      staticImg.alt = alt;
+      el.innerHTML = "";
+      el.appendChild(staticImg);
+      return;
+    }
+    if (typeof qrcode === "undefined") return;
     var qr = qrcode(0, "M");
     qr.addData(pageUrl);
     qr.make();
     el.innerHTML = qr.createImgTag(5, 0);
     var img = el.querySelector("img");
-    if (img) { img.alt = "QR code for " + (p.name || "this contact"); }
+    if (img) { img.alt = alt; }
   }
 
   /* ---- Share ---- */
