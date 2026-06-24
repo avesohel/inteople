@@ -83,10 +83,16 @@
     }
   });
 
-  /* Contact form — submits to Netlify Forms via AJAX, mailto fallback */
+  /* Contact form — emails the inquiry via Web3Forms (AJAX), mailto fallback.
+     The access key lives in config.js (cfg.forms.web3formsKey). Until a real
+     key is set, we skip the network call and go straight to the mailto path so
+     no inquiry is ever lost. */
   var form = document.getElementById("contact-form");
   if (form) {
     var status = document.getElementById("form-status");
+    var web3Key = (cfg.forms && cfg.forms.web3formsKey) || "";
+    var keyConfigured = web3Key && web3Key !== "YOUR_WEB3FORMS_ACCESS_KEY";
+
     var setStatus = function (cls, msg) {
       if (!status) return;
       status.className = "form-status " + cls;
@@ -107,20 +113,34 @@
       var fd = new FormData(form);
       var data = Object.fromEntries(fd.entries());
       var btn = form.querySelector("[type=submit]");
+
+      // No key configured yet — open the visitor's email app instead.
+      if (!keyConfigured) {
+        setStatus("ok", "Opening your email app so you can reach us at " + contactEmail + ".");
+        mailtoFallback(data);
+        return;
+      }
+
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
-      // Netlify Forms expects url-encoded body posted to the site root.
-      var encoded = new URLSearchParams(fd).toString();
-      fetch("/", {
+      // Web3Forms accepts the access key + fields as a JSON payload.
+      fd.append("access_key", web3Key);
+      fd.append("subject", "New project inquiry — " + (data.name || "Website"));
+      fd.append("from_name", "Inteople website");
+      var payload = JSON.stringify(Object.fromEntries(fd.entries()));
+
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encoded,
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: payload,
       }).then(function (res) {
-        if (!res.ok) throw new Error("Bad status " + res.status);
-        setStatus("ok", "Thanks " + (data.name || "") + "! We'll get back to you within one business day.");
-        form.reset();
+        return res.json().then(function (out) {
+          if (!res.ok || !out.success) throw new Error(out.message || "Bad status " + res.status);
+          setStatus("ok", "Thanks " + (data.name || "") + "! We'll get back to you within one business day.");
+          form.reset();
+        });
       }).catch(function () {
-        // Network/local-preview failure — never lose the inquiry.
+        // Network failure — never lose the inquiry.
         setStatus("err", "We couldn't submit the form just now — opening your email app so you can reach us at " + contactEmail + ".");
         mailtoFallback(data);
       }).finally(function () {

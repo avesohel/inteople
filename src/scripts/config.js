@@ -3,7 +3,7 @@
    ----------------------------------------------------------------------------
    Edit links, contact details, social handles, product URLs and the people
    behind the virtual cards HERE. Everything below is read at runtime by
-   assets/js/main.js (homepage) and vc/vc.js (business cards).
+   src/scripts/main.js (homepage) and vc/vc.js (business cards).
 
    NOTE on SEO: the homepage nav and product cards are intentionally kept as
    real <a href> anchors in index.html so search engines can crawl them. The
@@ -23,6 +23,17 @@ window.INTEOPLE = {
     email: "hello@inteople.com",
     location: "Bangladesh — working worldwide",
     support: "24 / 7 · 365 days a year",
+  },
+
+  // Contact-form email delivery via Web3Forms (https://web3forms.com).
+  // 1. Go to web3forms.com, enter the inbox that should receive inquiries,
+  //    and you'll be emailed a free Access Key (a UUID) instantly.
+  // 2. Paste that key below. It is safe to expose in client-side code — it
+  //    only allows sending TO your verified inbox, nothing else.
+  // Until a real key is set, the form gracefully falls back to opening the
+  // visitor's email app (mailto) so no inquiry is ever lost.
+  forms: {
+    web3formsKey: "YOUR_WEB3FORMS_ACCESS_KEY",
   },
 
   // Company social profiles (mirrored in index.html footer + JSON-LD).
@@ -69,12 +80,12 @@ window.INTEOPLE = {
       },
       website: "https://inteople.com",
       linkedin: "https://www.linkedin.com/in/alisohel/",
-      photo: "/assets/img/sohel.webp",
-      qr: "/assets/img/qr-sohel.png",
+      photo: "/src/images/team/sohel.webp",
+      qr: "/src/images/qr/qr-sohel.png",
       bio: "Founder & CTO of Inteople. Building AI, SaaS, mobile and IoT products for healthtech, fintech, agrotech and edutech.",
     },
     propel: {
-      slug: "propell",
+      slug: "propel",
       name: "M R N Propel",
       role: "Chief Executive Officer",
       org: "Inteople",
@@ -94,8 +105,8 @@ window.INTEOPLE = {
       },
       website: "https://inteople.com",
       linkedin: "https://www.linkedin.com/company/inteople/",
-      photo: "/assets/img/propell.webp",
-      qr: "/assets/img/qr-propel.png",
+      photo: "/src/images/team/propel.webp",
+      qr: "/src/images/qr/qr-propel.png",
       bio: "CEO of Inteople, leading vision and growth across our platforms.",
     },
     ahsan: {

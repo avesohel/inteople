@@ -5,7 +5,7 @@ Maintenance scripts for the Inteople site.
 ## generate-qr.py — virtual-card QR codes
 
 Generates QR codes for the `/vc/` virtual business cards with the Inteople
-logo centered, matching the house style of `assets/img/qr-sohel.png`
+logo centered, matching the house style of `src/images/qr/qr-sohel.png`
 (black modules on white, blue "in" logo on a rounded white panel, high
 error correction so the logo never breaks scannability).
 
@@ -25,19 +25,19 @@ python3 scripts/generate-qr.py all
 python3 scripts/generate-qr.py propel
 
 # arbitrary URL -> arbitrary output (one-off codes)
-python3 scripts/generate-qr.py --url https://inteople.com --out assets/img/qr-site.png
+python3 scripts/generate-qr.py --url https://inteople.com --out src/images/qr/qr-site.png
 ```
 
 ### Conventions
 
 - URL encoded:  `vc/<slug>.html` → `https://inteople.com/vc/<slug>.html`
-- Output file:  `assets/img/qr-<slug>.png`
+- Output file:  `src/images/qr/qr-<slug>.png`
 
 After generating a **new** card's QR, point that person's `qr` field in
-`assets/js/config.js` at the generated file, e.g.:
+`src/scripts/config.js` at the generated file, e.g.:
 
 ```js
-qr: "/assets/img/qr-<slug>.png",
+qr: "/src/images/qr/qr-<slug>.png",
 ```
 
 `vc/vc.js` prefers this static image; if a card has no `qr` set, it falls
