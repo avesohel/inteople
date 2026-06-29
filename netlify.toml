@@ -29,3 +29,9 @@
   from = "/vc/:slug"
   to = "/vc/:slug.html"
   status = 200
+
+# EduNation AI landing — serve /edu without the trailing index.html
+[[redirects]]
+  from = "/edu"
+  to = "/edu/index.html"
+  status = 200
