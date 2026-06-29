@@ -35,3 +35,13 @@
   from = "/edu"
   to = "/edu/index.html"
   status = 200
+
+# Subdomain: serve edu.inteople.com root from the /edu/ folder (URL stays on the
+# subdomain). Only the bare root is rewritten; assets like /edu/edu.css and
+# /src/images/* fall through to normal file serving from the shared publish root.
+# INERT until a Netlify domain alias + DNS CNAME for edu.inteople.com exist.
+[[redirects]]
+  from = "https://edu.inteople.com/"
+  to = "/edu/index.html"
+  status = 200
+  force = true
