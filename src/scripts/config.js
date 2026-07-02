@@ -33,7 +33,7 @@ window.INTEOPLE = {
   // Until a real key is set, the form gracefully falls back to opening the
   // visitor's email app (mailto) so no inquiry is ever lost.
   forms: {
-    web3formsKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+    web3formsKey: "654357a7-3920-4d47-ac07-ad958360966f",
   },
 
   // Company social profiles (mirrored in index.html footer + JSON-LD).
