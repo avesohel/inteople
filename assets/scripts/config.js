@@ -3,7 +3,7 @@
    ----------------------------------------------------------------------------
    Edit links, contact details, social handles, product URLs and the people
    behind the virtual cards HERE. Everything below is read at runtime by
-   src/scripts/main.js (homepage) and vc/vc.js (business cards).
+   assets/scripts/home.js (homepage) and vc/vc.js (business cards).
 
    NOTE on SEO: the homepage nav and product cards are intentionally kept as
    real <a href> anchors in index.html so search engines can crawl them. The
@@ -80,8 +80,8 @@ window.INTEOPLE = {
       },
       website: "https://inteople.com",
       linkedin: "https://www.linkedin.com/in/alisohel/",
-      photo: "/src/images/team/sohel.webp",
-      qr: "/src/images/qr/qr-sohel.png",
+      photo: "/assets/images/team/sohel.webp",
+      qr: "/assets/images/qr/qr-sohel.png",
       bio: "Founder & CTO of Inteople. Building AI, SaaS, mobile and IoT products for healthtech, fintech, agrotech and edutech.",
     },
     propel: {
@@ -105,8 +105,8 @@ window.INTEOPLE = {
       },
       website: "https://inteople.com",
       linkedin: "https://www.linkedin.com/company/inteople/",
-      photo: "/src/images/team/propel.webp",
-      qr: "/src/images/qr/qr-propel.png",
+      photo: "/assets/images/team/propel.webp",
+      qr: "/assets/images/qr/qr-propel.png",
       bio: "CEO of Inteople, leading vision and growth across our platforms.",
     },
     ahsan: {

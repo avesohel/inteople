@@ -1,0 +1,50 @@
+name: Lint
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  lint:
+    name: Format, lint & sitemap
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prettier (format check)
+        run: npm run format:check
+
+      - name: Stylelint (CSS)
+        run: npm run lint:css
+
+      - name: ESLint (JS)
+        run: npm run lint:js
+
+      - name: html-validate (HTML)
+        run: npm run lint:html
+
+      - name: markdownlint (Markdown)
+        run: npm run lint:md
+
+      - name: Sitemap up to date
+        run: node scripts/generate-sitemap.mjs --check
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ruff (Python)
+        run: |
+          python3 -m pip install --upgrade ruff
+          npm run lint:py

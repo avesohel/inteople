@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>AI &amp; Machine Learning Development Services | Inteople</title>
+    <meta
+      name="description"
+      content="Inteople engineers production-grade AI: LLM applications, RAG pipelines, autonomous agents, computer vision and predictive models — wired into real products with evaluation, guardrails and MLOps." />
+    <link rel="canonical" href="https://inteople.com/services/ai-ml/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="AI & Machine Learning Development Services | Inteople" />
+    <meta
+      property="og:description"
+      content="Production-grade LLM apps, RAG, agents, computer vision and predictive models — engineered, evaluated and operated." />
+    <meta property="og:url" content="https://inteople.com/services/ai-ml/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AI & Machine Learning Development Services | Inteople" />
+    <meta
+      name="twitter:description"
+      content="Production-grade LLM apps, RAG, agents, computer vision and predictive models." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/services.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://inteople.com/services/ai-ml/#service",
+            "serviceType": "AI & Machine Learning Development",
+            "name": "AI & Machine Learning Development",
+            "description": "Production-grade AI engineering: LLM applications, RAG pipelines, autonomous agents, computer vision and predictive models with evaluation, guardrails and MLOps.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "url": "https://inteople.com/"
+            },
+            "areaServed": "Worldwide",
+            "url": "https://inteople.com/services/ai-ml/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://inteople.com/services/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AI & Machine Learning"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do you keep large language models from hallucinating in production?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We ground models in your data with retrieval-augmented generation, constrain outputs with schemas and tool contracts, add validation and citation layers, and run automated evaluation suites with human review on high-risk paths before and after release."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do we need a huge dataset to start an AI project?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Many high-value systems are built on foundation models with RAG over your existing documents and structured data. Where custom models are warranted, we help with data collection, labeling strategy and fine-tuning, starting from what you already have."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you integrate AI into our existing product and stack?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We design AI features as services and APIs that fit your current architecture, with observability, cost controls and fallback behavior, so they ship inside the product your users already use."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you handle data privacy and responsible AI?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We minimize and isolate sensitive data, support private and on-region model deployment, log and audit model decisions, and design human-in-the-loop controls for regulated or high-impact use cases."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home">
+          <img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople
+        </a>
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/" aria-current="page">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-primary btn-sm" href="#cta">Scope an AI project</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+            <a href="/services/">Services</a
+            ><span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">AI &amp; Machine Learning</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> AI &amp; Machine Learning</span
+          >
+          <h1 class="reveal" data-delay="1">
+            Applied AI that ships —
+            <span class="grad-text">and survives production</span>.
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            We design, build and operate LLM applications, retrieval systems,
+            autonomous agents, computer vision and predictive models —
+            engineered with evaluation, guardrails and observability so they
+            hold up against real users, real data and real cost.
+          </p>
+          <div class="svc-hero-tags reveal" data-delay="3">
+            <span>LLM / RAG</span><span>agents</span
+            ><span>computer vision</span> <span>forecasting</span
+            ><span>MLOps</span><span>responsible AI</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IT IS -->
+      <section class="section" id="what">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">What this is</span>
+            <h2>End-to-end AI engineering, not proof-of-concepts</h2>
+          </div>
+          <div class="svc-intro">
+            <p class="svc-intro-lead reveal">
+              Most AI demos never reach production. We build the part that's
+              actually hard —
+              <b>making intelligence reliable, observable and affordable</b>
+              inside a product people depend on.
+            </p>
+            <div class="svc-intro-body reveal" data-delay="1">
+              <p>
+                Our AI practice spans the full lifecycle: framing the problem in
+                business terms, selecting between foundation models and custom
+                training, grounding models in your data, and wrapping them in
+                the evaluation, guardrails and MLOps needed to operate safely at
+                scale.
+              </p>
+              <p>
+                We've proven this on our own products — applied AI runs at the
+                core of ReplyFlow, OwnBooks and Healodex — so the patterns we
+                bring to your build are ones we run and maintain ourselves.
+              </p>
+              <ul class="svc-intro-list">
+                <li>
+                  LLM-powered features: copilots, assistants, summarization,
+                  extraction
+                </li>
+                <li>
+                  Retrieval-augmented generation grounded in your knowledge and
+                  data
+                </li>
+                <li>
+                  Autonomous and tool-using agents with human-in-the-loop
+                  control
+                </li>
+                <li>
+                  Computer vision, document AI and predictive / forecasting
+                  models
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEMS WE SOLVE -->
+      <section class="section bg-alt" id="problems">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Problems we solve</span>
+            <h2>Where AI projects usually break — and how we fix it</h2>
+          </div>
+          <div class="problem-grid">
+            <article class="problem reveal">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Hallucination &amp; unreliable output
+              </h4>
+              <p>
+                Models that sound confident while being wrong are a liability in
+                any serious product.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> retrieval grounding, schema-constrained
+                outputs, citations, and automated eval suites with human review
+                on high-risk paths.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="1">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >"Demo works, product doesn't"
+              </h4>
+              <p>
+                A notebook that impresses in a meeting rarely handles real
+                traffic, edge cases or latency budgets.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> production architecture: caching,
+                fallbacks, rate limiting, streaming, and load-tested inference
+                behind real SLAs.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="2">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Runaway token &amp; compute cost
+              </h4>
+              <p>
+                Unbounded prompts and naive calls turn a promising feature into
+                an unsustainable bill.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> model routing, prompt and context
+                optimization, caching, batching and right-sized models per
+                task.</span
+              >
+            </article>
+            <article class="problem reveal">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >No way to measure quality
+              </h4>
+              <p>
+                Without evaluation, you can't tell whether a prompt change or
+                model upgrade helped or quietly regressed.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> offline + online eval, golden datasets,
+                regression gates in CI, and dashboards for quality, latency and
+                cost.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="1">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Privacy &amp; compliance risk
+              </h4>
+              <p>
+                Sending sensitive data to third-party models without controls is
+                a non-starter in regulated domains.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> data minimization, private/on-region
+                deployment, PII handling, audit logging and human-in-the-loop
+                gates.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="2">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >AI bolted on, not integrated
+              </h4>
+              <p>
+                Standalone AI tools that don't connect to your data or workflow
+                create more friction than value.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> AI delivered as first-class services
+                inside your product, wired to your data, auth and existing
+                UX.</span
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAPABILITIES / WHAT'S INCLUDED -->
+      <section class="section bg-dark" id="capabilities">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">What's included</span>
+            <h2>Capabilities we deliver</h2>
+          </div>
+          <div class="svc-cap-grid">
+            <article class="svc-cap reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M7 8h10M7 12h6M7 16h8" stroke-linecap="round" />
+                  <rect x="3" y="3" width="18" height="18" rx="3" /></svg
+              ></span>
+              <div>
+                <h4>LLM applications &amp; copilots</h4>
+                <p>
+                  Assistants, chat, summarization, classification and extraction
+                  built on GPT, Claude, Gemini and open models, with prompt
+                  engineering and structured outputs.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <ellipse cx="12" cy="6" rx="8" ry="3" />
+                  <path
+                    d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>RAG &amp; knowledge systems</h4>
+                <p>
+                  Vector and hybrid search over your documents and data, with
+                  chunking, embeddings, reranking and citation so answers are
+                  grounded and traceable.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Autonomous &amp; tool-using agents</h4>
+                <p>
+                  Multi-step agents that call tools and APIs, with planning,
+                  memory, guardrails and human-in-the-loop checkpoints for
+                  high-stakes actions.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="3">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"
+                    stroke-linejoin="round" />
+                  <circle cx="12" cy="12" r="3" /></svg
+              ></span>
+              <div>
+                <h4>Computer vision &amp; document AI</h4>
+                <p>
+                  Detection, classification, OCR and document understanding for
+                  images, scans and video — on cloud or at the edge.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 3v18h18" stroke-linecap="round" />
+                  <path
+                    d="m7 14 3-4 3 3 5-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Predictive &amp; forecasting models</h4>
+                <p>
+                  Classical and deep models for forecasting, scoring,
+                  recommendation and anomaly detection, validated against real
+                  baselines.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" />
+                  <path
+                    d="m9 12 2 2 4-4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Evaluation, guardrails &amp; MLOps</h4>
+                <p>
+                  Eval harnesses, safety filters, prompt/version management,
+                  model monitoring, drift detection and CI gates — the
+                  operational backbone.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section class="section" id="stack">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Technologies we use</span>
+            <h2>A pragmatic, model-agnostic stack</h2>
+            <p class="lead">
+              We pick the right model and tool per task — and avoid lock-in
+              where it matters.
+            </p>
+          </div>
+          <div class="stack">
+            <div class="stack-group reveal">
+              <h4>Models &amp; APIs</h4>
+              <div class="chips">
+                <span>OpenAI GPT</span><span>Anthropic Claude</span
+                ><span>Google Gemini</span><span>Llama</span><span>Mistral</span
+                ><span>Whisper</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="1">
+              <h4>Frameworks &amp; orchestration</h4>
+              <div class="chips">
+                <span>PyTorch</span><span>TensorFlow</span><span>LangChain</span
+                ><span>LlamaIndex</span><span>Hugging Face</span
+                ><span>scikit-learn</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="2">
+              <h4>Retrieval &amp; data</h4>
+              <div class="chips">
+                <span>pgvector</span><span>Pinecone</span><span>Weaviate</span
+                ><span>Qdrant</span><span>Elasticsearch</span><span>Redis</span>
+              </div>
+            </div>
+            <div class="stack-group reveal">
+              <h4>Serving &amp; MLOps</h4>
+              <div class="chips">
+                <span>FastAPI</span><span>Triton</span><span>vLLM</span
+                ><span>Ray</span><span>MLflow</span><span>Docker / K8s</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="1">
+              <h4>Vision &amp; edge</h4>
+              <div class="chips">
+                <span>OpenCV</span><span>YOLO</span><span>ONNX</span
+                ><span>TensorRT</span><span>TFLite</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="2">
+              <h4>Eval &amp; observability</h4>
+              <div class="chips">
+                <span>Ragas</span><span>LangSmith</span
+                ><span>Weights &amp; Biases</span><span>Prometheus</span
+                ><span>OpenTelemetry</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section class="section bg-alt" id="benefits">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Benefits</span>
+            <h2>What you get from working this way</h2>
+          </div>
+          <div class="benefit-grid">
+            <div class="benefit reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Speed to a real feature</h4>
+                <p>
+                  Foundation models and proven patterns get a credible AI
+                  capability in front of users in weeks, not quarters.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Trustworthy by design</h4>
+                <p>
+                  Grounding, guardrails and evaluation mean outputs you can
+                  stand behind — with audit trails for regulated use.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 3v18h18" stroke-linecap="round" />
+                  <path
+                    d="m7 14 3-4 3 3 5-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Predictable cost &amp; latency</h4>
+                <p>
+                  Model routing, caching and right-sizing keep spend and
+                  response times inside the budget you set.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M20 7 9 18l-5-5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>No vendor lock-in</h4>
+                <p>
+                  A model-agnostic architecture lets you swap or mix providers
+                  as the landscape — and pricing — shifts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUTCOMES -->
+      <section class="section bg-dark" id="outcomes">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Example outcomes</span>
+            <h2>The kind of results this work produces</h2>
+            <p class="lead">
+              Representative of outcomes from applied-AI systems engineered with
+              grounding, evaluation and cost control.
+            </p>
+          </div>
+          <div class="outcome-grid">
+            <article class="outcome reveal">
+              <b>Automated</b>
+              <h4>First-line customer responses</h4>
+              <p>
+                An AI reply system that drafts, routes and resolves routine
+                conversations, escalating edge cases to humans — the pattern
+                behind ReplyFlow.
+              </p>
+            </article>
+            <article class="outcome reveal" data-delay="1">
+              <b>Hands-off</b>
+              <h4>Transaction categorization</h4>
+              <p>
+                ML-driven bookkeeping that classifies and reconciles
+                transactions with audit-grade traceability — applied in
+                OwnBooks.
+              </p>
+            </article>
+            <article class="outcome reveal" data-delay="2">
+              <b>Real-time</b>
+              <h4>Clinical triage support</h4>
+              <p>
+                Decision support that surfaces relevant signals for
+                doctor-in-the-loop review under healthcare constraints — applied
+                in Healodex.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="eyebrow">FAQ</span>
+            <h2>Questions teams ask before starting</h2>
+          </div>
+          <div class="faq reveal">
+            <details>
+              <summary>
+                How do you keep models from hallucinating in production?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                We ground models in your data with retrieval-augmented
+                generation, constrain outputs with schemas and tool contracts,
+                add validation and citation layers, and run automated evaluation
+                suites with human review on high-risk paths before and after
+                release.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Do we need a huge dataset to start?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                No. Many high-value systems run on foundation models with RAG
+                over your existing documents and structured data. Where custom
+                models are warranted, we help with data collection, labeling
+                strategy and fine-tuning, starting from what you already have.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Can you integrate AI into our existing product and stack?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                Yes. We design AI features as services and APIs that fit your
+                current architecture, with observability, cost controls and
+                fallback behavior, so they ship inside the product your users
+                already use.
+              </p>
+            </details>
+            <details>
+              <summary>
+                How do you handle data privacy and responsible AI?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                We minimize and isolate sensitive data, support private and
+                on-region model deployment, log and audit model decisions, and
+                design human-in-the-loop controls for regulated or high-impact
+                use cases.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED PRODUCTS -->
+      <section class="section bg-alt" id="related">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Proof in our own products</span>
+            <h2>Applied AI we build and operate</h2>
+          </div>
+          <div class="related-grid">
+            <article class="related reveal">
+              <span class="related-domain">Applied AI</span>
+              <h4>ReplyFlow</h4>
+              <p>AI reply and workflow automation across customer channels.</p>
+              <a
+                class="prod-link"
+                href="https://aireply.com"
+                target="_blank"
+                rel="noopener"
+                >Visit ReplyFlow
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+            <article class="related reveal" data-delay="1">
+              <span class="related-domain">FinTech</span>
+              <h4>OwnBooks</h4>
+              <p>
+                AI bookkeeping with automated categorization and reconciliation.
+              </p>
+              <a
+                class="prod-link"
+                href="https://ownbooks.ai"
+                target="_blank"
+                rel="noopener"
+                >Visit OwnBooks
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+            <article class="related reveal" data-delay="2">
+              <span class="related-domain">HealthTech</span>
+              <h4>Healodex</h4>
+              <p>
+                Health intelligence with doctor-in-the-loop decision support.
+              </p>
+              <a
+                class="prod-link"
+                href="https://healodex.com"
+                target="_blank"
+                rel="noopener"
+                >Visit Healodex
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- OTHER SERVICES -->
+      <section class="section tight" id="services">
+        <div class="container wide">
+          <div class="section-head reveal compact">
+            <span class="eyebrow">Explore capabilities</span>
+          </div>
+          <nav class="svc-nav reveal" aria-label="Other services">
+            <a href="/services/ai-ml/" aria-current="page"
+              >AI &amp; ML
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/software-engineering/"
+              >Software Engineering
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/iot-embedded/"
+              >IoT &amp; Embedded
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/cloud/"
+              >Cloud &amp; DevOps
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> AI &amp; Machine Learning</span
+            >
+            <h2>Have an AI use case worth doing right?</h2>
+            <p>
+              Bring us the problem. We'll tell you honestly whether AI is the
+              answer — and if it is, engineer it to run reliably in production.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=AI%20%26%20ML%20project"
+                >Scope an AI project</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/#products"
+                >See our products</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home">
+              <img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople
+            </a>
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/software-engineering/">Software Engineering</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#approach">How we work</a>
+            <a href="/company/about/#leadership">Leadership</a>
+            <a href="/#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="https://healodex.com" target="_blank" rel="noopener"
+              >Healodex</a
+            >
+            <a href="https://aireply.com" target="_blank" rel="noopener"
+              >ReplyFlow</a
+            >
+            <a href="https://ownbooks.ai" target="_blank" rel="noopener"
+              >OwnBooks</a
+            >
+            <a href="/#products">All products</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

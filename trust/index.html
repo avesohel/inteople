@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>Trust &amp; Security — How we protect your data | Inteople</title>
+    <meta
+      name="description"
+      content="How Inteople approaches security, privacy, data handling and compliance readiness — the engineering practices and controls that make us a trustworthy partner for regulated and enterprise work." />
+    <link rel="canonical" href="https://inteople.com/trust/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta property="og:title" content="Trust &amp; Security | Inteople" />
+    <meta
+      property="og:description"
+      content="Security, privacy, data handling and compliance readiness — built in, not bolted on." />
+    <meta property="og:url" content="https://inteople.com/trust/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Trust &amp; Security | Inteople" />
+    <meta
+      name="twitter:description"
+      content="Security, privacy, data handling and compliance readiness at Inteople." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/trust.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://inteople.com/trust/#page",
+            "name": "Trust & Security",
+            "url": "https://inteople.com/trust/",
+            "description": "How Inteople approaches security, privacy, data handling and compliance readiness.",
+            "isPartOf": { "@id": "https://inteople.com/#website" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              { "@type": "ListItem", "position": 2, "name": "Trust" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a
+            class="btn btn-primary btn-sm"
+            href="mailto:security@inteople.com?subject=Security%20inquiry"
+            >Contact security</a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">Trust</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> Trust &amp; Security</span
+          >
+          <h1 class="reveal" data-delay="1">
+            Built to be <span class="grad-text">trusted with your data</span>.
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            We build software for healthcare, finance and education — domains
+            where a breach isn't an inconvenience, it's a harm. Security,
+            privacy and data protection aren't features we add at the end;
+            they're constraints we design from. Here's how we work, and what you
+            can hold us to.
+          </p>
+          <div class="legal-meta reveal" data-delay="3">
+            <span class="pill on-dark">Security by design</span>
+            <span class="pill on-dark">Privacy first</span>
+            <span class="pill on-dark">Compliance-ready</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PILLARS -->
+      <section class="section" id="pillars">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Our commitments</span>
+            <h2>Five things we take seriously</h2>
+          </div>
+          <div class="trust-pillars">
+            <article class="trust-pillar reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" />
+                  <path
+                    d="m9 12 2 2 4-4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h3>Security</h3>
+              <p>
+                Encryption in transit and at rest, least-privilege access,
+                secure development practices and continuous patching — applied
+                to every system we build and operate.
+              </p>
+            </article>
+            <article class="trust-pillar reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="4" y="10" width="16" height="11" rx="2" />
+                  <path
+                    d="M8 10V7a4 4 0 0 1 8 0v3"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <h3>Privacy</h3>
+              <p>
+                We collect the minimum data needed, are explicit about why, and
+                never sell it. Privacy decisions are made in the architecture,
+                not buried in a policy.
+              </p>
+            </article>
+            <article class="trust-pillar reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <ellipse cx="12" cy="5" rx="8" ry="3" />
+                  <path
+                    d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <h3>Data handling</h3>
+              <p>
+                A clear lifecycle for every record — how it's collected, stored,
+                used, retained and deleted — with isolation between customers
+                and auditable access.
+              </p>
+            </article>
+            <article class="trust-pillar reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M9 11l3 3L22 4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <h3>Compliance readiness</h3>
+              <p>
+                We engineer to the controls behind GDPR, HIPAA-style and SOC 2
+                frameworks — so platforms we build can meet the standard your
+                industry demands.
+              </p>
+            </article>
+            <article class="trust-pillar reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M3 21h18M5 21V10M19 21V10M12 3 4 8h16l-8-5ZM9 21v-7M15 21v-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h3>Enterprise confidence</h3>
+              <p>
+                Documentation, accountability and operational maturity — so a
+                security or procurement team can say yes to working with us
+                without reservation.
+              </p>
+            </article>
+            <article
+              class="trust-pillar reveal"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background: var(--bg-2);
+                border-style: dashed;
+              ">
+              <h3 style="margin-bottom: var(--sp-2)">
+                Have a question we don't answer here?
+              </h3>
+              <p style="margin-bottom: var(--sp-4)">
+                Our security team is happy to walk through architecture,
+                controls and documentation.
+              </p>
+              <a
+                class="btn btn-ghost"
+                href="mailto:security@inteople.com?subject=Security%20inquiry"
+                >Contact security
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECURITY MEASURES -->
+      <section class="section bg-dark" id="security">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Security</span>
+            <h2>The controls behind every system</h2>
+          </div>
+          <div class="measure-grid">
+            <article class="measure reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="3" y="11" width="18" height="10" rx="2" />
+                  <path
+                    d="M7 11V7a5 5 0 0 1 10 0v4"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Encryption everywhere</h4>
+                <p>
+                  TLS for data in transit and strong encryption at rest. Secrets
+                  are managed in dedicated vaults, never in source code.
+                </p>
+              </div>
+            </article>
+            <article class="measure reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21a8 8 0 0 1 16 0" stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Least-privilege access</h4>
+                <p>
+                  Role-based access control, multi-factor authentication for our
+                  team, and access scoped to what each role genuinely needs.
+                </p>
+              </div>
+            </article>
+            <article class="measure reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Secure development</h4>
+                <p>
+                  Code review, dependency scanning, secrets detection and
+                  security checks in CI — so vulnerabilities are caught before
+                  they ship.
+                </p>
+              </div>
+            </article>
+            <article class="measure reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 3v18h18" stroke-linecap="round" />
+                  <path
+                    d="m7 14 3-3 3 3 4-5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Monitoring &amp; logging</h4>
+                <p>
+                  Centralised logs, audit trails of who accessed what, and
+                  alerting on anomalous activity across the systems we operate.
+                </p>
+              </div>
+            </article>
+            <article class="measure reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M21 12a9 9 0 1 1-9-9" stroke-linecap="round" />
+                  <path
+                    d="M21 3v6h-6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Backups &amp; recovery</h4>
+                <p>
+                  Automated, encrypted backups with tested restore procedures,
+                  so data survives failure and service can be recovered.
+                </p>
+              </div>
+            </article>
+            <article class="measure reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Tenant isolation</h4>
+                <p>
+                  Multi-tenant systems enforce strict separation — application
+                  and database controls keep one customer's data away from
+                  another's.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- DATA LIFECYCLE -->
+      <section class="section" id="data">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Data handling</span>
+            <h2>A clear lifecycle for every record</h2>
+          </div>
+          <div class="lifecycle">
+            <article class="lifecycle-step reveal">
+              <h4>Collect</h4>
+              <p>
+                Only what's needed for the service to work, with a clear purpose
+                for every field. No collection "just in case."
+              </p>
+            </article>
+            <article class="lifecycle-step reveal" data-delay="1">
+              <h4>Store &amp; use</h4>
+              <p>
+                Encrypted, access-controlled, and used only for the purposes it
+                was collected for — isolated per customer.
+              </p>
+            </article>
+            <article class="lifecycle-step reveal" data-delay="2">
+              <h4>Retain</h4>
+              <p>
+                Kept only as long as there's a reason to, governed by defined
+                retention periods rather than indefinite default.
+              </p>
+            </article>
+            <article class="lifecycle-step reveal" data-delay="3">
+              <h4>Delete &amp; export</h4>
+              <p>
+                Removed on request or at end of retention, and exportable so
+                your data is never held hostage by us.
+              </p>
+            </article>
+          </div>
+          <div class="compliance-note reveal" style="margin-top: var(--sp-6)">
+            For products we operate, the specifics of what we collect and why
+            live in our
+            <a href="/privacy/">Privacy Policy</a>. For platforms we build and
+            hand over to you, you control the data — we engineer the controls
+            that let you protect it.
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPLIANCE -->
+      <section class="section bg-alt" id="compliance">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Compliance readiness</span>
+            <h2>Engineered to meet the standard you answer to</h2>
+          </div>
+          <div class="compliance-grid">
+            <article class="compliance-item reveal">
+              <span class="tick" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4">
+                  <path
+                    d="m5 12 5 5L20 7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>GDPR &amp; data-protection principles</h4>
+                <p>
+                  Lawful basis, data minimisation, subject rights and
+                  breach-notification practices designed into how we handle
+                  personal data.
+                </p>
+              </div>
+            </article>
+            <article class="compliance-item reveal" data-delay="1">
+              <span class="tick" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4">
+                  <path
+                    d="m5 12 5 5L20 7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Healthcare-grade privacy</h4>
+                <p>
+                  For products like Healodex, we apply HIPAA-style safeguards —
+                  access controls, audit trails and encryption for sensitive
+                  health data.
+                </p>
+              </div>
+            </article>
+            <article class="compliance-item reveal" data-delay="2">
+              <span class="tick" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4">
+                  <path
+                    d="m5 12 5 5L20 7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>SOC 2-aligned controls</h4>
+                <p>
+                  Our operational practices map to the trust-service criteria —
+                  security, availability and confidentiality — that enterprise
+                  buyers assess.
+                </p>
+              </div>
+            </article>
+            <article class="compliance-item reveal">
+              <span class="tick" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4">
+                  <path
+                    d="m5 12 5 5L20 7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Data residency options</h4>
+                <p>
+                  We can architect where data lives and processes to meet
+                  residency and sovereignty requirements for your region.
+                </p>
+              </div>
+            </article>
+          </div>
+          <p class="compliance-note reveal">
+            <strong>A note on honesty:</strong> we describe how we engineer to
+            these frameworks, not certifications we haven't earned. Where a
+            formal audit or certification is required for your engagement, we'll
+            tell you plainly what's in place today and what we'd put in place
+            for you — and support the audit process. Ask us for current status.
+          </p>
+        </div>
+      </section>
+
+      <!-- ENTERPRISE CONFIDENCE / DOCS -->
+      <section class="section" id="confidence">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Enterprise confidence</span>
+            <h2>What your security &amp; procurement teams need</h2>
+          </div>
+          <div class="trust-docs">
+            <a class="trust-doc reveal" href="/privacy/">
+              <span class="doc-ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    stroke-linejoin="round" />
+                  <path d="M14 2v6h6" stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Privacy Policy</h4>
+              <p>
+                How we collect, use, protect and share personal data across our
+                products.
+              </p>
+              <span class="doc-go">Read the policy →</span>
+            </a>
+            <a class="trust-doc reveal" data-delay="1" href="/terms/">
+              <span class="doc-ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    stroke-linejoin="round" />
+                  <path d="M9 13h6M9 17h6M9 9h2" stroke-linecap="round" /></svg
+              ></span>
+              <h4>Terms of Service</h4>
+              <p>
+                The terms that govern use of our websites, products and
+                services.
+              </p>
+              <span class="doc-go">Read the terms →</span>
+            </a>
+            <a
+              class="trust-doc reveal"
+              data-delay="2"
+              href="mailto:security@inteople.com?subject=Security%20documentation%20request">
+              <span class="doc-ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M4 4h16v16H4z" stroke-linejoin="round" />
+                  <path
+                    d="m4 8 8 5 8-5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Security questionnaires</h4>
+              <p>
+                Vendor assessments, architecture reviews and DPAs — send them
+                our way.
+              </p>
+              <span class="doc-go">Contact security →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- VULN DISCLOSURE -->
+      <section class="section bg-dark" id="disclosure">
+        <div class="container">
+          <div
+            class="why-statement reveal"
+            style="text-align: center; color: #fff">
+            <span class="eyebrow" style="justify-content: center"
+              >Responsible disclosure</span
+            >
+            <p
+              style="
+                color: var(--on-dark-muted);
+                font-size: var(--fs-lead);
+                margin-top: var(--sp-3);
+              ">
+              Found a security issue in one of our products? We want to hear
+              about it. Email
+              <a
+                href="mailto:security@inteople.com"
+                style="color: var(--accent-2)"
+                >security@inteople.com</a
+              >
+              with the details and we'll respond promptly. We don't pursue
+              good-faith researchers who report vulnerabilities responsibly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> Let's talk</span
+            >
+            <h2>Evaluating Inteople for sensitive work?</h2>
+            <p>
+              We'll walk your security and compliance teams through our
+              architecture, controls and documentation — and answer the hard
+              questions.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:security@inteople.com?subject=Security%20review"
+                >Contact our security team</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/company/about/"
+                >About Inteople</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Trust</h4>
+            <a href="/trust/">Trust &amp; Security</a>
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/work/">Work</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

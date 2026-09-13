@@ -30,8 +30,8 @@ python3 scripts/generate-qr.py --url https://inteople.com --out src/images/qr/qr
 
 ### Conventions
 
-- URL encoded:  `vc/<slug>.html` → `https://inteople.com/vc/<slug>.html`
-- Output file:  `src/images/qr/qr-<slug>.png`
+- URL encoded: `vc/<slug>.html` → `https://inteople.com/vc/<slug>.html`
+- Output file: `src/images/qr/qr-<slug>.png`
 
 After generating a **new** card's QR, point that person's `qr` field in
 `src/scripts/config.js` at the generated file, e.g.:

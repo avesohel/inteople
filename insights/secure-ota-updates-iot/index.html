@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      Secure OTA updates: keeping IoT fleets safe | Inteople Insights
+    </title>
+    <meta
+      name="description"
+      content="A software bug shouldn't mean a hardware recall. How Inteople engineers secure over-the-air firmware updates for IoT fleets — signed images, A/B partitions, staged rollouts and automatic rollback." />
+    <link
+      rel="canonical"
+      href="https://inteople.com/insights/secure-ota-updates-iot/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="Secure OTA updates: keeping IoT fleets safe" />
+    <meta
+      property="og:description"
+      content="How to build over-the-air firmware updates you can trust — signed, staged and reversible." />
+    <meta
+      property="og:url"
+      content="https://inteople.com/insights/secure-ota-updates-iot/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/products/dr-hero.webp" />
+    <meta property="article:published_time" content="2026-04-14" />
+    <meta property="article:author" content="SM Mohammad Ali" />
+    <meta property="article:section" content="IoT" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Secure OTA updates: keeping IoT fleets safe" />
+    <meta
+      name="twitter:description"
+      content="Signed, staged, reversible firmware updates for IoT fleets." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/products/dr-hero.webp" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/insights.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://inteople.com/insights/secure-ota-updates-iot/#article",
+            "headline": "Secure OTA updates: keeping IoT fleets safe",
+            "description": "How Inteople engineers secure over-the-air firmware updates for IoT fleets — signed images, A/B partitions, staged rollouts and automatic rollback.",
+            "image": "https://inteople.com/assets/images/products/dr-hero.webp",
+            "datePublished": "2026-04-14",
+            "dateModified": "2026-04-14",
+            "wordCount": 1900,
+            "articleSection": "IoT",
+            "keywords": "OTA, over-the-air updates, firmware, IoT security, embedded, A/B partition, rollback, ESP32",
+            "author": {
+              "@type": "Person",
+              "name": "SM Mohammad Ali",
+              "jobTitle": "Founder & CTO",
+              "url": "https://inteople.com/vc/alisohel"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://inteople.com/assets/images/brand/logo-256.png"
+              }
+            },
+            "mainEntityOfPage": "https://inteople.com/insights/secure-ota-updates-iot/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://inteople.com/insights/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Secure OTA updates"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/" aria-current="page">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a
+            class="btn btn-primary btn-sm"
+            href="mailto:hello@inteople.com?subject=IoT%20project"
+            >Talk to us</a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <div class="article-head">
+            <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+              <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+              <a href="/insights/">Insights</a
+              ><span class="sep" aria-hidden="true">/</span>
+              <span aria-current="page">Secure OTA updates</span>
+            </nav>
+            <span class="article-cat reveal">IoT</span>
+            <h1 class="reveal" data-delay="1">
+              Secure OTA updates: keeping IoT fleets safe
+            </h1>
+            <p class="standfirst reveal" data-delay="2">
+              The moment you ship a connected device, you've shipped a
+              maintenance problem. A software bug shouldn't mean a truck roll or
+              a recall — and an update channel shouldn't become the way an
+              attacker owns your whole fleet. Here's how we build over-the-air
+              updates you can actually trust.
+            </p>
+            <div class="article-byline reveal" data-delay="3">
+              <img src="/assets/images/team/sohel.webp" alt="SM Mohammad Ali" />
+              <span><b>SM Mohammad Ali</b><br />Founder &amp; CTO</span>
+              <span class="sep" aria-hidden="true"></span>
+              <span>Apr 14, 2026</span>
+              <span class="sep" aria-hidden="true"></span>
+              <span>9 min read</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article class="section">
+        <div class="container">
+          <div class="article-wrap">
+            <div class="prose">
+              <nav class="toc" aria-label="Table of contents">
+                <h4>In this article</h4>
+                <ol>
+                  <li>
+                    <a href="#stakes">Why OTA is the highest-stakes feature</a>
+                  </li>
+                  <li><a href="#sign">Sign everything, trust nothing</a></li>
+                  <li><a href="#ab">A/B partitions and atomic flips</a></li>
+                  <li><a href="#rollout">Staged rollouts and rollback</a></li>
+                  <li><a href="#field">Surviving the field</a></li>
+                </ol>
+              </nav>
+
+              <p>
+                A connected product is never finished. There will be bugs to
+                fix, security patches to push, and features to add — across
+                devices already installed in homes, clinics, factories and
+                fields. Over-the-air updates are how you do that without sending
+                a technician. They're also, done wrong, the single most
+                dangerous code path in the whole system: a remote channel that
+                replaces the software running on hardware you can't physically
+                reach.
+              </p>
+              <p>
+                We build embedded systems on platforms like
+                <code>ESP32</code> and <code>STM32</code>, running
+                <code>FreeRTOS</code>, talking to the cloud over
+                <code>MQTT</code>. OTA is where we spend a disproportionate
+                amount of our engineering care, because everything else depends
+                on it.
+              </p>
+
+              <h2 id="stakes">Why OTA is the highest-stakes feature</h2>
+              <p>
+                Think about what an update mechanism actually is: a way to make
+                a device download and execute new code. If an attacker can
+                impersonate your update server, or slip a modified image past
+                your checks, they don't compromise one device — they compromise
+                every device that trusts that channel. And if a
+                legitimate-but-buggy update bricks the device before it can
+                receive the fix, you've turned a software defect into a hardware
+                loss.
+              </p>
+              <blockquote>
+                The two failure modes of OTA are equally fatal: an update an
+                attacker can forge, and an update you can't take back.
+              </blockquote>
+
+              <h2 id="sign">Sign everything, trust nothing</h2>
+              <p>
+                Every firmware image is cryptographically signed before it
+                leaves our build pipeline. The device holds the corresponding
+                public key — provisioned at manufacture, stored where it can't
+                be rewritten — and refuses to install any image whose signature
+                doesn't verify. The transport is encrypted (TLS), but transport
+                security is not enough on its own: we verify the image itself,
+                so a compromised CDN or a man-in-the-middle still can't get
+                malicious code to run.
+              </p>
+              <ul>
+                <li>
+                  <strong>Image signing</strong> with a private key that never
+                  leaves a hardware security module.
+                </li>
+                <li>
+                  <strong>Secure boot</strong> so the device only executes
+                  verified code, all the way from the bootloader.
+                </li>
+                <li>
+                  <strong>Anti-rollback counters</strong> so an attacker can't
+                  force a downgrade to an old, vulnerable version.
+                </li>
+                <li>
+                  <strong>Per-device identity</strong> so the backend
+                  authenticates which device is asking, not just that someone
+                  is.
+                </li>
+              </ul>
+
+              <h2 id="ab">A/B partitions and atomic flips</h2>
+              <p>
+                The cardinal rule: never overwrite the running firmware in
+                place. We use dual (A/B) partitions. The device runs from slot A
+                while the new image is written and verified into slot B. Only
+                once the image is fully downloaded and its signature checked
+                does the bootloader flip to slot B on the next reboot. The
+                update is <strong>atomic</strong> — the device is always running
+                a complete, valid image, never a half-written one.
+              </p>
+              <p>
+                If power drops mid-download — which, in the field, it will — the
+                device simply keeps running slot A. Nothing is lost. The
+                interrupted download resumes later.
+              </p>
+
+              <h2 id="rollout">Staged rollouts and rollback</h2>
+              <p>
+                Even a signed, atomic update can contain a bug that only shows
+                up on real hardware. So we never ship to the whole fleet at
+                once. Updates roll out in waves — a small canary group first,
+                then widening cohorts — with health telemetry watched at each
+                stage.
+              </p>
+              <ul>
+                <li>
+                  <strong>Canary first</strong> — a fraction of devices take the
+                  update while we watch crash rates, connectivity and key
+                  metrics.
+                </li>
+                <li>
+                  <strong>Health-gated promotion</strong> — the rollout only
+                  widens if the canary stays healthy.
+                </li>
+                <li>
+                  <strong>Automatic rollback</strong> — a device that fails to
+                  boot or check in after an update falls back to the last
+                  known-good slot on its own.
+                </li>
+                <li>
+                  <strong>A kill switch</strong> — we can halt a rollout
+                  instantly the moment telemetry turns bad.
+                </li>
+              </ul>
+              <div class="takeaways">
+                <h4>Key takeaways</h4>
+                <ul>
+                  <li>
+                    OTA is the highest-stakes path in any connected product —
+                    engineer it first.
+                  </li>
+                  <li>
+                    Verify the image, not just the connection: sign firmware and
+                    use secure boot.
+                  </li>
+                  <li>
+                    A/B partitions make updates atomic and power-loss safe.
+                  </li>
+                  <li>
+                    Roll out in waves, gate on health telemetry, and make
+                    rollback automatic.
+                  </li>
+                  <li>
+                    Anti-rollback protection stops forced downgrades to
+                    vulnerable versions.
+                  </li>
+                </ul>
+              </div>
+
+              <h2 id="field">Surviving the field</h2>
+              <p>
+                Devices live in hostile conditions: flaky networks, metered
+                bandwidth, unreliable power, and years of uptime between human
+                visits. That shapes every OTA decision. Images are
+                delta-compressed so an update is kilobytes, not megabytes.
+                Downloads resume rather than restart. Devices report their
+                firmware version and update status back to a fleet dashboard, so
+                we always know exactly what's running where — and can prove it.
+              </p>
+              <p>
+                Get this right and a connected product gets better after it
+                ships: patched against new threats, improved with new features,
+                and recoverable when something goes wrong — all without anyone
+                driving out to touch it. That's the difference between an IoT
+                product and an IoT liability.
+              </p>
+            </div>
+          </div>
+
+          <div class="author-bio">
+            <img src="/assets/images/team/sohel.webp" alt="SM Mohammad Ali" />
+            <div>
+              <strong>SM Mohammad Ali</strong>
+              <div class="ab-role">Founder &amp; CTO, Inteople</div>
+              <p>
+                Builds and operates Inteople's AI, health and education
+                products. Writes about the engineering behind shipping
+                intelligent systems that hold up in production.
+              </p>
+              <div class="ab-links">
+                <a href="/vc/alisohel" aria-label="Profile"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <circle cx="12" cy="8" r="4" />
+                    <path
+                      d="M4 21a8 8 0 0 1 16 0"
+                      stroke-linecap="round" /></svg
+                ></a>
+                <a
+                  href="https://www.linkedin.com/company/inteople/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                      d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-share">
+            <span>Share</span>
+            <a
+              href="https://twitter.com/intent/tweet?url=https://inteople.com/insights/secure-ota-updates-iot/&text=Secure%20OTA%20updates%20for%20IoT%20fleets"
+              target="_blank"
+              rel="noopener"
+              aria-label="Share on X"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+            ></a>
+            <a
+              href="https://www.linkedin.com/sharing/share-offsite/?url=https://inteople.com/insights/secure-ota-updates-iot/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Share on LinkedIn"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+            ></a>
+          </div>
+        </div>
+      </article>
+
+      <section class="section bg-alt" id="related">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Keep reading</span>
+            <h2>Related insights</h2>
+          </div>
+          <div class="related-posts">
+            <article class="post-card reveal">
+              <a
+                class="post-card-media"
+                href="/insights/offline-first-healthtech/"
+                aria-label="Read: Offline-first healthtech"
+                ><img
+                  src="/assets/images/products/healodex-home.webp"
+                  alt="Offline-first healthtech"
+                  loading="lazy"
+              /></a>
+              <div class="post-card-body">
+                <span class="post-card-cat">Healthcare Technology</span>
+                <h3>
+                  <a href="/insights/offline-first-healthtech/"
+                    >Offline-first healthtech</a
+                  >
+                </h3>
+                <div class="post-card-foot"><span>10 min</span></div>
+              </div>
+            </article>
+            <article class="post-card reveal" data-delay="1">
+              <a
+                class="post-card-media"
+                href="/insights/rag-in-production/"
+                aria-label="Read: RAG in production"
+                ><img
+                  src="/assets/images/products/replyflow.webp"
+                  alt="RAG in production"
+                  loading="lazy"
+              /></a>
+              <div class="post-card-body">
+                <span class="post-card-cat">Artificial Intelligence</span>
+                <h3>
+                  <a href="/insights/rag-in-production/">RAG in production</a>
+                </h3>
+                <div class="post-card-foot"><span>11 min</span></div>
+              </div>
+            </article>
+            <article class="post-card reveal" data-delay="2">
+              <a
+                class="post-card-media"
+                href="/insights/multi-tenant-saas-architecture/"
+                aria-label="Read: Multi-tenant SaaS architecture"
+                ><img
+                  src="/assets/images/products/ownbooks-ai.webp"
+                  alt="Multi-tenant SaaS architecture"
+                  loading="lazy"
+              /></a>
+              <div class="post-card-body">
+                <span class="post-card-cat">Software Engineering</span>
+                <h3>
+                  <a href="/insights/multi-tenant-saas-architecture/"
+                    >Multi-tenant SaaS architecture</a
+                  >
+                </h3>
+                <div class="post-card-foot"><span>12 min</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> IoT &amp; Embedded</span
+            >
+            <h2>Shipping a connected product?</h2>
+            <p>
+              We build embedded systems and the secure device-to-cloud
+              infrastructure — including OTA — that keeps a fleet maintainable
+              for years.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=IoT%20project"
+                >Talk to our team</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/services/iot-embedded/"
+                >Explore IoT &amp; Embedded</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Insights</h4>
+            <a href="/insights/">All articles</a>
+            <a href="/insights/rag-in-production/">AI &amp; RAG</a>
+            <a href="/insights/offline-first-healthtech/">Healthcare</a>
+            <a href="/insights/multi-tenant-saas-architecture/">Software</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/work/">Work</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

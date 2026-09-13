@@ -1,0 +1,42 @@
+{
+  "name": "inteople-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inteople.com — static marketing site. This manifest is DEV-ONLY tooling (linting/formatting). The site itself has no build step: Netlify deploys the repo as-is (publish = '.', no command).",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:html": "html-validate \"**/*.html\"",
+    "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "lint:py": "python3 -m ruff check scripts && python3 -m ruff format --check scripts",
+    "lint": "npm run format:check && npm run lint:css && npm run lint:js && npm run lint:html && npm run lint:md",
+    "fix": "npm run format && eslint . --fix && stylelint \"**/*.css\" --fix",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "html-validate": "^9.5.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "markdownlint-cli2": "^0.16.0",
+    "prettier": "^3.4.2",
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard": "^36.0.1"
+  },
+  "lint-staged": {
+    "*.{html,css,js,mjs,json,md}": "prettier --write",
+    "*.css": "stylelint --fix",
+    "*.{js,mjs}": "eslint --fix",
+    "*.html": "html-validate",
+    "*.py": [
+      "python3 -m ruff check --fix",
+      "python3 -m ruff format"
+    ]
+  }
+}

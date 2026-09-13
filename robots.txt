@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /preview/
+Disallow: /archive/
 
 Sitemap: https://inteople.com/sitemap.xml

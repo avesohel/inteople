@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      Case study: EduNation — An AI operating system for schools | Inteople
+    </title>
+    <meta
+      name="description"
+      content="How Inteople built EduNation — a bilingual, AI-assisted school operating system replacing registers and spreadsheets with one platform for admin, teaching and families. Problem, solution, technology, implementation, impact and metrics." />
+    <link
+      rel="canonical"
+      href="https://inteople.com/work/edunation-school-os/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="Case study: EduNation — An AI operating system for schools" />
+    <meta
+      property="og:description"
+      content="A bilingual, AI-assisted school operating system, engineered by Inteople." />
+    <meta
+      property="og:url"
+      content="https://inteople.com/work/edunation-school-os/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Case study: EduNation — School operating system" />
+    <meta
+      name="twitter:description"
+      content="AI-assisted school OS by Inteople." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/products.css" />
+    <link rel="stylesheet" href="/assets/styles/work.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://inteople.com/work/edunation-school-os/#article",
+            "headline": "EduNation — An AI operating system for schools",
+            "author": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "url": "https://inteople.com/"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://inteople.com/assets/images/brand/logo-256.png"
+              }
+            },
+            "image": "https://inteople.com/assets/images/brand/og-image.png",
+            "mainEntityOfPage": "https://inteople.com/work/edunation-school-os/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://inteople.com/work/"
+              },
+              { "@type": "ListItem", "position": 3, "name": "EduNation" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-edunation">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/" aria-current="page">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-primary btn-sm" href="#cta">Start a project</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+            <a href="/work/">Work</a
+            ><span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">EduNation</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> EdTech · Applied AI · SaaS</span
+          >
+          <h1 class="reveal" data-delay="1">
+            An AI operating system <span class="grad-text">for schools</span>
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            How Inteople built EduNation — replacing a school's patchwork of
+            registers, spreadsheets and messaging apps with one bilingual,
+            AI-assisted platform connecting administration, teaching and
+            families.
+          </p>
+        </div>
+      </section>
+
+      <!-- SNAPSHOT -->
+      <section class="container">
+        <div class="cs-snapshot reveal">
+          <div class="s"><b>Multi-tenant</b><span>SaaS per school</span></div>
+          <div class="s">
+            <b>বাংলা + EN</b><span>Bilingual throughout</span>
+          </div>
+          <div class="s"><b>AI assistant</b><span>For teachers</span></div>
+          <div class="s">
+            <b>Mobile-first</b><span>Low-bandwidth ready</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- META -->
+      <section class="section" style="padding-bottom: 0">
+        <div class="container">
+          <div class="cs-meta reveal">
+            <div class="mi">
+              <span class="k">Domain</span><span class="v">EdTech</span>
+            </div>
+            <div class="mi">
+              <span class="k">Role</span
+              ><span class="v">Product owner &amp; engineering</span>
+            </div>
+            <div class="mi">
+              <span class="k">Disciplines</span
+              ><span class="v">AI · Software · Cloud</span>
+            </div>
+            <div class="mi">
+              <span class="k">Status</span><span class="v">In market</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEM / SOLUTION -->
+      <section class="section" style="padding-top: var(--sp-6)">
+        <div class="container">
+          <div class="cs-split">
+            <article class="cs-block problem reveal">
+              <span class="label">The problem</span>
+              <h3>Schools run on disconnected tools</h3>
+              <p>
+                Most schools in the region operate on paper registers, ad-hoc
+                spreadsheets and personal messaging apps. Teachers lose hours to
+                admin, leaders lack visibility, and parents are left guessing
+                about attendance, results and fees — all in tools never designed
+                to work together or in their language.
+              </p>
+              <ul class="cs-list">
+                <li>Manual admin drains teaching time</li>
+                <li>No real-time visibility for school leaders</li>
+                <li>Parents disconnected from their child's progress</li>
+                <li>Existing tools are costly, English-only, or both</li>
+              </ul>
+            </article>
+            <article class="cs-block solution reveal" data-delay="1">
+              <span class="label">Our solution</span>
+              <h3>One platform for the whole school</h3>
+              <p>
+                EduNation unifies administration, teaching and family
+                communication in a single bilingual system. An AI assistant
+                helps teachers plan and grade, dashboards give leaders real
+                visibility, and dedicated apps keep students and parents
+                informed in Bangla or English.
+              </p>
+              <ul class="cs-list">
+                <li>Admissions, attendance, exams and fees in one place</li>
+                <li>AI assistant for lesson planning and faster feedback</li>
+                <li>Student &amp; parent apps with real-time updates</li>
+                <li>Full Bangla + English across every role</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECHNOLOGY -->
+      <section class="section bg-dark" id="technology">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Technology used</span>
+            <h2>The stack behind EduNation</h2>
+          </div>
+          <div class="cs-tech">
+            <div class="cs-tech-group reveal">
+              <h4>Apps</h4>
+              <div class="chips">
+                <span>Flutter</span><span>React</span><span>TypeScript</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="1">
+              <h4>Backend</h4>
+              <div class="chips">
+                <span>Node.js</span><span>PostgreSQL</span><span>Redis</span
+                ><span>REST</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="2">
+              <h4>AI</h4>
+              <div class="chips">
+                <span>LLM assistant</span><span>content generation</span
+                ><span>teacher oversight</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal">
+              <h4>Multi-tenancy</h4>
+              <div class="chips">
+                <span>tenant isolation</span><span>role-based access</span
+                ><span>per-branch rollup</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="1">
+              <h4>Localization</h4>
+              <div class="chips">
+                <span>i18n</span><span>Bangla + English</span
+                ><span>content model</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="2">
+              <h4>Cloud &amp; ops</h4>
+              <div class="chips">
+                <span>cloud-native</span><span>autoscaling</span
+                ><span>CI/CD</span><span>observability</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPLEMENTATION -->
+      <section class="section" id="implementation">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Implementation</span>
+            <h2>How we built it</h2>
+          </div>
+          <div class="cs-timeline">
+            <article class="cs-phase reveal">
+              <span class="step-k">PHASE 01 · Discovery</span>
+              <h4>Workflow-first research</h4>
+              <p>
+                We mapped how schools, teachers and parents actually work — and
+                the connectivity and device realities of the region — before
+                designing a single screen.
+              </p>
+            </article>
+            <article class="cs-phase reveal" data-delay="1">
+              <span class="step-k">PHASE 02 · Core platform</span>
+              <h4>Multi-tenant foundation</h4>
+              <p>
+                We built tenant isolation and role-based access first, so a
+                single school and a multi-branch group share one secure,
+                scalable system.
+              </p>
+            </article>
+            <article class="cs-phase reveal" data-delay="2">
+              <span class="step-k">PHASE 03 · Apps</span>
+              <h4>Mobile-first, bilingual</h4>
+              <p>
+                Student, parent and teacher experiences were built mobile-first
+                for entry-level devices, with Bangla + English throughout.
+              </p>
+            </article>
+            <article class="cs-phase reveal" data-delay="3">
+              <span class="step-k">PHASE 04 · AI assist</span>
+              <h4>Teacher-facing intelligence</h4>
+              <p>
+                We added an LLM assistant for planning, materials and feedback,
+                scoped to support teachers and keep them in control.
+              </p>
+            </article>
+            <article class="cs-phase reveal">
+              <span class="step-k">PHASE 05 · Rollout</span>
+              <h4>Onboarding &amp; iteration</h4>
+              <p>
+                We refined onboarding so non-technical staff can adopt it
+                quickly, and continue iterating from real classroom use.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISUALS -->
+      <section class="section bg-alt" id="visuals">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Visuals</span>
+            <h2>The product in use</h2>
+          </div>
+          <div class="cs-visuals">
+            <figure class="reveal">
+              <div class="browser">
+                <div class="browser-bar">
+                  <div class="browser-dots"><i></i><i></i><i></i></div>
+                  <div class="browser-url">edunation · school dashboard</div>
+                </div>
+                <div class="ui">
+                  <div class="ui-top">
+                    <span class="ui-logo">E</span><b>EduNation</b
+                    ><span class="ui-bell" aria-hidden="true">🔔</span>
+                  </div>
+                  <div class="ui-body">
+                    <div class="ui-stat-row">
+                      <div class="ui-card">
+                        <div class="k">Attendance</div>
+                        <div class="v">96% <small>▲ today</small></div>
+                      </div>
+                      <div class="ui-card">
+                        <div class="k">Fees collected</div>
+                        <div class="v">৳ 8.2L</div>
+                      </div>
+                    </div>
+                    <div class="ui-card">
+                      <div class="k">Class performance</div>
+                      <div class="ui-bars">
+                        <span style="height: 40%"></span
+                        ><span style="height: 62%"></span
+                        ><span class="hi" style="height: 85%"></span
+                        ><span style="height: 55%"></span
+                        ><span style="height: 72%"></span
+                        ><span class="hi" style="height: 90%"></span
+                        ><span style="height: 48%"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="cs-figcap">
+                School dashboard — attendance, finance and performance at a
+                glance.
+              </figcaption>
+            </figure>
+            <div class="phone-wrap reveal" data-delay="1">
+              <div class="phone">
+                <div class="ui">
+                  <div class="ui-top">
+                    <span class="ui-logo">E</span><b>Parent</b>
+                  </div>
+                  <div class="ui-body">
+                    <div class="ui-card">
+                      <div class="k">Attendance</div>
+                      <div class="v">98%</div>
+                    </div>
+                    <div class="ui-card">
+                      <div class="k">Latest result</div>
+                      <div class="v">A <small>Math</small></div>
+                    </div>
+                    <div class="ui-card ui-list">
+                      <div class="ui-row">
+                        <span class="av"></span
+                        ><span class="ln"><i></i><i></i></span>
+                      </div>
+                      <div class="ui-row">
+                        <span class="av"></span
+                        ><span class="ln"><i></i><i></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="reveal cs-figcap">
+            Interface mock-ups shown for illustration.
+          </p>
+        </div>
+      </section>
+
+      <!-- IMPACT + METRICS -->
+      <section class="section bg-dark" id="impact">
+        <div class="container wide">
+          <div class="cs-impact">
+            <div class="cs-impact-body reveal">
+              <div class="section-head compact">
+                <span class="eyebrow">Impact</span>
+                <h2>What it changed</h2>
+              </div>
+              <p>
+                EduNation collapses a school's scattered tools into one system,
+                giving teachers back time, leaders real visibility, and parents
+                a live view of their child's progress — in the language they
+                speak.
+              </p>
+              <p>
+                Built multi-tenant and mobile-first, it scales from a single
+                school to multi-branch groups without a rebuild, making modern
+                school operations affordable for institutions the market usually
+                overlooks.
+              </p>
+            </div>
+            <div class="cs-metrics reveal" data-delay="1">
+              <div class="cs-metric">
+                <b>One</b><span>Platform replaces many tools</span>
+              </div>
+              <div class="cs-metric">
+                <b>2</b><span>Languages, every role</span>
+              </div>
+              <div class="cs-metric">
+                <b>Real-time</b><span>Parent visibility</span>
+              </div>
+              <div class="cs-metric">
+                <b>Multi-branch</b><span>Scales without rebuild</span>
+              </div>
+            </div>
+          </div>
+          <p
+            class="reveal"
+            style="
+              margin-top: var(--sp-6);
+              font-size: var(--fs-xs);
+              color: var(--on-dark-muted);
+            ">
+            Metrics describe the platform's capabilities; quantified adoption
+            outcomes will be published as they are measured.
+          </p>
+        </div>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="section" id="quote">
+        <div class="container">
+          <figure class="cs-quote reveal">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M7 7h4v4H9c0 2 .5 3 2 4l-1 2c-2.3-1.2-3.5-3-3.5-6V7Zm9 0h4v4h-2c0 2 .5 3 2 4l-1 2c-2.3-1.2-3.5-3-3.5-6V7Z" />
+            </svg>
+            <p>
+              A school's software should work in the language its teachers and
+              parents actually speak, on the phones they actually carry. That
+              constraint shaped every decision in EduNation.
+            </p>
+            <div class="who">
+              <b>SM Mohammad Ali</b> · Founder &amp; CTO, Inteople
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- NEXT + CTA -->
+      <section class="section bg-alt">
+        <div class="container">
+          <a class="cs-next reveal" href="/work/healodex-connected-care/">
+            <div>
+              <span>Next case study</span
+              ><b>Connected care for low-connectivity regions — Healodex</b>
+            </div>
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> EduNation</span
+            >
+            <h2>Building a platform for an underserved market?</h2>
+            <p>
+              We engineer bilingual, mobile-first, multi-tenant products that
+              scale affordably. Let's talk about yours.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=Project%20inquiry"
+                >Start a project</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/products/edunation/"
+                >Explore EduNation</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <a href="/work/healodex-connected-care/">Healodex</a>
+            <a href="/work/replyflow-support-automation/">ReplyFlow</a>
+            <a href="/work/edunation-school-os/">EduNation</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/software-engineering/">Software Engineering</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#products">Products</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

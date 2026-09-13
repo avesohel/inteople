@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      Healodex — Real-time health intelligence &amp; telehealth infrastructure |
+      Inteople
+    </title>
+    <meta
+      name="description"
+      content="Healodex is an Inteople product: real-time health intelligence and telehealth infrastructure with IoT diagnostics, doctor-in-the-loop triage and offline-first sync, engineered for regulated healthcare." />
+    <link rel="canonical" href="https://inteople.com/products/healodex/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="Healodex — Health intelligence & telehealth infrastructure" />
+    <meta
+      property="og:description"
+      content="An Inteople product: IoT diagnostics, doctor-in-the-loop triage and offline-first sync for healthcare." />
+    <meta property="og:url" content="https://inteople.com/products/healodex/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/products/healodex-home.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Healodex — Health intelligence & telehealth infrastructure" />
+    <meta
+      name="twitter:description"
+      content="An Inteople product for regulated healthcare." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/products/healodex-home.webp" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/products.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://inteople.com/products/healodex/#product",
+            "name": "Healodex",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "description": "Real-time health intelligence and telehealth infrastructure with IoT diagnostics, doctor-in-the-loop triage and offline-first sync.",
+            "url": "https://healodex.com",
+            "author": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "url": "https://inteople.com/"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "url": "https://inteople.com/"
+            },
+            "offers": {
+              "@type": "Offer",
+              "category": "SaaS / Healthcare infrastructure"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://inteople.com/products/"
+              },
+              { "@type": "ListItem", "position": 3, "name": "Healodex" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-healodex">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/" aria-current="page">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a
+            class="btn btn-primary btn-sm"
+            href="https://healodex.com"
+            target="_blank"
+            rel="noopener"
+            >Visit Healodex</a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="prod-hero">
+        <div class="container wide prod-hero-inner">
+          <div class="prod-hero-copy">
+            <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+              <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+              <a href="/#products">Products</a
+              ><span class="sep" aria-hidden="true">/</span>
+              <span aria-current="page">Healodex</span>
+            </nav>
+            <div class="prod-eyebrow reveal">
+              <span class="pill on-dark"
+                ><span class="dot"></span> HealthTech</span
+              >
+              <span class="owned">An Inteople product</span>
+            </div>
+            <h1 class="reveal" data-delay="1">Healodex</h1>
+            <p class="tagline reveal" data-delay="1">
+              Real-time health intelligence, everywhere care happens.
+            </p>
+            <p class="lead reveal" data-delay="2">
+              Telehealth and diagnostics infrastructure that connects devices,
+              patients and doctors — with IoT-driven readings,
+              doctor-in-the-loop triage and offline-first sync, engineered for
+              the realities of regulated, low-connectivity healthcare.
+            </p>
+            <div class="prod-hero-actions reveal" data-delay="2">
+              <a
+                class="btn btn-primary btn-lg"
+                href="https://healodex.com"
+                target="_blank"
+                rel="noopener"
+                >Visit Healodex</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="#cta">Book a demo</a>
+            </div>
+            <div class="prod-hero-meta reveal" data-delay="3">
+              <div class="m"><b>HealthTech</b><span>Domain</span></div>
+              <div class="m">
+                <b>Web · iOS · Android · IoT</b><span>Platforms</span>
+              </div>
+              <div class="m"><b>Offline-first</b><span>Architecture</span></div>
+            </div>
+          </div>
+          <div class="prod-hero-visual reveal" data-delay="2">
+            <div class="browser">
+              <div class="browser-bar">
+                <div class="browser-dots"><i></i><i></i><i></i></div>
+                <div class="browser-url">healodex.com</div>
+              </div>
+              <img
+                class="browser-shot"
+                src="/assets/images/products/healodex-home.webp"
+                alt="Healodex platform dashboard"
+                loading="eager" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OWNED BAND -->
+      <section class="section tight">
+        <div class="container wide">
+          <div class="owned-band reveal">
+            <div class="ob-left">
+              <img
+                src="/assets/images/brand/logo-mark.webp"
+                alt="Inteople"
+                width="40"
+                height="40" />
+              <div>
+                <b>Built &amp; operated by Inteople</b>
+                <p>
+                  Healodex is one of our own ventures — designed, engineered and
+                  run by our teams across AI, software, cloud and IoT.
+                </p>
+              </div>
+            </div>
+            <a class="btn btn-ghost btn-sm" href="/#products"
+              >See all products
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISION -->
+      <section class="section" id="vision">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Product vision</span>
+          </div>
+          <div class="vision">
+            <p class="vision-statement reveal">
+              Quality healthcare shouldn't depend on being in the right place.
+              Healodex exists to
+              <b>bring clinical-grade intelligence to wherever the patient is</b
+              >.
+            </p>
+            <div class="vision-body reveal" data-delay="1">
+              <p>
+                In much of the world, distance, connectivity and a shortage of
+                specialists stand between people and timely care. Healodex
+                closes that gap with a connected platform: affordable diagnostic
+                devices capture vital readings, the system structures and
+                analyzes them in real time, and doctors review and act remotely
+                — even where the network is unreliable.
+              </p>
+              <p>
+                It's built as infrastructure, not a single app: an
+                interoperable, offline-first foundation that health systems,
+                clinics and practitioners can build care delivery on.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO IT'S FOR -->
+      <section class="section bg-alt" id="audience">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Who it's for</span>
+            <h2>Built for everyone in the loop of care</h2>
+          </div>
+          <div class="audience-grid">
+            <article class="audience reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"
+                    stroke-linecap="round" />
+                  <circle cx="9" cy="7" r="3.5" />
+                  <path d="M19 8v6M16 11h6" stroke-linecap="round" /></svg
+              ></span>
+              <h4>Health systems &amp; clinics</h4>
+              <p>
+                Extend reach into communities and standardize remote diagnostics
+                across sites.
+              </p>
+            </article>
+            <article class="audience reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" />
+                  <path d="M12 8v6M9 11h6" stroke-linecap="round" /></svg
+              ></span>
+              <h4>Doctors &amp; specialists</h4>
+              <p>
+                Review structured readings and triage patients remotely, with
+                the right data in context.
+              </p>
+            </article>
+            <article class="audience reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M5 21a7 7 0 0 1 14 0" stroke-linecap="round" /></svg
+              ></span>
+              <h4>Patients &amp; communities</h4>
+              <p>
+                Access timely assessment close to home, without traveling for
+                every consultation.
+              </p>
+            </article>
+            <article class="audience reveal" data-delay="3">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 13a9 9 0 0 1 18 0" stroke-linecap="round" />
+                  <circle cx="12" cy="13" r="3" />
+                  <path d="M12 2v2" stroke-linecap="round" /></svg
+              ></span>
+              <h4>Field health workers</h4>
+              <p>
+                Carry diagnostics into the field and connect patients to remote
+                clinicians.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORE FEATURES -->
+      <section class="section bg-dark" id="features">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Core features</span>
+            <h2>What Healodex does</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M2 12h4l2 5 4-14 2 7 2-2h6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>IoT diagnostics</h4>
+              <p>
+                Connected devices capture vitals and readings that stream into
+                the platform automatically — no manual transcription.
+              </p>
+            </article>
+            <article class="feature reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 13a9 9 0 0 1 18 0" stroke-linecap="round" />
+                  <circle cx="12" cy="13" r="3" /></svg
+              ></span>
+              <h4>Doctor-in-the-loop triage</h4>
+              <p>
+                AI surfaces relevant signals and priorities; clinicians stay in
+                control of every decision.
+              </p>
+            </article>
+            <article class="feature reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M21 12a9 9 0 1 1-9-9" stroke-linecap="round" />
+                  <path
+                    d="M21 3v6h-6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Offline-first sync</h4>
+              <p>
+                Capture and work without a connection; data reconciles safely
+                when the network returns.
+              </p>
+            </article>
+            <article class="feature reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="4" y="3" width="16" height="18" rx="2" />
+                  <path d="M8 8h8M8 12h8M8 16h5" stroke-linecap="round" /></svg
+              ></span>
+              <h4>Unified patient records</h4>
+              <p>
+                Readings, history and consultations in one structured,
+                interoperable record.
+              </p>
+            </article>
+            <article class="feature reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M4 4h16v12H5.2L4 18Z" stroke-linejoin="round" />
+                  <path d="M8 9h8M8 12h5" stroke-linecap="round" /></svg
+              ></span>
+              <h4>Remote consultations</h4>
+              <p>
+                Connect patients and doctors for teleconsultation with the
+                clinical context already loaded.
+              </p>
+            </article>
+            <article class="feature reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" />
+                  <path
+                    d="m9 12 2 2 4-4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Compliance-aware by design</h4>
+              <p>
+                HIPAA-aware data handling, access control and audit trails built
+                into the foundation.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY / SCREENS -->
+      <section class="section" id="screens">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Inside the product</span>
+            <h2>A look at Healodex</h2>
+          </div>
+          <div class="gallery">
+            <div class="browser reveal">
+              <div class="browser-bar">
+                <div class="browser-dots"><i></i><i></i><i></i></div>
+                <div class="browser-url">healodex.com/dashboard</div>
+              </div>
+              <img
+                class="browser-shot"
+                src="/assets/images/products/healodex-home.webp"
+                alt="Healodex web dashboard"
+                loading="lazy" />
+            </div>
+            <div class="phone-wrap reveal" data-delay="1">
+              <div class="phone">
+                <img
+                  src="/assets/images/products/dr-hero.webp"
+                  alt="Healodex doctor mobile app"
+                  loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USE CASES -->
+      <section class="section bg-alt" id="usecases">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Use cases</span>
+            <h2>How Healodex is used</h2>
+          </div>
+          <div class="usecase-list">
+            <article class="usecase reveal">
+              <span class="num">1</span>
+              <div>
+                <h4>Remote patient monitoring</h4>
+                <p>
+                  Track vitals for chronic or post-discharge patients from home,
+                  with alerts when readings move out of range.
+                </p>
+              </div>
+            </article>
+            <article class="usecase reveal" data-delay="1">
+              <span class="num">2</span>
+              <div>
+                <h4>Rural &amp; community diagnostics</h4>
+                <p>
+                  Field workers run device-based checks in areas without
+                  specialists and connect to remote doctors.
+                </p>
+              </div>
+            </article>
+            <article class="usecase reveal" data-delay="2">
+              <span class="num">3</span>
+              <div>
+                <h4>Telehealth triage</h4>
+                <p>
+                  Prioritize and route patients based on structured readings
+                  before a consultation, saving clinician time.
+                </p>
+              </div>
+            </article>
+            <article class="usecase reveal" data-delay="3">
+              <span class="num">4</span>
+              <div>
+                <h4>Multi-site clinical networks</h4>
+                <p>
+                  Standardize diagnostics and records across clinics with one
+                  interoperable platform.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH HIGHLIGHTS -->
+      <section class="section bg-dark" id="tech">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Technical highlights</span>
+            <h2>The engineering underneath</h2>
+          </div>
+          <div class="tech-grid">
+            <div class="tech reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <rect x="9" y="9" width="6" height="6" /></svg
+              ></span>
+              <div>
+                <h4>Edge + IoT integration</h4>
+                <p>
+                  Device firmware and edge processing feed readings into the
+                  platform with secure device identity.
+                </p>
+              </div>
+            </div>
+            <div class="tech reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M21 12a9 9 0 1 1-9-9" stroke-linecap="round" />
+                  <path
+                    d="M21 3v6h-6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Offline-first data layer</h4>
+                <p>
+                  Local-first storage with conflict-aware sync keeps care moving
+                  through connectivity gaps.
+                </p>
+              </div>
+            </div>
+            <div class="tech reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 2v3M12 19v3M2 12h3M19 12h3"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Applied AI triage</h4>
+                <p>
+                  Models surface signals and prioritize cases, always under
+                  clinician review — never autonomous diagnosis.
+                </p>
+              </div>
+            </div>
+            <div class="tech reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>FHIR-ready &amp; HIPAA-aware</h4>
+                <p>
+                  Interoperable data model with access control, encryption and
+                  audit logging for regulated environments.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="tech-chips reveal">
+            <span>IoT / edge</span><span>FHIR-ready</span
+            ><span>offline-first</span><span>HIPAA-aware</span
+            ><span>real-time</span><span>cloud-native</span
+            ><span>applied AI</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- OTHER PRODUCTS -->
+      <section class="section tight" id="products">
+        <div class="container wide">
+          <div class="section-head reveal compact">
+            <span class="eyebrow">More Inteople products</span>
+          </div>
+          <nav class="prod-nav reveal" aria-label="Other products">
+            <a href="/products/healodex/" aria-current="page"
+              >Healodex
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/products/edunation/"
+              >EduNation
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/products/replyflow/"
+              >ReplyFlow AI
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/products/pallishokti/"
+              >PalliShokti
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"><span class="dot"></span> Healodex</span>
+            <h2>Bring connected care to your patients</h2>
+            <p>
+              See how Healodex extends diagnostics and telehealth into the
+              communities you serve — or explore partnering with us on
+              healthcare technology.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="https://healodex.com"
+                target="_blank"
+                rel="noopener"
+                >Visit Healodex</a
+              >
+              <a
+                class="btn btn-on-dark btn-lg"
+                href="mailto:hello@inteople.com?subject=Healodex%20demo"
+                >Book a demo</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="/products/healodex/">Healodex</a>
+            <a href="/products/edunation/">EduNation</a>
+            <a href="/products/replyflow/">ReplyFlow AI</a>
+            <a href="/products/pallishokti/">PalliShokti</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/software-engineering/">Software Engineering</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#approach">How we work</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

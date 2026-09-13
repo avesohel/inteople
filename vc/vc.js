@@ -8,24 +8,30 @@
   function buildVCard() {
     var n = (p.name || "").trim().split(/\s+/);
     var last = n.length > 1 ? n[n.length - 1] : "";
-    var first = n.length > 1 ? n.slice(0, -1).join(" ") : (p.name || "");
+    var first = n.length > 1 ? n.slice(0, -1).join(" ") : p.name || "";
     var lines = [
       "BEGIN:VCARD",
       "VERSION:3.0",
       "N:" + last + ";" + first + ";;;",
       "FN:" + (p.name || ""),
       "ORG:" + (p.org || "Inteople"),
-      "TITLE:" + (p.role || "")
+      "TITLE:" + (p.role || ""),
     ];
     if (p.nickname) lines.push("NICKNAME:" + p.nickname);
-    var emails = p.emails && p.emails.length ? p.emails : (p.email ? [p.email] : []);
+    var emails =
+      p.emails && p.emails.length ? p.emails : p.email ? [p.email] : [];
     emails.forEach(function (em, i) {
-      lines.push("EMAIL;TYPE=INTERNET" + (i === 0 ? ",WORK,PREF" : "") + ":" + em);
+      lines.push(
+        "EMAIL;TYPE=INTERNET" + (i === 0 ? ",WORK,PREF" : "") + ":" + em
+      );
     });
 
-    var phones = p.phones && p.phones.length
-      ? p.phones
-      : (p.phone ? [{ number: p.phone }] : []);
+    var phones =
+      p.phones && p.phones.length
+        ? p.phones
+        : p.phone
+          ? [{ number: p.phone }]
+          : [];
     phones.forEach(function (ph, i) {
       var num = typeof ph === "string" ? ph : ph.number;
       if (!num) return;
@@ -33,7 +39,10 @@
       if (i === 0) types.push("PREF");
       lines.push("TEL;TYPE=" + types.join(",") + ":" + num);
       if (ph && ph.whatsapp) {
-        lines.push("X-SOCIALPROFILE;TYPE=whatsapp:https://wa.me/" + num.replace(/[^\d]/g, ""));
+        lines.push(
+          "X-SOCIALPROFILE;TYPE=whatsapp:https://wa.me/" +
+            num.replace(/[^\d]/g, "")
+        );
       }
     });
 
@@ -42,10 +51,14 @@
       // ADR: PO box; extended; street; locality; region; postal code; country
       lines.push(
         "ADR;TYPE=WORK:;;" +
-          (a.street || "") + ";" +
-          (a.locality || "") + ";" +
-          (a.region || "") + ";" +
-          (a.postalCode || "") + ";" +
+          (a.street || "") +
+          ";" +
+          (a.locality || "") +
+          ";" +
+          (a.region || "") +
+          ";" +
+          (a.postalCode || "") +
+          ";" +
           (a.country || "")
       );
     }
@@ -67,7 +80,9 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+    }, 1500);
     showToast("Contact saved 📇");
   }
 
@@ -76,7 +91,9 @@
     if (!t) return;
     t.textContent = msg;
     t.classList.add("show");
-    setTimeout(function () { t.classList.remove("show"); }, 2200);
+    setTimeout(function () {
+      t.classList.remove("show");
+    }, 2200);
   }
 
   /* ---- QR: use the printed QR image if provided, else generate one ---- */
@@ -99,17 +116,22 @@
     qr.make();
     el.innerHTML = qr.createImgTag(5, 0);
     var img = el.querySelector("img");
-    if (img) { img.alt = alt; }
+    if (img) {
+      img.alt = alt;
+    }
   }
 
   /* ---- Share ---- */
   function shareCard() {
     if (navigator.share) {
-      navigator.share({ title: p.name + " — Inteople", url: pageUrl }).catch(function () {});
+      navigator
+        .share({ title: p.name + " — Inteople", url: pageUrl })
+        .catch(function () {});
     } else {
-      navigator.clipboard && navigator.clipboard.writeText(pageUrl).then(function () {
-        showToast("Link copied 🔗");
-      });
+      navigator.clipboard &&
+        navigator.clipboard.writeText(pageUrl).then(function () {
+          showToast("Link copied 🔗");
+        });
     }
   }
 
