@@ -35,222 +35,296 @@
     <link rel="stylesheet" href="/vc/vc.css" />
     <style>
       body {
-        background: #eef1f5;
+        background: linear-gradient(180deg, #f1f4f8 0%, #e8ebf1 100%);
       }
 
       .card {
-        width: min(100%, 860px);
-        border-radius: 18px;
+        width: min(100%, 420px);
+        background: linear-gradient(180deg, #fcfcfd 0%, #f4f6fb 100%);
+        border: 1px solid rgba(26, 39, 58, 0.1);
+        border-radius: 28px;
         overflow: hidden;
-        background: #f3f3f3;
-        border: 1px solid rgba(43, 58, 85, 0.18);
-        box-shadow: 0 30px 80px -38px rgba(36, 52, 84, 0.5);
+        box-shadow:
+          0 28px 60px -24px rgba(18, 33, 50, 0.42),
+          0 18px 38px -18px rgba(0, 0, 0, 0.22);
       }
 
-      .ahsan-profile {
-        padding: 18px 18px 20px;
+      .cover {
+        position: relative;
+        height: 310px;
+        padding: 16px 18px 0;
+        background: linear-gradient(
+          180deg,
+          #15324c 0%,
+          #1b334c 18%,
+          #0f1d2b 100%
+        );
       }
 
-      .business-card {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        background: #f4f4f4;
-        border: 1px solid rgba(43, 58, 85, 0.12);
-        border-radius: 16px;
-        padding: 28px 28px 18px;
-        min-height: 360px;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+      .cover::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(9, 15, 24, 0.06), rgba(9, 15, 24, 0.58)),
+          radial-gradient(
+            circle at 50% 30%,
+            rgba(185, 170, 134, 0.22),
+            transparent 38%
+          );
       }
 
-      .business-top {
-        display: grid;
-        grid-template-columns: 1.35fr 0.7fr;
+      .brand-badge {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
         align-items: center;
-        gap: 22px;
-        margin-bottom: 14px;
+        gap: 0.7rem;
+        padding: 0.52rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
       }
 
-      .brand-lockup {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .brand-mark {
-        width: 64px;
-        height: 64px;
+      .brand-badge img {
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
-        display: grid;
-        place-items: center;
-        background: rgba(59, 91, 122, 0.08);
-        border: 1px solid rgba(59, 91, 122, 0.2);
       }
 
-      .brand-mark img {
-        width: 42px;
-        height: 42px;
-      }
-
-      .brand-copy {
+      .portrait-wrap {
+        position: relative;
+        z-index: 1;
+        margin-top: 16px;
         display: flex;
-        align-items: center;
         justify-content: center;
-        gap: 4px;
       }
 
-      .brand-copy .brand-name {
-        font-size: 1.15rem;
-        font-weight: 800;
-        letter-spacing: -0.04em;
-        color: #2b3a55;
+      .portrait-frame {
+        width: min(100%, 280px);
+        height: 280px;
+        padding: 8px;
+        border-radius: 24px 24px 0 0;
+        background: linear-gradient(
+          135deg,
+          #e9d7a1 0%,
+          #c5aa75 22%,
+          #8e7a52 100%
+        );
+        box-shadow:
+          0 20px 42px -24px rgba(0, 0, 0, 0.8),
+          inset 0 1px 0 rgba(255, 255, 255, 0.45);
       }
 
-      .brand-copy .brand-dot {
-        font-size: 1.1rem;
-        color: #ff6a50;
-      }
-
-      .qr-panel {
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      .qr-box {
-        width: 136px;
-        height: 136px;
-        background: #fff;
-        border: 1px solid rgba(43, 58, 85, 0.18);
-        border-radius: 12px;
-        padding: 10px;
-        display: grid;
-        place-items: center;
-      }
-
-      .qr-box img,
-      .qr-box canvas {
-        width: 100% !important;
-        height: 100% !important;
-      }
-
-      .business-name {
-        margin-top: 4px;
-        font-size: clamp(1.95rem, 2.8vw, 3.2rem);
-        line-height: 1.05;
-        letter-spacing: -0.06em;
-        font-weight: 900;
-        color: #2f3543;
-        text-transform: uppercase;
-      }
-
-      .business-role {
-        margin-top: 6px;
-        font-size: 1.05rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        color: #404a5d;
-        text-transform: uppercase;
-      }
-
-      .business-meta {
-        margin-top: 10px;
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 20px;
-        align-items: end;
-      }
-
-      .business-address {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: #3b465b;
-        font-weight: 500;
-      }
-
-      .business-address strong {
+      .portrait-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         display: block;
-        margin-bottom: 4px;
-        font-weight: 800;
-        color: #2b3a55;
-      }
-
-      .contact-stack {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        justify-content: flex-end;
-      }
-
-      .detail {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-        text-align: left;
-      }
-
-      .detail label {
-        font-size: 0.68rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-weight: 800;
-        color: #77829a;
-      }
-
-      .detail strong {
-        font-size: 1rem;
-        color: #2b3a55;
-        letter-spacing: -0.02em;
-      }
-
-      .final-line {
-        margin-top: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding-top: 14px;
-        border-top: 1px solid rgba(43, 58, 85, 0.12);
-      }
-
-      .website-link {
-        font-weight: 700;
-        color: #2b3a55;
-        letter-spacing: -0.01em;
-      }
-
-      .page-subtitle {
-        color: #6e7d94;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
+        border-radius: 18px 18px 0 0;
+        filter: saturate(0.9) contrast(1.04) brightness(0.96);
       }
 
       .body {
-        padding: 20px 26px 24px;
+        padding: 18px 22px 22px;
+        margin-top: 15px;
+        background: linear-gradient(
+          180deg,
+          rgba(247, 249, 252, 0.98),
+          rgba(244, 246, 251, 1)
+        );
+      }
+
+      .eyebrow {
+        color: #8e7a52;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .body h1 {
+        margin: 0.6rem 0 0.2rem;
+        font-size: 2rem;
+        line-height: 1.02;
+        letter-spacing: -0.06em;
+        color: #17263c;
+      }
+
+      .role {
+        color: #2a405d;
+        font-size: 1.02rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .company {
+        margin-top: 0.35rem;
+        color: #7283a1;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .divider {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          rgba(30, 44, 65, 0.12),
+          rgba(30, 44, 65, 0.02)
+        );
+        margin: 1rem 0 0.8rem;
+      }
+
+      .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.42rem 0.7rem;
+        background: rgba(142, 122, 82, 0.08);
+        border: 1px solid rgba(142, 122, 82, 0.14);
+        border-radius: 999px;
+        color: #5a4c39;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .tagline::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #d2b37d, #8a6d42);
       }
 
       .actions {
-        margin: 20px 0 14px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.62rem;
+        margin-top: 1rem;
       }
 
-      @media (max-width: 680px) {
-        .business-top,
-        .business-meta,
-        .final-line {
-          grid-template-columns: 1fr;
-          display: grid;
-        }
+      .actions .full {
+        grid-column: 1 / -1;
+      }
 
-        .business-card {
-          padding: 20px 18px 16px;
-        }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.8rem 0.9rem;
+        border-radius: 12px;
+        border: 1px solid rgba(31, 48, 74, 0.12);
+        background: rgba(255, 255, 255, 0.86);
+        color: #1a2d46;
+        font-weight: 700;
+        box-shadow: 0 12px 18px -16px rgba(17, 28, 44, 0.45);
+      }
 
-        .qr-panel {
-          justify-content: flex-start;
-        }
+      .btn.primary {
+        background: linear-gradient(135deg, #1d2f45 0%, #1b2d3f 100%);
+        border-color: transparent;
+        color: #fff;
+        box-shadow: 0 18px 28px -18px rgba(17, 28, 44, 0.72);
+      }
 
-        .business-name {
-          font-size: 2.1rem;
+      .btn.primary:hover {
+        background: linear-gradient(135deg, #15293d 0%, #101f2d 100%);
+      }
+
+      .contact-list {
+        margin-top: 1rem;
+        border-top: 1px solid rgba(30, 44, 65, 0.08);
+        padding-top: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .contact-list a {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.5rem 0.5rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(26, 39, 58, 0.04);
+        color: #425776;
+      }
+
+      .contact-list .ico {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          135deg,
+          rgba(142, 122, 82, 0.14),
+          rgba(18, 33, 50, 0.06)
+        );
+        border: 1px solid rgba(142, 122, 82, 0.12);
+        color: #243a54;
+      }
+
+      .qr-wrap {
+        margin-top: 1rem;
+        padding: 0.9rem 0.7rem 0.25rem;
+        border-radius: 18px;
+        background: linear-gradient(
+          180deg,
+          rgba(238, 242, 248, 0.92),
+          rgba(255, 255, 255, 0.8)
+        );
+        border: 1px solid rgba(32, 47, 67, 0.08);
+      }
+
+      .qr-wrap .qr {
+        width: 122px;
+        height: 122px;
+        margin: 0 auto;
+        padding: 7px;
+        border-radius: 12px;
+        background: white;
+        border: 1px solid rgba(32, 47, 67, 0.08);
+      }
+
+      .qr-wrap p {
+        margin: 0.7rem 0 0;
+        text-align: center;
+        color: #687b95;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .foot {
+        margin-top: 0.9rem;
+        text-align: center;
+      }
+
+      .foot a {
+        color: #2d405d;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 480px) {
+        .cover {
+          height: 290px;
         }
       }
     </style>
@@ -274,10 +348,31 @@
   </head>
   <body>
     <main class="card ahsan-profile">
+      <div class="cover">
+        <div class="brand-badge">
+          <img src="/assets/images/brand/logo-mark.webp" alt="Inteople logo" />
+          <span>Inteople</span>
+        </div>
+
+        <div class="portrait-wrap">
+          <div class="portrait-frame">
+            <img
+              src="https://scontent.fdac31-2.fna.fbcdn.net/v/t39.30808-6/495173373_23955976997353341_7394310300379714170_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGIwtgVJ6lC7DbcNbDb9jW5dlJtuRNvFo92Um25E28Wj8xVDdpPzrXW0QHLehKVoSw&_nc_ohc=V21g55HFZQYQ7kNvwF9NeME&_nc_oc=Adqth5SfGXPge9tbbqyIazVY_U0h9zd7wh8hfYiqtlnx9-bdtpK4tuP0Gt76566_AlQ&_nc_zt=23&_nc_ht=scontent.fdac31-2.fna&_nc_gid=9YoeDGrjifozNeT1VuON5A&_nc_ss=7b2a8&oh=00_AQILvLYfs7kuU3TJ2113xrKorBNlCXSSCJC6yToLIrmXSw&oe=6AAC49CE"
+              alt="Md Ahsan portrait"
+              width="250" />
+          </div>
+        </div>
+      </div>
+
       <div class="body">
+        <div class="eyebrow">Leadership profile</div>
         <h1>Md Ahsan</h1>
         <div class="role">Director of Finance</div>
         <div class="company">Inteople</div>
+
+        <div class="divider"></div>
+
+        <div class="tagline">Finance leadership for digital growth</div>
 
         <div class="actions">
           <button type="button" id="save-contact" class="btn primary full">
@@ -323,58 +418,52 @@
           >
         </div>
 
-        <div class="business-card">
-          <div class="business-top">
-            <div class="brand-lockup">
-              <div class="brand-mark">
-                <img
-                  src="/assets/images/brand/logo-mark.webp"
-                  width="42"
-                  height="42"
-                  alt="Inteople logo" />
-              </div>
-              <div class="brand-copy">
-                <span class="brand-name">inteople</span>
-              </div>
-            </div>
-            <div class="qr-panel">
-              <div class="qr-box">
-                <div class="qr" id="qr"></div>
-              </div>
-            </div>
-          </div>
+        <div class="contact-list">
+          <a href="mailto:ahsan@inteople.com"
+            ><span class="ico"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                <path d="M4 7l8 6 8-6" /></svg></span
+            ><span>ahsan@inteople.com</span></a
+          >
+          <a href="tel:+8801985558444"
+            ><span class="ico"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.45-1.28a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z" /></svg></span
+            ><span>+880 1985 558444</span></a
+          >
+          <a
+            href="https://www.linkedin.com/company/inteople/"
+            target="_blank"
+            rel="noopener"
+            ><span class="ico"
+              ><svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C20.5 8.65 22 11 22 14.5V21h-4v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.8H9z" /></svg></span
+            ><span>Inteople LinkedIn</span></a
+          >
+        </div>
 
-          <div class="business-name">Md Ahsan</div>
-          <div class="business-role">Director of Finance</div>
+        <div class="qr-wrap">
+          <div class="qr" id="qr"></div>
+          <p>Scan to open this card</p>
+        </div>
 
-          <div class="business-meta">
-            <div class="business-address">
-              <strong>Inteople</strong>
-              House 32 &amp; 34, Flat 4C, Road 7, Block C<br />
-              Niketon, Gulshan 1, Dhaka 1212<br />
-              Bangladesh
-            </div>
-
-            <div class="contact-stack">
-              <div class="detail">
-                <label>Mobile</label>
-                <strong>+880 1985 558444</strong>
-              </div>
-              <div class="detail">
-                <label>WhatsApp</label>
-                <strong>+880 1985 558444</strong>
-              </div>
-              <div class="detail">
-                <label>Email</label>
-                <strong>ahsan@inteople.com</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="final-line">
-            <span class="website-link">www.inteople.com</span>
-            <span class="page-subtitle">Business Card</span>
-          </div>
+        <div class="foot">
+          <a href="https://inteople.com/">← Back to inteople.com</a>
         </div>
       </div>
     </main>
