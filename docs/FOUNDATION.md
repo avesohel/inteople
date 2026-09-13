@@ -4,6 +4,7 @@ _The structural blueprint for rebuilding Inteople as a parent technology company
 _Created 2026-06-29. Companion to `AUDIT.md`. Pre-design phase — no page layouts yet._
 
 **Constraints carried from the Decisions Log (`AUDIT.md`):**
+
 - **No-build** — pure static HTML/CSS/JS, Netlify push-to-deploy. Shared chrome via partial
   includes / a stamp script (see `AUDIT.md` → No-Build Implementation Path).
 - **Brand** — keep premium **navy + coral**; formalize into shared tokens.
@@ -20,7 +21,7 @@ reinforce this dual "Ventures + Studio" identity, not an agency-for-hire identit
 Folder-based static routing (mirrors existing `/edu/`, `/vc/`). Netlify pretty-URLs serve
 `/about/` → `/about/index.html`.
 
-```
+```text
 inteople.com
 │
 ├── /                              Home — parent-company narrative
@@ -72,12 +73,14 @@ inteople.com
 ```
 
 ### Navigation model
+
 **Primary header (left→right):** Services · Products · Industries · Work · Insights · Company
 **Header CTA (right):** `Start a project` (primary) + `Book a demo` (ghost)
 **Header behavior:** sticky, shrinks on scroll (existing pattern). Services/Products/Industries
 open a **structured dropdown/mega-panel** listing children + a featured item.
 
 **Footer (5 columns):**
+
 1. Brand block — logo, one-line positioning, socials, language note
 2. Company — About · Leadership · Careers · Contact · Trust
 3. Services — the 5 service pages
@@ -91,6 +94,7 @@ open a **structured dropdown/mega-panel** listing children + a featured item.
 ## 2. Section Hierarchy (per page type)
 
 **Home**
+
 1. Hero — parent positioning + "delivery console" visual (keep, evolve)
 2. Trust bar — credibility stats / partner or product logos
 3. Capability pillars — AI · Software Engineering · IoT · Cloud (→ /services)
@@ -144,6 +148,7 @@ Leadership cards link (/vc/)
 Class-based (BEM-ish), composed in static HTML. Shared chrome via partials.
 
 **Global / chrome**
+
 - `site-header` + mega-panel nav, `nav-drawer` (mobile)
 - `site-footer`
 - `skip-link`, `breadcrumb`
@@ -153,6 +158,7 @@ Class-based (BEM-ish), composed in static HTML. Shared chrome via partials.
 - `container` (default / wide / narrow-article)
 
 **Cards**
+
 - `card--capability` (icon, title, desc, link) — services
 - `card--product` (logo, badge, image, feature list, CTA) — exists, reuse
 - `card--industry` (icon, vertical, blurb)
@@ -163,6 +169,7 @@ Class-based (BEM-ish), composed in static HTML. Shared chrome via partials.
 - `card--quote` (testimonial / leadership)
 
 **Patterns**
+
 - `hero` (home variant + `hero--inner` for sub-pages)
 - `logo-bar` / trust bar
 - `process` steps
@@ -174,6 +181,7 @@ Class-based (BEM-ish), composed in static HTML. Shared chrome via partials.
 - `tabs`, `chip`/tag, `pagination`, `spec-table` / comparison table
 
 **Utility / behavior (JS)**
+
 - `reveal` on-scroll (exists)
 - `data-count` animated counter (exists)
 - `data-link` config injection (exists — keep single source of truth)
@@ -191,17 +199,20 @@ Goal: **one parent design system**, products are accent-themed layers on it — 
 navy/coral-vs-edu-blue fragmentation called out in `AUDIT.md`.
 
 ### CSS architecture (no-build, multiple `<link>`s, HTTP/2)
-```
+
+```text
 /src/styles/
   tokens.css        ← single source of truth: color, type, space, radius, shadow, motion
   base.css          ← reset, base typography, layout primitives, a11y
   components.css    ← buttons, cards, nav, hero, sections, patterns
   pages.css         ← page-specific composition / overrides
 ```
+
 Product subsites (`/edu/`, future) **import the same `tokens.css`** then override only the
 accent slot.
 
 ### Color
+
 - **Brand:** navy `#2b3a55` (+ `#3f5575`, `#6b80a3`) — primary
 - **Accent:** coral `#ff6a50` (+ `#ff8a73`, soft `#ffe6e0`) — actions/highlights
 - **Surfaces:** near-white `#f7f9fc`, `#eef2f8`, white; lines `#e2e8f2` / `#d3dcea`
@@ -212,33 +223,39 @@ accent slot.
   `[data-theme="healodex"]` or a per-page `<body>` class.
 
 ### Typography
+
 - **Inter** (keep). Type scale via `clamp()`:
   display / h1 / h2 / h3 / h4 / body-lg / body / small / eyebrow / mono.
 - Article body: max-width ~70ch, larger line-height for readability.
 - Bangla (`Hind Siliguri`) loaded only where bilingual (edu).
 
 ### Spacing & layout
+
 - 4px base scale: `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128`
 - Section vertical rhythm token (e.g. `--section-y`)
 - Containers: default `1180` · wide `1320` · article `720`
 - 12-column mental model; CSS grid + flex
 
 ### Elevation, radius, motion
+
 - Radius: `18px` / `12px` (exists) + pill
 - 3 shadow tiers (rest / hover / overlay)
 - Motion tokens: durations (fast/base/slow), easing; reveal + counters honor
   `prefers-reduced-motion`
 
 ### Iconography & imagery
+
 - Inline SVG, stroke `1.75` (existing convention) — one consistent set
 - Photos `.webp`/`.avif`, `width`/`height` + `loading="lazy"`
 - Product mockups as **custom CSS/SVG** (per the `/edu/` precedent) — avoid generic stock
 
 ### Accessibility baseline
+
 - WCAG AA contrast · visible focus · semantic landmarks · alt text · keyboard nav ·
   reduced-motion · skip-link
 
 ### Brand architecture rule
+
 On `inteople.com`, products wear **Inteople chrome** (shared header/footer) with their accent.
 On their own domains they can be co-branded. Never a fully separate design system.
 
@@ -247,23 +264,26 @@ On their own domains they can be co-branded. Never a fully separate design syste
 ## 5. SEO Structure
 
 ### URL conventions
+
 Lowercase, hyphenated, trailing-slash folders, stable slugs, no params. Mirrors Netlify
 pretty-URLs.
 
 ### Meta — unique per page
-| Page | Title pattern | 
-|---|---|
-| Home | `Inteople — AI, Software, IoT & Product Engineering` |
-| Service | `AI & Machine Learning Services \| Inteople` |
-| Product | `Healodex — Telehealth Infrastructure \| Inteople` |
-| Industry | `HealthTech Software Development \| Inteople` |
-| Case study | `<Client>: <Outcome> \| Inteople Work` |
-| Blog post | `<Title> \| Inteople Insights` |
-| Company | `About Inteople — A Technology Company` |
+
+| Page       | Title pattern                                        |
+| ---------- | ---------------------------------------------------- |
+| Home       | `Inteople — AI, Software, IoT & Product Engineering` |
+| Service    | `AI & Machine Learning Services \| Inteople`         |
+| Product    | `Healodex — Telehealth Infrastructure \| Inteople`   |
+| Industry   | `HealthTech Software Development \| Inteople`        |
+| Case study | `<Client>: <Outcome> \| Inteople Work`               |
+| Blog post  | `<Title> \| Inteople Insights`                       |
+| Company    | `About Inteople — A Technology Company`              |
 
 Each page: unique `description`, `canonical`, per-page OG/Twitter (+ per-post OG image).
 
 ### Structured data (JSON-LD) by type
+
 - **Organization** (home) — extend existing: logo, `contactPoint`, `address`, `sameAs`,
   `foundingDate`, `founder`
 - **WebSite** + `SearchAction` (home)
@@ -276,24 +296,29 @@ Each page: unique `description`, `canonical`, per-page OG/Twitter (+ per-post OG
 - **FAQPage** — where FAQ blocks exist
 
 ### Sitemap & robots
+
 - **Generate `sitemap.xml`** with a small `scripts/` generator that walks the folders (run
   before push) — replaces the hand-maintained file that will rot. Consistent with the no-build
   stamp-script approach.
 - `robots.txt` keeps `Sitemap:` ref (exists).
 
 ### Internal linking
+
 Hub-and-spoke: Service ↔ Industry ↔ Product ↔ Case study ↔ Blog cross-link each other.
 Breadcrumbs everywhere. Footer links to all hubs.
 
 ### Performance (Core Web Vitals)
+
 Keep `width`/`height`, lazy-load below fold, preconnect fonts, webp/avif, minimal deferred JS.
 Budget: LCP < 2.5s, CLS < 0.1, INP < 200ms.
 
 ### Measurement (prerequisite)
+
 Add **analytics** (Plausible or GA4) + **Google Search Console**, submit sitemap. _Currently
 none — flagged High in `AUDIT.md`._
 
 ### i18n note
+
 Main site English-first; `hreflang` ready if Bangla is added later. Edu landing already
 bilingual.
 
@@ -301,16 +326,16 @@ bilingual.
 
 ## Build Sequencing (suggested, no-build)
 
-| Phase | Deliverable | Depends on |
-|---|---|---|
-| 0 | `tokens.css` + `base.css` + partials (header/footer) + `data-include` loader | — |
-| 1 | Home (recomposed) + footer legal links → owned `/legal/*` | Phase 0 |
-| 2 | `/company/about` + unhide `/company/leadership` | Phase 0 |
-| 3 | `/services/*` (overview + 5 details) | Phase 0 |
-| 4 | `/products/*` + `/industries/*` | Phase 0 |
-| 5 | `/work/*` case studies | Phase 0 |
-| 6 | `/insights/*` blog MVP + sitemap generator | Phase 0 |
-| 7 | `/trust`, `/partners`, `/company/careers`, `/404` | Phase 0 |
+| Phase | Deliverable                                                                  | Depends on |
+| ----- | ---------------------------------------------------------------------------- | ---------- |
+| 0     | `tokens.css` + `base.css` + partials (header/footer) + `data-include` loader | —          |
+| 1     | Home (recomposed) + footer legal links → owned `/legal/*`                    | Phase 0    |
+| 2     | `/company/about` + unhide `/company/leadership`                              | Phase 0    |
+| 3     | `/services/*` (overview + 5 details)                                         | Phase 0    |
+| 4     | `/products/*` + `/industries/*`                                              | Phase 0    |
+| 5     | `/work/*` case studies                                                       | Phase 0    |
+| 6     | `/insights/*` blog MVP + sitemap generator                                   | Phase 0    |
+| 7     | `/trust`, `/partners`, `/company/careers`, `/404`                            | Phase 0    |
 
 Quick wins (Web3Forms key, analytics) can land anytime, independent of phases.
 

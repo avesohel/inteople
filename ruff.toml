@@ -1,0 +1,14 @@
+# Ruff — lint + format for the Python tooling in scripts/.
+# Run without a global install:  python3 -m ruff check scripts
+#                                python3 -m ruff format scripts
+# (or: pipx run ruff check scripts)
+target-version = "py38"
+line-length = 100
+
+exclude = ["archive", "node_modules"]
+
+[lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[format]
+quote-style = "double"

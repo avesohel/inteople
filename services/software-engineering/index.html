@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      Custom Software Engineering &amp; Product Development | Inteople
+    </title>
+    <meta
+      name="description"
+      content="Inteople builds custom software and ships products end to end — web apps, cross-platform mobile, APIs and platform modernization — with clean architecture, tests, CI/CD and full code ownership." />
+    <link
+      rel="canonical"
+      href="https://inteople.com/services/software-engineering/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="Custom Software Engineering & Product Development | Inteople" />
+    <meta
+      property="og:description"
+      content="Web, cross-platform mobile, APIs and modernization — engineered to last, with full code ownership." />
+    <meta
+      property="og:url"
+      content="https://inteople.com/services/software-engineering/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Custom Software Engineering & Product Development | Inteople" />
+    <meta
+      name="twitter:description"
+      content="Web, mobile, APIs and modernization — engineered to last." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/services.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://inteople.com/services/software-engineering/#service",
+            "serviceType": "Custom Software Engineering",
+            "name": "Software Engineering & Product Development",
+            "description": "Custom software and product engineering: web applications, cross-platform mobile, APIs, and platform modernization with clean architecture, automated testing and CI/CD.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "url": "https://inteople.com/"
+            },
+            "areaServed": "Worldwide",
+            "url": "https://inteople.com/services/software-engineering/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://inteople.com/services/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Software Engineering"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do we own the code you write?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. You own all source code, infrastructure and documentation. We work in your repositories where possible and hand over everything needed to run and maintain the software independently."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you build for both web and mobile from one codebase?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Often, yes. For mobile we use Flutter or React Native to share a codebase across iOS and Android, and modern web frameworks for the browser, while keeping native quality where it matters."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you work with our existing team and codebase?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We embed alongside your engineers, follow your conventions and review process, or take ownership of a defined component — whichever fits. We also modernize and refactor legacy systems incrementally."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you ensure quality and avoid technical debt?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Through clean architecture, code review, automated testing, CI/CD, observability and documentation built into the workflow — so the system stays maintainable as it grows."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home">
+          <img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople
+        </a>
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/" aria-current="page">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-primary btn-sm" href="#cta">Start a build</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+            <a href="/services/">Services</a
+            ><span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">Software Engineering</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> Software Engineering</span
+          >
+          <h1 class="reveal" data-delay="1">
+            Software built to
+            <span class="grad-text">scale, change and last</span>.
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            We design and build custom software and ship products end to end —
+            web applications, cross-platform mobile, APIs and platform
+            modernization — with clean architecture, automated testing and
+            CI/CD. You own every line.
+          </p>
+          <div class="svc-hero-tags reveal" data-delay="3">
+            <span>web apps</span><span>mobile</span><span>APIs</span>
+            <span>modernization</span><span>QA &amp; testing</span
+            ><span>full ownership</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IT IS -->
+      <section class="section" id="what">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">What this is</span>
+            <h2>Senior product engineering, not staff augmentation</h2>
+          </div>
+          <div class="svc-intro">
+            <p class="svc-intro-lead reveal">
+              We take responsibility for outcomes, not tickets. From
+              architecture to release, we build software that your team can
+              <b>own, run and extend</b>
+              long after launch.
+            </p>
+            <div class="svc-intro-body reveal" data-delay="1">
+              <p>
+                Software engineering is our foundational discipline — the craft
+                underneath every product we build for partners and every venture
+                we run ourselves. We bring product thinking, modern architecture
+                and disciplined delivery to projects from first prototype to
+                enterprise scale.
+              </p>
+              <p>
+                Whether you're a founder shipping a first product or an
+                enterprise modernizing a critical platform, we plug in as a
+                senior engineering partner — with the documentation, tests and
+                handover to keep you independent.
+              </p>
+              <ul class="svc-intro-list">
+                <li>
+                  Product engineering from discovery and prototype to production
+                </li>
+                <li>
+                  Web applications with modern, accessible, performant
+                  front-ends
+                </li>
+                <li>Cross-platform mobile apps for iOS and Android</li>
+                <li>
+                  APIs, integrations and legacy modernization done incrementally
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEMS -->
+      <section class="section bg-alt" id="problems">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Problems we solve</span>
+            <h2>The failure modes we're hired to prevent</h2>
+          </div>
+          <div class="problem-grid">
+            <article class="problem reveal">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Accumulating technical debt
+              </h4>
+              <p>
+                Quick fixes compound until every change is slow, risky and
+                expensive.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> clean architecture, code review, tests
+                and refactoring built into the cadence, not deferred.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="1">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >MVPs that can't scale
+              </h4>
+              <p>
+                A prototype that wins early users but collapses under growth or
+                new requirements.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> architecture that starts simple but is
+                designed for the next order of magnitude.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="2">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Stalled or runaway delivery
+              </h4>
+              <p>
+                Projects that miss deadlines, scope-creep endlessly, or ship
+                without anyone able to maintain them.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> tight increments, visible progress, and
+                a clear definition of done each sprint.</span
+              >
+            </article>
+            <article class="problem reveal">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Vendor lock-in &amp; no handover
+              </h4>
+              <p>
+                Code you can't read, infra you don't control, and a team you
+                can't replace.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> full code ownership, documentation and
+                knowledge transfer from day one.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="1">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Brittle, untested releases
+              </h4>
+              <p>
+                Every deploy is a gamble because there's no safety net of tests
+                or monitoring.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> automated test suites, CI/CD pipelines
+                and observability so releases are routine.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="2">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Aging legacy systems
+              </h4>
+              <p>
+                Critical software on outdated stacks that's costly to change and
+                risky to touch.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> incremental modernization — strangler
+                patterns and refactors that avoid big-bang rewrites.</span
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAPABILITIES -->
+      <section class="section bg-dark" id="capabilities">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">What's included</span>
+            <h2>Capabilities we deliver</h2>
+          </div>
+          <div class="svc-cap-grid">
+            <article class="svc-cap reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="2" y="4" width="20" height="14" rx="2" />
+                  <path d="M2 9h20M8 22h8" stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Web applications</h4>
+                <p>
+                  Performant, accessible front-ends and robust back-ends —
+                  dashboards, portals, SaaS UIs and customer-facing products.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="7" y="2" width="10" height="20" rx="2" />
+                  <path d="M11 18h2" stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Cross-platform mobile</h4>
+                <p>
+                  iOS and Android from a shared Flutter or React Native
+                  codebase, with native quality where it counts.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>APIs &amp; integrations</h4>
+                <p>
+                  REST and GraphQL APIs, third-party integrations, webhooks and
+                  event-driven services with versioning and docs.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="3">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M21 12a9 9 0 1 1-9-9" stroke-linecap="round" />
+                  <path
+                    d="M21 3v6h-6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Modernization &amp; refactoring</h4>
+                <p>
+                  Incremental migration off legacy stacks, performance work and
+                  re-architecture without halting the business.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="m9 11 3 3 8-8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>QA, testing &amp; security</h4>
+                <p>
+                  Automated unit, integration and E2E tests, accessibility
+                  checks, and security review baked into delivery.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M3 12h4M17 12h4M12 3v4M12 17v4"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Discovery &amp; architecture</h4>
+                <p>
+                  Problem framing, technical design, data modeling and a
+                  delivery plan that de-risks the build up front.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section class="section" id="stack">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Technologies we use</span>
+            <h2>Proven, modern, maintainable</h2>
+            <p class="lead">
+              We favor mature, well-supported tools and choose per project
+              rather than forcing one stack.
+            </p>
+          </div>
+          <div class="stack">
+            <div class="stack-group reveal">
+              <h4>Front-end</h4>
+              <div class="chips">
+                <span>React</span><span>Next.js</span><span>TypeScript</span
+                ><span>Vue</span><span>Tailwind</span><span>Vite</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="1">
+              <h4>Mobile</h4>
+              <div class="chips">
+                <span>Flutter</span><span>React Native</span><span>Swift</span
+                ><span>Kotlin</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="2">
+              <h4>Back-end</h4>
+              <div class="chips">
+                <span>Node.js</span><span>Python</span><span>Go</span
+                ><span>Laravel / PHP</span><span>NestJS</span
+                ><span>FastAPI</span>
+              </div>
+            </div>
+            <div class="stack-group reveal">
+              <h4>Data</h4>
+              <div class="chips">
+                <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span
+                ><span>Redis</span><span>Prisma</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="1">
+              <h4>Delivery &amp; QA</h4>
+              <div class="chips">
+                <span>GitHub Actions</span><span>Docker</span><span>Jest</span
+                ><span>Playwright</span><span>Cypress</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="2">
+              <h4>Architecture</h4>
+              <div class="chips">
+                <span>REST</span><span>GraphQL</span><span>Event-driven</span
+                ><span>Microservices</span><span>Monorepo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section class="section bg-alt" id="benefits">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Benefits</span>
+            <h2>What you get from working this way</h2>
+          </div>
+          <div class="benefit-grid">
+            <div class="benefit reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M20 7 9 18l-5-5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Full ownership</h4>
+                <p>
+                  You own the code, infrastructure and documentation — no
+                  lock-in, no black boxes.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 3v18h18" stroke-linecap="round" />
+                  <path
+                    d="m7 14 3-4 3 3 5-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Built to scale</h4>
+                <p>
+                  Architecture that grows with you, so early decisions don't
+                  become tomorrow's ceiling.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9" />
+                  <path
+                    d="M12 7v5l3 2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Predictable delivery</h4>
+                <p>
+                  Tight increments and visible progress mean fewer surprises and
+                  earlier value.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Lower long-term cost</h4>
+                <p>
+                  Tests, docs and clean design keep maintenance affordable as
+                  the system ages.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUTCOMES -->
+      <section class="section bg-dark" id="outcomes">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Example outcomes</span>
+            <h2>The kind of results this work produces</h2>
+            <p class="lead">
+              Representative of outcomes from disciplined product engineering
+              across our builds and ventures.
+            </p>
+          </div>
+          <div class="outcome-grid">
+            <article class="outcome reveal">
+              <b>End-to-end</b>
+              <h4>Product from zero to launch</h4>
+              <p>
+                Multi-platform products taken from discovery through web, mobile
+                and back-end to a maintainable production release.
+              </p>
+            </article>
+            <article class="outcome reveal" data-delay="1">
+              <b>Modernized</b>
+              <h4>Legacy platforms, safely</h4>
+              <p>
+                Critical systems migrated off aging stacks incrementally — no
+                big-bang rewrite, no downtime gamble.
+              </p>
+            </article>
+            <article class="outcome reveal" data-delay="2">
+              <b>Maintainable</b>
+              <h4>Codebases teams can own</h4>
+              <p>
+                Tested, documented systems handed over so in-house teams ship
+                confidently on day one.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="eyebrow">FAQ</span>
+            <h2>Questions teams ask before starting</h2>
+          </div>
+          <div class="faq reveal">
+            <details>
+              <summary>
+                Do we own the code you write?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                Yes. You own all source code, infrastructure and documentation.
+                We work in your repositories where possible and hand over
+                everything needed to run and maintain the software
+                independently.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Can you build for both web and mobile from one codebase?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                Often, yes. For mobile we use Flutter or React Native to share a
+                codebase across iOS and Android, and modern web frameworks for
+                the browser, while keeping native quality where it matters.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Can you work with our existing team and codebase?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                Yes. We embed alongside your engineers, follow your conventions
+                and review process, or take ownership of a defined component —
+                whichever fits. We also modernize and refactor legacy systems
+                incrementally.
+              </p>
+            </details>
+            <details>
+              <summary>
+                How do you ensure quality and avoid technical debt?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                Through clean architecture, code review, automated testing,
+                CI/CD, observability and documentation built into the workflow —
+                so the system stays maintainable as it grows.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED -->
+      <section class="section bg-alt" id="related">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Proof in our own products</span>
+            <h2>Software we build and operate</h2>
+          </div>
+          <div class="related-grid">
+            <article class="related reveal">
+              <span class="related-domain">HealthTech</span>
+              <h4>Healodex</h4>
+              <p>
+                A multi-platform health intelligence product — web, mobile and
+                device software.
+              </p>
+              <a
+                class="prod-link"
+                href="https://healodex.com"
+                target="_blank"
+                rel="noopener"
+                >Visit Healodex
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+            <article class="related reveal" data-delay="1">
+              <span class="related-domain">Applied AI</span>
+              <h4>ReplyFlow</h4>
+              <p>
+                A SaaS platform engineered for reliability across channels and
+                integrations.
+              </p>
+              <a
+                class="prod-link"
+                href="https://aireply.com"
+                target="_blank"
+                rel="noopener"
+                >Visit ReplyFlow
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+            <article class="related reveal" data-delay="2">
+              <span class="related-domain">FinTech</span>
+              <h4>OwnBooks</h4>
+              <p>
+                An accounting platform with rigorous data handling and
+                reporting.
+              </p>
+              <a
+                class="prod-link"
+                href="https://ownbooks.ai"
+                target="_blank"
+                rel="noopener"
+                >Visit OwnBooks
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- OTHER SERVICES -->
+      <section class="section tight" id="services">
+        <div class="container wide">
+          <div class="section-head reveal compact">
+            <span class="eyebrow">Explore capabilities</span>
+          </div>
+          <nav class="svc-nav reveal" aria-label="Other services">
+            <a href="/services/ai-ml/"
+              >AI &amp; ML
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/software-engineering/" aria-current="page"
+              >Software Engineering
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/iot-embedded/"
+              >IoT &amp; Embedded
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/cloud/"
+              >Cloud &amp; DevOps
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> Software Engineering</span
+            >
+            <h2>Have a product or platform to build?</h2>
+            <p>
+              From first prototype to enterprise scale, we'll engineer it
+              cleanly — and hand you a codebase your team can own.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=Software%20engineering%20project"
+                >Start a build</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/#products"
+                >See our products</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/software-engineering/">Software Engineering</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#approach">How we work</a>
+            <a href="/company/about/#leadership">Leadership</a>
+            <a href="/#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="https://healodex.com" target="_blank" rel="noopener"
+              >Healodex</a
+            >
+            <a href="https://aireply.com" target="_blank" rel="noopener"
+              >ReplyFlow</a
+            >
+            <a href="https://ownbooks.ai" target="_blank" rel="noopener"
+              >OwnBooks</a
+            >
+            <a href="/#products">All products</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

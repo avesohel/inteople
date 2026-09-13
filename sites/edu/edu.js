@@ -34,12 +34,16 @@
     });
     try {
       localStorage.setItem(STORE_KEY, lang);
-    } catch (e) {}
+    } catch {
+      /* localStorage unavailable (private mode) — ignore */
+    }
   };
   var saved = "en";
   try {
     saved = localStorage.getItem(STORE_KEY) || "en";
-  } catch (e) {}
+  } catch {
+    /* localStorage unavailable (private mode) — keep default */
+  }
   applyLang(saved);
   langButtons.forEach(function (b) {
     b.addEventListener("click", function () {
@@ -177,10 +181,9 @@
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
       }
-      raf = requestAnimationFrame(draw);
+      requestAnimationFrame(draw);
     };
 
-    var raf;
     resize();
     draw();
     var rsz;

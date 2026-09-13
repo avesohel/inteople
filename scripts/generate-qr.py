@@ -2,14 +2,14 @@
 """
 Generate Inteople virtual-card QR codes with the logo centered.
 
-Matches the house style of src/images/qr/qr-sohel.png:
+Matches the house style of assets/images/qr/qr-sohel.png:
   - black modules on a white background
   - the Inteople "in" logo centered on a rounded white panel
   - high error correction (H) so the centered logo never breaks scannability
 
 The URL each QR encodes is derived from the card's page, following the site
 convention:  vc/<slug>.html  ->  https://inteople.com/vc/<slug>.html
-The output file follows the matching convention:  src/images/qr/qr-<slug>.png
+The output file follows the matching convention:  assets/images/qr/qr-<slug>.png
 
 USAGE
   # regenerate every card found in vc/*.html
@@ -20,7 +20,7 @@ USAGE
   python3 scripts/generate-qr.py alisohel
 
   # arbitrary URL -> arbitrary output (one-off codes)
-  python3 scripts/generate-qr.py --url https://inteople.com --out src/images/qr/qr-site.png
+  python3 scripts/generate-qr.py --url https://inteople.com --out assets/images/qr/qr-site.png
 
 Requires:  pip install "qrcode[pil]"  (qrcode + Pillow)
 """
@@ -32,8 +32,8 @@ import sys
 
 try:
     import qrcode
-    from qrcode.constants import ERROR_CORRECT_H
     from PIL import Image, ImageDraw
+    from qrcode.constants import ERROR_CORRECT_H
 except ImportError:
     sys.exit('Missing deps. Run:  python3 -m pip install "qrcode[pil]"')
 
@@ -42,7 +42,7 @@ except ImportError:
 # ---------------------------------------------------------------------------
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VC_DIR = os.path.join(REPO_ROOT, "vc")
-IMG_DIR = os.path.join(REPO_ROOT, "src", "images")
+IMG_DIR = os.path.join(REPO_ROOT, "assets", "images")
 QR_DIR = os.path.join(IMG_DIR, "qr")
 LOGO_PATH = os.path.join(IMG_DIR, "brand", "logo-256.png")
 BASE_URL = "https://inteople.com/vc"
@@ -50,11 +50,11 @@ BASE_URL = "https://inteople.com/vc"
 # ---------------------------------------------------------------------------
 # Design constants (tuned to match qr-sohel.png)
 # ---------------------------------------------------------------------------
-BOX_SIZE = 28          # px per QR module -> high-resolution, print-ready output
-BORDER = 2             # quiet-zone modules (QR spec minimum is 4; 2 is fine here
-                       # because the white panel/quiet zone is preserved visually)
-LOGO_RATIO = 0.20      # logo width as a fraction of the QR width (~20%)
-PANEL_PAD_RATIO = 0.18 # white padding around the logo, as a fraction of logo size
+BOX_SIZE = 28  # px per QR module -> high-resolution, print-ready output
+BORDER = 2  # quiet-zone modules (QR spec minimum is 4; 2 is fine here
+# because the white panel/quiet zone is preserved visually)
+LOGO_RATIO = 0.20  # logo width as a fraction of the QR width (~20%)
+PANEL_PAD_RATIO = 0.18  # white padding around the logo, as a fraction of logo size
 PANEL_RADIUS_RATIO = 0.22  # corner radius of the white panel, as a fraction of panel
 
 
@@ -109,8 +109,7 @@ def discover_slugs():
 
 def main():
     ap = argparse.ArgumentParser(description="Generate Inteople card QR codes.")
-    ap.add_argument("target", nargs="?",
-                    help='"all", or a card slug (vc/<slug>.html).')
+    ap.add_argument("target", nargs="?", help='"all", or a card slug (vc/<slug>.html).')
     ap.add_argument("--url", help="Encode an arbitrary URL instead of a card.")
     ap.add_argument("--out", help="Output path (required with --url).")
     args = ap.parse_args()

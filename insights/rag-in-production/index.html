@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      Stopping LLMs from hallucinating: RAG in production | Inteople Insights
+    </title>
+    <meta
+      name="description"
+      content="The retrieval-augmented generation architecture Inteople uses in production — grounding, chunking, schema-constrained outputs and evaluation — to make large language models reliable enough to ship." />
+    <link
+      rel="canonical"
+      href="https://inteople.com/insights/rag-in-production/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="Stopping LLMs from hallucinating: RAG in production" />
+    <meta
+      property="og:description"
+      content="The RAG architecture we use to make large language models reliable enough to put in front of real users." />
+    <meta
+      property="og:url"
+      content="https://inteople.com/insights/rag-in-production/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/products/replyflow.webp" />
+    <meta property="article:published_time" content="2026-05-12" />
+    <meta property="article:author" content="SM Mohammad Ali" />
+    <meta property="article:section" content="Artificial Intelligence" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Stopping LLMs from hallucinating: RAG in production" />
+    <meta
+      name="twitter:description"
+      content="The RAG architecture we use to make LLMs reliable in production." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/products/replyflow.webp" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/insights.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://inteople.com/insights/rag-in-production/#article",
+            "headline": "Stopping LLMs from hallucinating: RAG in production",
+            "description": "The retrieval-augmented generation architecture Inteople uses in production to make large language models reliable enough to ship.",
+            "image": "https://inteople.com/assets/images/products/replyflow.webp",
+            "datePublished": "2026-05-12",
+            "dateModified": "2026-05-12",
+            "wordCount": 2100,
+            "articleSection": "Artificial Intelligence",
+            "keywords": "RAG, retrieval augmented generation, LLM, hallucination, vector search, AI engineering",
+            "author": {
+              "@type": "Person",
+              "name": "SM Mohammad Ali",
+              "jobTitle": "Founder & CTO",
+              "url": "https://inteople.com/vc/alisohel"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://inteople.com/assets/images/brand/logo-256.png"
+              }
+            },
+            "mainEntityOfPage": "https://inteople.com/insights/rag-in-production/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://inteople.com/insights/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "RAG in production"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/" aria-current="page">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a
+            class="btn btn-primary btn-sm"
+            href="mailto:hello@inteople.com?subject=AI%20project"
+            >Talk to us</a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ARTICLE HEAD -->
+      <section class="page-hero">
+        <div class="container">
+          <div class="article-head">
+            <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+              <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+              <a href="/insights/">Insights</a
+              ><span class="sep" aria-hidden="true">/</span>
+              <span aria-current="page">RAG in production</span>
+            </nav>
+            <span class="article-cat reveal">Artificial Intelligence</span>
+            <h1 class="reveal" data-delay="1">
+              Stopping LLMs from hallucinating: RAG in production
+            </h1>
+            <p class="standfirst reveal" data-delay="2">
+              A convincing demo is easy. A language model that stays accurate in
+              front of real users, every day, is an engineering problem. Here's
+              the retrieval-augmented architecture we actually ship — and the
+              parts most teams skip.
+            </p>
+            <div class="article-byline reveal" data-delay="3">
+              <img src="/assets/images/team/sohel.webp" alt="SM Mohammad Ali" />
+              <span><b>SM Mohammad Ali</b><br />Founder &amp; CTO</span>
+              <span class="sep" aria-hidden="true"></span>
+              <span>May 12, 2026</span>
+              <span class="sep" aria-hidden="true"></span>
+              <span>11 min read</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ARTICLE BODY -->
+      <article class="section">
+        <div class="container">
+          <div class="article-wrap">
+            <div class="prose">
+              <nav class="toc" aria-label="Table of contents">
+                <h4>In this article</h4>
+                <ol>
+                  <li><a href="#why">Why models hallucinate</a></li>
+                  <li>
+                    <a href="#grounding"
+                      >Grounding: retrieval before generation</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#chunking"
+                      >Chunking and embeddings that actually retrieve</a
+                    >
+                  </li>
+                  <li><a href="#constrain">Constraining the output</a></li>
+                  <li><a href="#eval">Evaluation: the part teams skip</a></li>
+                  <li><a href="#ops">Operating it</a></li>
+                </ol>
+              </nav>
+
+              <p>
+                Every team that ships a large language model feature meets the
+                same wall. The prototype dazzles in the demo. Then it reaches
+                real users, and it confidently invents a refund policy that
+                doesn't exist, cites a document that was never written, or
+                answers a question about last quarter using training data from
+                two years ago. The model isn't broken — it's doing exactly what
+                it was built to do: produce the
+                <em>most plausible</em> continuation, not the
+                <em>most true</em> one.
+              </p>
+              <p>
+                We build and operate
+                <a href="/products/replyflow/">ReplyFlow AI</a>, where a wrong
+                answer isn't a quirky screenshot — it's a customer who was
+                misinformed. So the architecture below isn't theory. It's what
+                we run to keep generated text anchored to facts we can point at.
+              </p>
+
+              <h2 id="why">Why models hallucinate</h2>
+              <p>
+                A language model is a probability engine over tokens. It has no
+                internal database it can query and no concept of "I don't know."
+                When you ask it something its weights don't cover, it doesn't
+                fall silent — it fills the gap with the statistically likeliest
+                words. That gap-filling is the same mechanism that writes fluent
+                prose; you can't switch it off without losing the fluency. The
+                fix is not a better prompt that begs the model to "only use
+                facts." The fix is to
+                <strong>change what's in the gap</strong> — to put the right
+                facts in front of the model at the moment it generates, so the
+                likeliest continuation is also the correct one.
+              </p>
+              <p>That is what retrieval-augmented generation (RAG) does.</p>
+
+              <h2 id="grounding">Grounding: retrieval before generation</h2>
+              <p>
+                The core pattern is simple to state. Before the model answers,
+                you retrieve the relevant source material from a trusted store
+                and inject it into the prompt as context. The model is then
+                instructed to answer <em>only</em> from that context. The flow:
+              </p>
+              <ul>
+                <li>
+                  <strong>Ingest</strong> — your source of truth (docs,
+                  policies, tickets, product data) is split into passages and
+                  embedded into a vector index.
+                </li>
+                <li>
+                  <strong>Retrieve</strong> — the user's question is embedded
+                  and used to pull the top-matching passages.
+                </li>
+                <li>
+                  <strong>Augment</strong> — those passages are placed into the
+                  prompt alongside the question.
+                </li>
+                <li>
+                  <strong>Generate</strong> — the model answers from the
+                  supplied context, and cites which passage each claim came
+                  from.
+                </li>
+              </ul>
+              <p>
+                The discipline is in the last step. We require the model to
+                attribute every factual claim to a retrieved passage, and we
+                render those citations in the UI. If a claim can't be traced to
+                a source, that's a signal — not a sentence to ship.
+              </p>
+              <blockquote>
+                The goal of RAG isn't to make the model smarter. It's to make
+                the model accountable to a source you control.
+              </blockquote>
+
+              <h2 id="chunking">
+                Chunking and embeddings that actually retrieve
+              </h2>
+              <p>
+                Most RAG systems fail at retrieval, not generation. If you fetch
+                the wrong passages, even a perfect model gives a perfectly
+                grounded wrong answer. Two decisions dominate quality here.
+              </p>
+              <h3>Chunk on meaning, not character count</h3>
+              <p>
+                The naive approach splits documents every 500 characters. That
+                slices sentences in half and buries the answer across two
+                chunks, neither of which retrieves well. We chunk on structure —
+                headings, list items, logical sections — so each passage is a
+                self-contained unit of meaning. We also attach metadata (source,
+                section, date) to every chunk, which lets us filter retrieval
+                ("only policies effective this year") before similarity even
+                runs.
+              </p>
+              <h3>Retrieve more, then rerank</h3>
+              <p>
+                Pure vector similarity is fuzzy. We retrieve a generous
+                candidate set, then apply a reranking model that scores each
+                candidate against the query directly. Combining keyword search
+                with vector search — hybrid retrieval — catches the cases where
+                the user's exact term matters (a product SKU, an error code) and
+                embeddings alone would miss it.
+              </p>
+              <p>
+                In our stack this is typically <code>pgvector</code> on Postgres
+                for the index, a hybrid BM25 + vector query, and a cross-encoder
+                reranker on the shortlist. Postgres keeps the vectors next to
+                the relational data we already filter on, which removes an
+                entire moving part.
+              </p>
+
+              <h2 id="constrain">Constraining the output</h2>
+              <p>
+                A grounded answer is still free-form text, and free-form text is
+                hard to act on. Wherever the output feeds a downstream system —
+                routing a ticket, populating a form, calling a tool — we
+                constrain generation to a schema. The model returns structured
+                JSON validated against a contract, so a malformed or
+                hallucinated field is rejected before it ever reaches the
+                application.
+              </p>
+              <ul>
+                <li>
+                  <strong>Schema-constrained decoding</strong> for anything
+                  machine-consumed.
+                </li>
+                <li>
+                  <strong>Refusal paths</strong> — an explicit "insufficient
+                  context" response when retrieval comes back empty, instead of
+                  a guess.
+                </li>
+                <li>
+                  <strong>Tool calls over free text</strong> when the model
+                  needs live data, so the fact comes from the system, not the
+                  weights.
+                </li>
+              </ul>
+
+              <h2 id="eval">Evaluation: the part teams skip</h2>
+              <p>
+                Here's where most RAG projects quietly fall apart. The team
+                ships, eyeballs a few answers, declares victory — and has no
+                idea when a model update, a new document, or a prompt tweak
+                silently degrades quality. You cannot operate what you cannot
+                measure.
+              </p>
+              <p>We treat the AI system like any other system: it has tests.</p>
+              <ul>
+                <li>
+                  <strong>A golden set</strong> of real questions with verified
+                  answers, run on every change.
+                </li>
+                <li>
+                  <strong>Faithfulness scoring</strong> — does each answer stay
+                  within its retrieved context? An LLM-as-judge, checked against
+                  human labels, flags claims that drift.
+                </li>
+                <li>
+                  <strong>Retrieval metrics</strong> — did the right passage
+                  make the top results at all? If not, no amount of prompt work
+                  helps.
+                </li>
+                <li>
+                  <strong>Regression gates</strong> in CI, so a change that
+                  drops faithfulness doesn't merge.
+                </li>
+              </ul>
+              <div class="takeaways">
+                <h4>Key takeaways</h4>
+                <ul>
+                  <li>
+                    Hallucination is the model filling gaps — fix the gap, not
+                    the prompt.
+                  </li>
+                  <li>
+                    RAG quality lives or dies in retrieval; chunk on meaning and
+                    rerank.
+                  </li>
+                  <li>
+                    Constrain machine-consumed output to a validated schema.
+                  </li>
+                  <li>Without an evaluation harness, you're shipping blind.</li>
+                  <li>
+                    Citations turn a black box into something a user — and a
+                    regulator — can audit.
+                  </li>
+                </ul>
+              </div>
+
+              <h2 id="ops">Operating it</h2>
+              <p>
+                A RAG system is a living thing. Documents change, users ask
+                questions you never anticipated, and the underlying model gets
+                updated beneath you. We log every query, its retrieved context,
+                and the answer, so we can replay failures and grow the golden
+                set from real misses. We pin model versions and re-run
+                evaluation before adopting a new one. And we keep a human in the
+                loop wherever the cost of being wrong is high — the model
+                drafts, a person confirms.
+              </p>
+              <p>
+                Done this way, an LLM stops being a party trick and becomes
+                infrastructure: accurate enough to trust, observable enough to
+                operate, and honest enough to say "I don't know."
+              </p>
+            </div>
+          </div>
+
+          <!-- AUTHOR -->
+          <div class="author-bio">
+            <img src="/assets/images/team/sohel.webp" alt="SM Mohammad Ali" />
+            <div>
+              <strong>SM Mohammad Ali</strong>
+              <div class="ab-role">Founder &amp; CTO, Inteople</div>
+              <p>
+                Builds and operates Inteople's AI, health and education
+                products. Writes about the engineering behind shipping
+                intelligent systems that hold up in production.
+              </p>
+              <div class="ab-links">
+                <a href="/vc/alisohel" aria-label="Profile"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <circle cx="12" cy="8" r="4" />
+                    <path
+                      d="M4 21a8 8 0 0 1 16 0"
+                      stroke-linecap="round" /></svg
+                ></a>
+                <a
+                  href="https://www.linkedin.com/company/inteople/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                      d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SHARE -->
+          <div class="article-share">
+            <span>Share</span>
+            <a
+              href="https://twitter.com/intent/tweet?url=https://inteople.com/insights/rag-in-production/&text=Stopping%20LLMs%20from%20hallucinating%3A%20RAG%20in%20production"
+              target="_blank"
+              rel="noopener"
+              aria-label="Share on X"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+            ></a>
+            <a
+              href="https://www.linkedin.com/sharing/share-offsite/?url=https://inteople.com/insights/rag-in-production/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Share on LinkedIn"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+            ></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- RELATED -->
+      <section class="section bg-alt" id="related">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Keep reading</span>
+            <h2>Related insights</h2>
+          </div>
+          <div class="related-posts">
+            <article class="post-card reveal">
+              <a
+                class="post-card-media"
+                href="/insights/ai-classroom-assistants/"
+                aria-label="Read: AI classroom assistants done right"
+                ><img
+                  src="/assets/images/products/bnhs-home.webp"
+                  alt="AI classroom assistants done right"
+                  loading="lazy"
+              /></a>
+              <div class="post-card-body">
+                <span class="post-card-cat">Education Technology</span>
+                <h3>
+                  <a href="/insights/ai-classroom-assistants/"
+                    >AI classroom assistants done right</a
+                  >
+                </h3>
+                <div class="post-card-foot"><span>9 min</span></div>
+              </div>
+            </article>
+            <article class="post-card reveal" data-delay="1">
+              <a
+                class="post-card-media"
+                href="/insights/offline-first-healthtech/"
+                aria-label="Read: Offline-first healthtech"
+                ><img
+                  src="/assets/images/products/healodex-home.webp"
+                  alt="Offline-first healthtech"
+                  loading="lazy"
+              /></a>
+              <div class="post-card-body">
+                <span class="post-card-cat">Healthcare Technology</span>
+                <h3>
+                  <a href="/insights/offline-first-healthtech/"
+                    >Offline-first healthtech</a
+                  >
+                </h3>
+                <div class="post-card-foot"><span>10 min</span></div>
+              </div>
+            </article>
+            <article class="post-card reveal" data-delay="2">
+              <a
+                class="post-card-media"
+                href="/insights/multi-tenant-saas-architecture/"
+                aria-label="Read: Multi-tenant SaaS architecture"
+                ><img
+                  src="/assets/images/products/ownbooks-ai.webp"
+                  alt="Multi-tenant SaaS architecture"
+                  loading="lazy"
+              /></a>
+              <div class="post-card-body">
+                <span class="post-card-cat">Software Engineering</span>
+                <h3>
+                  <a href="/insights/multi-tenant-saas-architecture/"
+                    >Multi-tenant SaaS architecture</a
+                  >
+                </h3>
+                <div class="post-card-foot"><span>12 min</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> Applied AI</span
+            >
+            <h2>Have an AI feature that needs to be reliable?</h2>
+            <p>
+              We design, build and operate production AI systems — with the
+              evaluation and guardrails that keep them honest.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=AI%20project"
+                >Talk to our team</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/services/ai-ml/"
+                >Explore AI &amp; ML</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Insights</h4>
+            <a href="/insights/">All articles</a>
+            <a href="/insights/offline-first-healthtech/">Healthcare</a>
+            <a href="/insights/secure-ota-updates-iot/">IoT</a>
+            <a href="/insights/multi-tenant-saas-architecture/">Software</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/work/">Work</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+# Legacy v1 site — frozen, do not reformat.
+archive/
+
+# Vendored third-party code (minified).
+**/vendor/
+
+# Generated / data files.
+sitemap.xml
+site.webmanifest
+
+# Dependencies & build artifacts.
+node_modules/
+dist/
+.cache/

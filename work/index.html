@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      Work &amp; Case Studies — Platforms we've engineered &amp; operate |
+      Inteople
+    </title>
+    <meta
+      name="description"
+      content="Case studies from Inteople: how we engineered and operate intelligent platforms across healthtech, applied AI and edtech — the problem, solution, technology, implementation, impact and metrics." />
+    <link rel="canonical" href="https://inteople.com/work/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta property="og:title" content="Work & Case Studies | Inteople" />
+    <meta
+      property="og:description"
+      content="How we engineer and operate intelligent platforms — problem, solution, technology, impact and metrics." />
+    <meta property="og:url" content="https://inteople.com/work/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Work & Case Studies | Inteople" />
+    <meta
+      name="twitter:description"
+      content="Platforms we've engineered and operate." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/products.css" />
+    <link rel="stylesheet" href="/assets/styles/work.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://inteople.com/work/#page",
+            "name": "Work & Case Studies",
+            "url": "https://inteople.com/work/",
+            "isPartOf": { "@id": "https://inteople.com/#website" }
+          },
+          {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Healodex — Connected care for low-connectivity regions",
+                "url": "https://inteople.com/work/healodex-connected-care/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "ReplyFlow — Scaling support with AI automation",
+                "url": "https://inteople.com/work/replyflow-support-automation/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "EduNation — An AI operating system for schools",
+                "url": "https://inteople.com/work/edunation-school-os/"
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              { "@type": "ListItem", "position": 2, "name": "Work" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/" aria-current="page">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-primary btn-sm" href="#cta">Start a project</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">Work</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> Work &amp; Case Studies</span
+          >
+          <h1 class="reveal" data-delay="1">
+            Platforms we've engineered —
+            <span class="grad-text">and operate</span>.
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            We prove our engineering on our own ventures before we bring it to
+            partners. Each case study below follows the same honest arc: the
+            problem, our solution, the technology, how we built it, and the
+            impact.
+          </p>
+        </div>
+      </section>
+
+      <!-- CARD GRID + FILTER -->
+      <section class="section" id="cases">
+        <div class="container wide">
+          <div
+            class="work-filter reveal"
+            id="workFilter"
+            role="group"
+            aria-label="Filter case studies">
+            <button type="button" data-filter="all" aria-pressed="true">
+              All
+            </button>
+            <button type="button" data-filter="healthtech" aria-pressed="false">
+              HealthTech
+            </button>
+            <button type="button" data-filter="applied-ai" aria-pressed="false">
+              Applied AI
+            </button>
+            <button type="button" data-filter="edtech" aria-pressed="false">
+              EdTech
+            </button>
+            <button type="button" data-filter="iot" aria-pressed="false">
+              IoT
+            </button>
+            <button type="button" data-filter="saas" aria-pressed="false">
+              SaaS
+            </button>
+          </div>
+
+          <div class="case-cards" id="caseGrid">
+            <!-- Healodex -->
+            <article class="case-card reveal" data-tags="healthtech iot saas">
+              <a
+                class="case-card-media"
+                href="/work/healodex-connected-care/"
+                aria-label="Read the Healodex case study">
+                <span class="case-card-tagrow"
+                  ><span class="badge">HealthTech</span
+                  ><span class="badge">IoT</span></span
+                >
+                <img
+                  src="/assets/images/products/healodex-home.webp"
+                  alt="Healodex platform"
+                  loading="lazy" />
+              </a>
+              <div class="case-card-body">
+                <span class="case-card-domain">HealthTech · IoT · Cloud</span>
+                <h3>Connected care for low-connectivity regions</h3>
+                <p>
+                  How Healodex brings clinical-grade diagnostics and telehealth
+                  to places without reliable networks or specialists.
+                </p>
+                <div class="case-card-metrics">
+                  <div class="m">
+                    <b>Offline-first</b><span>architecture</span>
+                  </div>
+                  <div class="m">
+                    <b>Real-time</b><span>triage support</span>
+                  </div>
+                </div>
+                <a class="case-card-link" href="/work/healodex-connected-care/"
+                  >Read case study
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" /></svg
+                ></a>
+              </div>
+            </article>
+
+            <!-- ReplyFlow -->
+            <article class="case-card reveal" data-tags="applied-ai saas">
+              <a
+                class="case-card-media"
+                href="/work/replyflow-support-automation/"
+                aria-label="Read the ReplyFlow case study">
+                <span class="case-card-tagrow"
+                  ><span class="badge">Applied AI</span
+                  ><span class="badge">SaaS</span></span
+                >
+                <img
+                  src="/assets/images/products/replyflow.webp"
+                  alt="ReplyFlow AI"
+                  loading="lazy" />
+              </a>
+              <div class="case-card-body">
+                <span class="case-card-domain">Applied AI · SaaS</span>
+                <h3>Scaling support with AI automation</h3>
+                <p>
+                  How ReplyFlow automates routine conversations and elevates
+                  human agents — without sacrificing accuracy or control.
+                </p>
+                <div class="case-card-metrics">
+                  <div class="m"><b>Omnichannel</b><span>inbox</span></div>
+                  <div class="m">
+                    <b>Human-in-loop</b><span>by design</span>
+                  </div>
+                </div>
+                <a
+                  class="case-card-link"
+                  href="/work/replyflow-support-automation/"
+                  >Read case study
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" /></svg
+                ></a>
+              </div>
+            </article>
+
+            <!-- EduNation -->
+            <article
+              class="case-card reveal"
+              data-tags="edtech applied-ai saas">
+              <a
+                class="case-card-media"
+                href="/work/edunation-school-os/"
+                aria-label="Read the EduNation case study">
+                <span class="case-card-tagrow"
+                  ><span class="badge">EdTech</span
+                  ><span class="badge">SaaS</span></span
+                >
+                <img
+                  src="/assets/images/products/bnhs-home.webp"
+                  alt="EduNation school platform"
+                  loading="lazy" />
+              </a>
+              <div class="case-card-body">
+                <span class="case-card-domain">EdTech · Applied AI · SaaS</span>
+                <h3>An AI operating system for schools</h3>
+                <p>
+                  How EduNation replaces a school's patchwork of registers and
+                  spreadsheets with one bilingual, AI-assisted platform.
+                </p>
+                <div class="case-card-metrics">
+                  <div class="m"><b>Multi-tenant</b><span>SaaS</span></div>
+                  <div class="m"><b>বাংলা+EN</b><span>bilingual</span></div>
+                </div>
+                <a class="case-card-link" href="/work/edunation-school-os/"
+                  >Read case study
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" /></svg
+                ></a>
+              </div>
+            </article>
+          </div>
+
+          <p class="work-empty" id="workEmpty">
+            No case studies in this category yet —
+            <a href="#cases" data-reset>show all</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- RESULTS BAND -->
+      <section class="section bg-dark">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">By the numbers</span>
+            <h2>Engineering we stand behind</h2>
+          </div>
+          <div class="results-band">
+            <div class="stat reveal">
+              <b data-count="5">5</b><span>Products built &amp; operated</span>
+            </div>
+            <div class="stat reveal" data-delay="1">
+              <b data-count="4">4</b><span>Engineering disciplines</span>
+            </div>
+            <div class="stat reveal" data-delay="2">
+              <b data-count="6" data-suffix="+">6+</b
+              ><span>Industries served</span>
+            </div>
+            <div class="stat reveal" data-delay="3">
+              <b data-count="99" data-suffix=".9%">99.9%</b
+              ><span>Operated uptime</span>
+            </div>
+          </div>
+          <p
+            class="reveal"
+            style="
+              margin-top: var(--sp-5);
+              font-size: var(--fs-xs);
+              color: var(--on-dark-muted);
+            ">
+            Figures reflect Inteople's product portfolio. Per-project metrics in
+            each case study are illustrative pending published results.
+          </p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> Let's build</span
+            >
+            <h2>Want results like these for your platform?</h2>
+            <p>
+              Tell us the problem. We'll bring the same engineering discipline
+              behind our own products to yours.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=Start%20a%20project"
+                >Start a project</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/#products"
+                >See our products</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <a href="/work/healodex-connected-care/">Healodex</a>
+            <a href="/work/replyflow-support-automation/">ReplyFlow</a>
+            <a href="/work/edunation-school-os/">EduNation</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/software-engineering/">Software Engineering</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#products">Products</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+    <script>
+      // Case-study filter (page-specific)
+      (function () {
+        var filter = document.getElementById("workFilter");
+        var cards = Array.prototype.slice.call(
+          document.querySelectorAll("#caseGrid .case-card")
+        );
+        var empty = document.getElementById("workEmpty");
+        if (!filter) return;
+
+        function apply(tag) {
+          var shown = 0;
+          cards.forEach(function (card) {
+            var match =
+              tag === "all" ||
+              (card.dataset.tags || "").split(" ").indexOf(tag) !== -1;
+            card.classList.toggle("is-hidden", !match);
+            if (match) shown++;
+          });
+          if (empty) empty.classList.toggle("show", shown === 0);
+        }
+
+        filter.addEventListener("click", function (e) {
+          var btn = e.target.closest("button[data-filter]");
+          if (!btn) return;
+          filter.querySelectorAll("button").forEach(function (b) {
+            b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+          });
+          apply(btn.dataset.filter);
+        });
+
+        document.addEventListener("click", function (e) {
+          if (e.target.closest("[data-reset]")) {
+            e.preventDefault();
+            var allBtn = filter.querySelector('button[data-filter="all"]');
+            if (allBtn) allBtn.click();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

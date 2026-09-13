@@ -3,9 +3,9 @@
   publish = "."
   command = ""
 
-# Long-cache static assets (styles, scripts, images).
+# Long-cache shared assets (styles, scripts, images) — served from /assets.
 [[headers]]
-  for = "/src/*"
+  for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
@@ -30,18 +30,32 @@
   to = "/vc/:slug.html"
   status = 200
 
-# EduNation AI landing — serve /edu without the trailing index.html
+# Preserve the public /edu/ URL after moving the folder to /sites/edu.
+# (The URL /edu/ is published in sitemap.xml and must keep working.)
 [[redirects]]
-  from = "/edu"
-  to = "/edu/index.html"
+  from = "/edu/*"
+  to = "/sites/edu/:splat"
   status = 200
 
-# Subdomain: serve edu.inteople.com root from the /edu/ folder (URL stays on the
-# subdomain). Only the bare root is rewritten; assets like /edu/edu.css and
-# /src/images/* fall through to normal file serving from the shared publish root.
+[[redirects]]
+  from = "/edu"
+  to = "/sites/edu/index.html"
+  status = 200
+
+# Subdomain: serve edu.inteople.com root from /sites/edu (URL stays on the
+# subdomain). Only the bare root is rewritten; assets under /assets/* fall
+# through to normal file serving from the shared publish root.
 # INERT until a Netlify domain alias + DNS CNAME for edu.inteople.com exist.
 [[redirects]]
   from = "https://edu.inteople.com/"
-  to = "/edu/index.html"
+  to = "/sites/edu/index.html"
+  status = 200
+  force = true
+
+# Subdomain: serve brdb.inteople.com root from /sites/brdb.
+# INERT until a Netlify domain alias + DNS CNAME for brdb.inteople.com exist.
+[[redirects]]
+  from = "https://brdb.inteople.com/"
+  to = "/sites/brdb/index.html"
   status = 200
   force = true

@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      About Inteople — Our story, mission &amp; the company we're building
+    </title>
+    <meta
+      name="description"
+      content="Inteople is a parent technology company building intelligent digital platforms, AI products and connected ecosystems. Learn our story, mission, vision, values, milestones and leadership." />
+    <link rel="canonical" href="https://inteople.com/company/about/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="About Inteople — Our story, mission & direction" />
+    <meta
+      property="og:description"
+      content="A parent technology company engineering AI products, software platforms and connected ecosystems — and operating its own ventures. Here's why we exist and where we're headed." />
+    <meta property="og:url" content="https://inteople.com/company/about/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="About Inteople — Our story, mission & direction" />
+    <meta
+      name="twitter:description"
+      content="Why Inteople exists, what we're building, and the team behind it." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+
+    <!-- Icons -->
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+
+    <!-- JSON-LD: AboutPage + Organization + Breadcrumb + key people -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://inteople.com/#org",
+            "name": "Inteople",
+            "legalName": "Inteople Limited",
+            "url": "https://inteople.com/",
+            "logo": "https://inteople.com/assets/images/brand/logo-256.png",
+            "description": "A parent technology company engineering intelligent digital platforms, AI products and connected ecosystems.",
+            "email": "hello@inteople.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dhaka",
+              "addressCountry": "BD"
+            },
+            "founder": {
+              "@type": "Person",
+              "name": "SM Mohammad Ali",
+              "jobTitle": "Founder & CTO"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/inteople/",
+              "https://twitter.com/Inteopleltd",
+              "https://www.facebook.com/inteople"
+            ]
+          },
+          {
+            "@type": "AboutPage",
+            "@id": "https://inteople.com/company/about/#about",
+            "url": "https://inteople.com/company/about/",
+            "name": "About Inteople",
+            "isPartOf": { "@id": "https://inteople.com/#website" },
+            "about": { "@id": "https://inteople.com/#org" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Company",
+                "item": "https://inteople.com/company/about/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "About"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home">
+          <img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople
+        </a>
+
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/" aria-current="page">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn btn-primary btn-sm" href="/#contact">Start a project</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============================ PAGE HERO ============================ -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep" aria-hidden="true">/</span>
+            <span>Company</span>
+            <span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">About</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> About Inteople</span
+          >
+          <h1 class="reveal" data-delay="1">
+            We build the technology companies
+            <span class="grad-text">we wish existed</span>.
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            Inteople is a parent technology company. We engineer intelligent
+            digital platforms and AI products for partners — and build and
+            operate our own ventures to prove the model and push the technology
+            forward.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================ WHY WE EXIST ============================ -->
+      <section class="section" id="why">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Why Inteople exists</span>
+          </div>
+          <div class="why">
+            <p class="why-statement reveal">
+              Great software shouldn't stay locked inside the few companies that
+              can afford world-class engineering.
+              <b>We exist to change that.</b>
+            </p>
+            <div class="why-body reveal" data-delay="1">
+              <p>
+                Too many ambitious products die in the gap between a strong idea
+                and the deep, multidisciplinary engineering needed to ship it —
+                AI, software, cloud and hardware that actually work together in
+                production.
+              </p>
+              <p>
+                Inteople was founded to close that gap. We assemble the
+                strategy, intelligence, software and connected hardware as a
+                single team, so an idea becomes a system that runs reliably in
+                the real world. And because we hold ourselves to the same bar,
+                we build and operate our own products in regulated, high-stakes
+                domains — health, finance, education and industry — where
+                getting the engineering right genuinely matters.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ STORY ============================ -->
+      <section class="section bg-alt" id="story">
+        <div class="container wide">
+          <div class="story">
+            <div class="story-body">
+              <div class="section-head reveal compact">
+                <span class="eyebrow">Our story</span>
+                <h2>From a small engineering team to a product company</h2>
+              </div>
+              <p class="lead reveal">
+                Inteople started with a simple conviction: the best way to prove
+                you can build something is to build it — and then run it.
+              </p>
+              <p class="reveal" data-delay="1">
+                We began as a tight group of engineers taking on the hard
+                problems other teams avoided — real-time systems, applied AI,
+                connected devices. Each project taught us the same lesson:
+                shipping is only half the work; operating a product in
+                production is where the engineering is truly tested.
+              </p>
+              <p class="reveal" data-delay="2">
+                So we stopped thinking like a services shop and started thinking
+                like a product company. We invested in our own ventures —
+                Healodex in healthtech, ReplyFlow in applied AI, OwnBooks in
+                fintech — and used what we learned operating them to raise the
+                standard of every platform we build for partners. Today Inteople
+                is the parent behind both: an engineering company and the
+                products it owns.
+              </p>
+            </div>
+            <figure class="story-media reveal" data-delay="1">
+              <img
+                src="/assets/images/team/cto-team.webp"
+                alt="The Inteople engineering team at work"
+                loading="lazy" />
+              <figcaption>
+                The team behind Inteople's platforms and ventures.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ MISSION + VISION ============================ -->
+      <section class="section bg-dark" id="mission">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Our direction</span>
+            <h2>Where we're going, and how we get there</h2>
+          </div>
+          <div class="mv-grid">
+            <article class="mv reveal">
+              <span class="ic" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="12" cy="12" r="0.8" fill="currentColor" />
+                </svg>
+              </span>
+              <h3>Mission</h3>
+              <p>
+                To engineer intelligent digital platforms, AI products and
+                connected ecosystems that make ambitious ideas real — built to
+                enterprise standards and operated with care.
+              </p>
+            </article>
+            <article class="mv reveal" data-delay="1">
+              <span class="ic" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"
+                    stroke-linejoin="round" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </span>
+              <h3>Vision</h3>
+              <p>
+                A world where any organization — not just the largest — can
+                access world-class engineering and ship intelligent products
+                that earn lasting trust. We aim to be the technology partner and
+                product company that makes that possible.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ VALUES ============================ -->
+      <section class="section" id="values">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">What we value</span>
+            <h2>The principles behind every build</h2>
+            <p class="lead">
+              Values we hold ourselves to — whether the product is a partner's
+              or our own.
+            </p>
+          </div>
+
+          <div class="values-grid">
+            <article class="value reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Engineering integrity</h4>
+              <p>
+                We don't recommend what we haven't shipped and operated.
+                Quality, tests and ownership are non-negotiable.
+              </p>
+            </article>
+            <article class="value reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" />
+                  <path
+                    d="m9 12 2 2 4-4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Trust by default</h4>
+              <p>
+                We build in regulated domains where data, privacy and
+                reliability are sacred. Trust is designed in, not bolted on.
+              </p>
+            </article>
+            <article class="value reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"
+                    stroke-linecap="round" />
+                  <circle cx="12" cy="12" r="3" /></svg
+              ></span>
+              <h4>Intelligence with intent</h4>
+              <p>
+                AI is a tool, not a headline. We apply it where it solves a real
+                problem and makes the product measurably better.
+              </p>
+            </article>
+            <article class="value reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"
+                    stroke-linecap="round" />
+                  <circle cx="9" cy="7" r="3.5" />
+                  <path
+                    d="M17 11a3 3 0 1 0-2-5.2M21 21v-2a4 4 0 0 0-3-3.8"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <h4>Ownership mindset</h4>
+              <p>
+                We treat every product like it's ours — because often it is. We
+                stay accountable through launch and operation.
+              </p>
+            </article>
+            <article class="value reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Bias for shipping</h4>
+              <p>
+                We move in tight increments and get real software in front of
+                real users — learning beats speculation.
+              </p>
+            </article>
+            <article class="value reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9" />
+                  <path
+                    d="M12 7v5l3 2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <h4>Built to last</h4>
+              <p>
+                We design for scale and change, document what we build, and
+                leave systems healthier than we found them.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ MILESTONES ============================ -->
+      <section class="section bg-alt" id="milestones">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Milestones</span>
+            <h2>The trajectory so far</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="milestone reveal">
+              <span class="year">Founded</span>
+              <h4>Inteople begins as an engineering team</h4>
+              <p>
+                A small group of engineers takes on real-time systems, applied
+                AI and connected-device work others avoid.
+              </p>
+            </article>
+            <article class="milestone reveal" data-delay="1">
+              <span class="year">HealthTech</span>
+              <h4>Healodex launches</h4>
+              <p>
+                Our flagship venture — real-time health intelligence and
+                telehealth infrastructure with IoT diagnostics and
+                doctor-in-the-loop triage.
+              </p>
+            </article>
+            <article class="milestone reveal" data-delay="2">
+              <span class="year">Applied AI</span>
+              <h4>ReplyFlow brings AI automation to market</h4>
+              <p>
+                AI reply and workflow automation that drafts, routes and
+                resolves customer conversations across channels.
+              </p>
+            </article>
+            <article class="milestone reveal" data-delay="3">
+              <span class="year">FinTech</span>
+              <h4>OwnBooks automates the back office</h4>
+              <p>
+                AI bookkeeping with automated categorization, reconciliation and
+                reporting — applied AI in a regulated, audit-grade domain.
+              </p>
+            </article>
+            <article class="milestone reveal">
+              <span class="year">Today</span>
+              <h4>A parent technology company</h4>
+              <p>
+                Inteople now operates as the parent behind both partner
+                engineering and its own portfolio of products across health,
+                finance, education and industry.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ FOUNDER / CTO PROFILE ============================ -->
+      <section class="section" id="founder">
+        <div class="container wide">
+          <div class="founder">
+            <figure class="founder-media reveal">
+              <img
+                src="/assets/images/team/sohel.webp"
+                alt="SM Mohammad Ali, Founder & CTO of Inteople"
+                loading="lazy" />
+            </figure>
+            <div class="founder-body reveal" data-delay="1">
+              <span class="eyebrow">Founder &amp; CTO</span>
+              <h2 class="founder-name">SM Mohammad Ali</h2>
+              <p class="founder-role">Founder &amp; Chief Technology Officer</p>
+              <p>
+                Inteople grew out of a single belief I kept returning to as an
+                engineer: the hardest part of technology isn't having the idea —
+                it's building it well enough to trust, and operating it long
+                enough to matter.
+              </p>
+              <p>
+                I started Inteople to bring AI, software, cloud and connected
+                hardware under one roof, so ambitious products don't fall apart
+                at the seams between disciplines. We build for partners, and we
+                build our own ventures — in healthtech, fintech, edtech and IoT
+                — because shipping and running real products is the only honest
+                way to earn the right to build someone else's.
+              </p>
+              <div class="founder-sign">
+                <a
+                  class="btn btn-ghost btn-sm"
+                  href="/vc/alisohel"
+                  target="_blank"
+                  rel="noopener">
+                  View profile
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <span
+                  >Building AI, SaaS, mobile and IoT products across healthtech,
+                  fintech, agrotech and edutech.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ LEADERSHIP ============================ -->
+      <section class="section bg-alt" id="leadership">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Leadership</span>
+            <h2>The people steering Inteople</h2>
+            <p class="lead">
+              Engineers and operators who build, ship and run what we make.
+            </p>
+          </div>
+
+          <div class="leaders">
+            <article class="leader reveal">
+              <img
+                class="leader-photo"
+                src="/assets/images/team/propel.webp"
+                alt="M R N Propel"
+                loading="lazy" />
+              <b>M R N Propel</b>
+              <span>Chief Executive Officer</span>
+              <div class="leader-links">
+                <a
+                  href="https://www.linkedin.com/company/inteople/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                      d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="leader reveal" data-delay="1">
+              <img
+                class="leader-photo"
+                src="/assets/images/team/sohel.webp"
+                alt="SM Mohammad Ali"
+                loading="lazy" />
+              <b>SM Mohammad Ali</b>
+              <span>Founder &amp; CTO</span>
+              <div class="leader-links">
+                <a
+                  href="https://www.linkedin.com/in/alisohel/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                      d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="leader reveal" data-delay="2">
+              <div class="leader-photo placeholder" aria-hidden="true">MA</div>
+              <b>Mohammad Ahsan</b>
+              <span>Director, Finance</span>
+            </article>
+
+            <article class="leader reveal" data-delay="3">
+              <div class="leader-photo placeholder" aria-hidden="true">MN</div>
+              <b>Mohammad Nasim Ahmen</b>
+              <span>Director, Admin</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ CTA ============================ -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> Let's build</span
+            >
+            <h2>Want to build something that lasts with us?</h2>
+            <p>
+              Whether you're scoping a platform, an AI product or a connected
+              device — or exploring a partnership — we'd like to hear from you.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-primary btn-lg" href="mailto:hello@inteople.com"
+                >Start a project</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/#products"
+                >Explore our products</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home">
+              <img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople
+            </a>
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" />
+                </svg>
+              </a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#approach">How we work</a>
+            <a href="/company/about/#leadership">Leadership</a>
+            <a href="/#contact">Contact</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Capabilities</h4>
+            <a href="/#capabilities">AI &amp; ML</a>
+            <a href="/#capabilities">Software engineering</a>
+            <a href="/#capabilities">IoT &amp; embedded</a>
+            <a href="/#capabilities">Cloud &amp; platforms</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="https://healodex.com" target="_blank" rel="noopener"
+              >Healodex</a
+            >
+            <a href="https://aireply.com" target="_blank" rel="noopener"
+              >ReplyFlow</a
+            >
+            <a href="https://ownbooks.ai" target="_blank" rel="noopener"
+              >OwnBooks</a
+            >
+            <a href="/#products">All products</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

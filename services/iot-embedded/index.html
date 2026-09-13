@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>IoT &amp; Embedded Systems Development | Inteople</title>
+    <meta
+      name="description"
+      content="Inteople engineers connected products end to end — firmware, edge devices, telemetry pipelines and secure device-to-cloud — on ESP32, STM32 and Linux, with OTA updates and fleet management." />
+    <link rel="canonical" href="https://inteople.com/services/iot-embedded/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="IoT & Embedded Systems Development | Inteople" />
+    <meta
+      property="og:description"
+      content="Firmware, edge devices, telemetry and secure device-to-cloud — connected products that run in the field." />
+    <meta
+      property="og:url"
+      content="https://inteople.com/services/iot-embedded/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="IoT & Embedded Systems Development | Inteople" />
+    <meta
+      name="twitter:description"
+      content="Firmware, edge, telemetry and secure device-to-cloud." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/brand/og-image.png" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/services.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://inteople.com/services/iot-embedded/#service",
+            "serviceType": "IoT & Embedded Systems Development",
+            "name": "IoT & Embedded Systems Development",
+            "description": "End-to-end connected product engineering: firmware, edge devices, telemetry pipelines and secure device-to-cloud with OTA updates and fleet management.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "url": "https://inteople.com/"
+            },
+            "areaServed": "Worldwide",
+            "url": "https://inteople.com/services/iot-embedded/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://inteople.com/services/"
+              },
+              { "@type": "ListItem", "position": 3, "name": "IoT & Embedded" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do you handle both hardware and software?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We specialize in firmware, embedded software and the full device-to-cloud stack, and we work with your electronics/hardware partners or ours on schematics, board bring-up and enclosure integration. We can own the complete connected-product software lifecycle."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do devices work with poor or no connectivity?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We design offline-first: local buffering, store-and-forward sync, edge processing and conflict resolution, so devices keep working and reconcile data when connectivity returns. This is proven in Healodex for low-connectivity healthcare settings."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you update firmware on devices already in the field?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We build secure over-the-air (OTA) update pipelines with signed images, staged rollouts and rollback, plus fleet management to monitor and manage devices at scale."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you secure connected devices?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "With secure boot, encrypted storage and transport (TLS/mTLS), per-device identity and credentials, signed OTA, and least-privilege cloud access — security designed in from the firmware up."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/" aria-current="page">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-primary btn-sm" href="#cta">Discuss a device</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+            <a href="/services/">Services</a
+            ><span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">IoT &amp; Embedded</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> IoT &amp; Embedded Systems</span
+          >
+          <h1 class="reveal" data-delay="1">
+            Connected products that
+            <span class="grad-text">run in the real world</span>.
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            We engineer the full connected-product stack — firmware, edge
+            devices, telemetry pipelines and secure device-to-cloud — with
+            offline-first behavior, OTA updates and fleet management built to
+            survive the field, not just the lab.
+          </p>
+          <div class="svc-hero-tags reveal" data-delay="3">
+            <span>firmware</span><span>edge computing</span
+            ><span>telemetry</span> <span>device-to-cloud</span><span>OTA</span
+            ><span>fleet management</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IT IS -->
+      <section class="section" id="what">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">What this is</span>
+            <h2>Hardware meets software — engineered as one system</h2>
+          </div>
+          <div class="svc-intro">
+            <p class="svc-intro-lead reveal">
+              The hardest part of IoT isn't the device — it's making thousands
+              of them
+              <b>reliable, secure and updatable</b> once they're deployed and
+              out of reach.
+            </p>
+            <div class="svc-intro-body reveal" data-delay="1">
+              <p>
+                We build connected products that bridge the physical and digital
+                worlds: firmware on constrained microcontrollers, edge
+                intelligence that processes data where it's generated, and cloud
+                back-ends that ingest telemetry and manage fleets securely at
+                scale.
+              </p>
+              <p>
+                It's a capability we've proven in the hardest setting — the
+                Healodex Kit brings diagnostics to low-connectivity healthcare
+                environments, where offline-first sync and device security
+                aren't optional.
+              </p>
+              <ul class="svc-intro-list">
+                <li>
+                  Firmware and embedded software for MCUs and embedded Linux
+                </li>
+                <li>Edge processing, sensor fusion and on-device inference</li>
+                <li>Telemetry pipelines and device-to-cloud connectivity</li>
+                <li>
+                  Secure OTA updates and fleet provisioning &amp; monitoring
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEMS -->
+      <section class="section bg-alt" id="problems">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Problems we solve</span>
+            <h2>Where connected products fail in the field</h2>
+          </div>
+          <div class="problem-grid">
+            <article class="problem reveal">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Unreliable connectivity
+              </h4>
+              <p>
+                Devices that only work with a perfect network are useless in the
+                places they're needed most.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> offline-first design: local buffering,
+                store-and-forward sync and edge processing.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="1">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >No way to update fielded devices
+              </h4>
+              <p>
+                A bug or security flaw becomes a recall when there's no safe way
+                to push firmware remotely.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> signed OTA pipelines, staged rollouts
+                and automatic rollback.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="2">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Insecure devices
+              </h4>
+              <p>
+                Unauthenticated, unencrypted devices are an open door into the
+                network and the data.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> secure boot, per-device identity,
+                encrypted transport and least-privilege cloud access.</span
+              >
+            </article>
+            <article class="problem reveal">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Power &amp; resource limits
+              </h4>
+              <p>
+                Battery devices and tiny MCUs can't run cloud-grade software
+                without dying or choking.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> low-power firmware, efficient protocols
+                and edge inference sized to the hardware.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="1">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >No visibility into the fleet
+              </h4>
+              <p>
+                When you can't see device health, failures are discovered by
+                customers, not dashboards.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> telemetry, remote diagnostics and fleet
+                dashboards with alerting.</span
+              >
+            </article>
+            <article class="problem reveal" data-delay="2">
+              <h4>
+                <svg
+                  class="x"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                    stroke-linejoin="round" /></svg
+                >Hardware/software silos
+              </h4>
+              <p>
+                When firmware and cloud teams don't speak, the seams between
+                them are where products break.
+              </p>
+              <span class="solves"
+                ><b>We solve it with</b> one team owning the device-to-cloud
+                contract end to end.</span
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAPABILITIES -->
+      <section class="section bg-dark" id="capabilities">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">What's included</span>
+            <h2>Capabilities we deliver</h2>
+          </div>
+          <div class="svc-cap-grid">
+            <article class="svc-cap reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <rect x="9" y="9" width="6" height="6" />
+                  <path
+                    d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"
+                    stroke-linecap="round" /></svg
+              ></span>
+              <div>
+                <h4>Firmware &amp; embedded software</h4>
+                <p>
+                  Bare-metal, RTOS and embedded Linux firmware for ESP32, STM32,
+                  Nordic and ARM Cortex-M targets.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 2v4M12 18v4M2 12h4M18 12h4"
+                    stroke-linecap="round" />
+                  <circle cx="5" cy="5" r="1.5" />
+                  <circle cx="19" cy="19" r="1.5" /></svg
+              ></span>
+              <div>
+                <h4>Edge computing &amp; sensor fusion</h4>
+                <p>
+                  On-device processing, sensor fusion and TinyML inference so
+                  devices act fast without round-tripping the cloud.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M4 17a4 4 0 0 1 0-8 6 6 0 0 1 11.6-1.5A4.5 4.5 0 0 1 18 17Z"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M12 12v6M9 15l3-3 3 3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Device-to-cloud connectivity</h4>
+                <p>
+                  MQTT, CoAP and HTTPS pipelines, gateways and protocol bridges
+                  that move data reliably from device to back-end.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="3">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 3v18h18" stroke-linecap="round" />
+                  <path
+                    d="m7 13 3 3 4-6 4 4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Telemetry &amp; time-series data</h4>
+                <p>
+                  High-throughput ingestion, time-series storage and analytics
+                  for monitoring, alerting and insight.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M21 12a9 9 0 1 1-9-9" stroke-linecap="round" />
+                  <path
+                    d="M21 3v6h-6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Secure OTA updates</h4>
+                <p>
+                  Signed, staged firmware updates with rollback and A/B
+                  partitions, so fielded fleets stay current and safe.
+                </p>
+              </div>
+            </article>
+            <article class="svc-cap reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" />
+                  <path
+                    d="m9 12 2 2 4-4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Device security &amp; provisioning</h4>
+                <p>
+                  Secure boot, per-device identity, encrypted storage/transport
+                  and zero-touch provisioning at manufacture.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section class="section" id="stack">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Technologies we use</span>
+            <h2>From silicon to cloud</h2>
+            <p class="lead">
+              We choose hardware and protocols to fit power, cost and
+              connectivity constraints.
+            </p>
+          </div>
+          <div class="stack">
+            <div class="stack-group reveal">
+              <h4>MCUs &amp; platforms</h4>
+              <div class="chips">
+                <span>ESP32</span><span>STM32</span><span>Nordic nRF</span
+                ><span>ARM Cortex-M</span><span>Raspberry Pi</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="1">
+              <h4>Firmware &amp; RTOS</h4>
+              <div class="chips">
+                <span>C / C++</span><span>Rust</span><span>FreeRTOS</span
+                ><span>Zephyr</span><span>ESP-IDF</span
+                ><span>Embedded Linux</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="2">
+              <h4>Connectivity</h4>
+              <div class="chips">
+                <span>MQTT</span><span>CoAP</span><span>BLE</span
+                ><span>LoRaWAN</span><span>Wi-Fi</span
+                ><span>Cellular / LTE-M</span>
+              </div>
+            </div>
+            <div class="stack-group reveal">
+              <h4>Edge AI</h4>
+              <div class="chips">
+                <span>TensorFlow Lite</span><span>TinyML</span><span>ONNX</span
+                ><span>Edge Impulse</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="1">
+              <h4>Cloud &amp; data</h4>
+              <div class="chips">
+                <span>AWS IoT</span><span>Azure IoT</span><span>InfluxDB</span
+                ><span>TimescaleDB</span><span>Kafka</span>
+              </div>
+            </div>
+            <div class="stack-group reveal" data-delay="2">
+              <h4>Fleet &amp; ops</h4>
+              <div class="chips">
+                <span>OTA (signed)</span><span>Mender</span><span>Grafana</span
+                ><span>Prometheus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section class="section bg-alt" id="benefits">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Benefits</span>
+            <h2>What you get from working this way</h2>
+          </div>
+          <div class="benefit-grid">
+            <div class="benefit reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Reliable in the field</h4>
+                <p>
+                  Offline-first behavior and robust firmware keep devices
+                  working where connectivity can't be assumed.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal" data-delay="1">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M21 12a9 9 0 1 1-9-9" stroke-linecap="round" />
+                  <path
+                    d="M21 3v6h-6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Updatable for life</h4>
+                <p>
+                  Secure OTA means you can fix, improve and extend products long
+                  after they ship.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal" data-delay="2">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M20 7 9 18l-5-5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>Secure by design</h4>
+                <p>
+                  Security built from the firmware up protects your data, your
+                  network and your brand.
+                </p>
+              </div>
+            </div>
+            <div class="benefit reveal">
+              <span class="ic" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M3 3v18h18" stroke-linecap="round" />
+                  <path
+                    d="m7 14 3-4 3 3 5-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></span>
+              <div>
+                <h4>One accountable team</h4>
+                <p>
+                  Device, connectivity and cloud owned together — no
+                  finger-pointing across the seams.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUTCOMES -->
+      <section class="section bg-dark" id="outcomes">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Example outcomes</span>
+            <h2>The kind of results this work produces</h2>
+            <p class="lead">
+              Representative of outcomes from connected-product engineering,
+              proven in the Healodex Kit.
+            </p>
+          </div>
+          <div class="outcome-grid">
+            <article class="outcome reveal">
+              <b>Offline-first</b>
+              <h4>Diagnostics without a network</h4>
+              <p>
+                Edge devices that capture and process data locally, then sync
+                reliably when connectivity returns.
+              </p>
+            </article>
+            <article class="outcome reveal" data-delay="1">
+              <b>Field-updatable</b>
+              <h4>Fleets kept current &amp; safe</h4>
+              <p>
+                Signed OTA pipelines that roll out firmware in stages with
+                rollback — no recalls for software fixes.
+              </p>
+            </article>
+            <article class="outcome reveal" data-delay="2">
+              <b>Real-time</b>
+              <h4>Telemetry you can act on</h4>
+              <p>
+                Device health and sensor streams surfaced on dashboards with
+                alerting before failures reach users.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head center reveal">
+            <span class="eyebrow">FAQ</span>
+            <h2>Questions teams ask before starting</h2>
+          </div>
+          <div class="faq reveal">
+            <details>
+              <summary>
+                Do you handle both hardware and software?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                We specialize in firmware, embedded software and the full
+                device-to-cloud stack, and we work with your
+                electronics/hardware partners or ours on schematics, board
+                bring-up and enclosure integration. We can own the complete
+                connected-product software lifecycle.
+              </p>
+            </details>
+            <details>
+              <summary>
+                How do devices work with poor or no connectivity?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                We design offline-first: local buffering, store-and-forward
+                sync, edge processing and conflict resolution, so devices keep
+                working and reconcile data when connectivity returns. This is
+                proven in Healodex for low-connectivity healthcare settings.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Can you update firmware on devices already in the field?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                Yes. We build secure over-the-air (OTA) update pipelines with
+                signed images, staged rollouts and rollback, plus fleet
+                management to monitor and manage devices at scale.
+              </p>
+            </details>
+            <details>
+              <summary>
+                How do you secure connected devices?<span
+                  class="plus"
+                  aria-hidden="true"></span>
+              </summary>
+              <p>
+                With secure boot, encrypted storage and transport (TLS/mTLS),
+                per-device identity and credentials, signed OTA, and
+                least-privilege cloud access — security designed in from the
+                firmware up.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED -->
+      <section class="section bg-alt" id="related">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Proof in our own products</span>
+            <h2>Connected products we build and operate</h2>
+          </div>
+          <div class="related-grid">
+            <article class="related reveal">
+              <span class="related-domain">HealthTech · IoT</span>
+              <h4>Healodex Kit</h4>
+              <p>
+                Edge diagnostics and offline-first sync for low-connectivity
+                healthcare.
+              </p>
+              <a
+                class="prod-link"
+                href="https://healodex.com"
+                target="_blank"
+                rel="noopener"
+                >Visit Healodex
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+            <article class="related reveal" data-delay="1">
+              <span class="related-domain">Service</span>
+              <h4>AI &amp; ML</h4>
+              <p>
+                On-device inference and edge intelligence for connected
+                products.
+              </p>
+              <a class="prod-link" href="/services/ai-ml/"
+                >Explore AI &amp; ML
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+            <article class="related reveal" data-delay="2">
+              <span class="related-domain">Service</span>
+              <h4>Cloud &amp; DevOps</h4>
+              <p>
+                Scalable ingestion and back-ends for device telemetry at fleet
+                scale.
+              </p>
+              <a class="prod-link" href="/services/cloud/"
+                >Explore Cloud
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" /></svg
+              ></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- OTHER SERVICES -->
+      <section class="section tight" id="services">
+        <div class="container wide">
+          <div class="section-head reveal compact">
+            <span class="eyebrow">Explore capabilities</span>
+          </div>
+          <nav class="svc-nav reveal" aria-label="Other services">
+            <a href="/services/ai-ml/"
+              >AI &amp; ML
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/software-engineering/"
+              >Software Engineering
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/iot-embedded/" aria-current="page"
+              >IoT &amp; Embedded
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+            <a href="/services/cloud/"
+              >Cloud &amp; DevOps
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" /></svg
+            ></a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> IoT &amp; Embedded</span
+            >
+            <h2>Building a connected product?</h2>
+            <p>
+              From firmware to fleet, we'll engineer a device-to-cloud system
+              that's reliable, secure and updatable for its whole lifetime.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=IoT%20%26%20embedded%20project"
+                >Discuss your connected product</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/#products"
+                >See our products</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/software-engineering/">Software Engineering</a>
+            <a href="/services/iot-embedded/">IoT &amp; Embedded</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#approach">How we work</a>
+            <a href="/company/about/#leadership">Leadership</a>
+            <a href="/#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="https://healodex.com" target="_blank" rel="noopener"
+              >Healodex</a
+            >
+            <a href="https://aireply.com" target="_blank" rel="noopener"
+              >ReplyFlow</a
+            >
+            <a href="https://ownbooks.ai" target="_blank" rel="noopener"
+              >OwnBooks</a
+            >
+            <a href="/#products">All products</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+/* ============================================================================
+   Inteople v2 — Design Tokens (single source of truth)
+   ----------------------------------------------------------------------------
+   The parent design system. Products theme themselves by overriding the
+   --accent slot only (structure + neutrals stay identical). Premium navy +
+   coral, formalized from the existing site palette.
+   ========================================================================== */
+:root {
+  /* ---- Brand: deep slate-navy ---- */
+  --navy-900: #0e1626; /* darkest — hero canvas */
+  --navy-800: #15203a;
+  --navy-700: #1c2c4d;
+  --brand: #2b3a55; /* primary slate navy */
+  --brand-2: #3f5575;
+  --brand-3: #6b80a3;
+
+  /* ---- Accent: warm coral ---- */
+  --accent: #ff6a50; /* overridable per product */
+  --accent-2: #ff8a73;
+  --accent-3: #ffb39f;
+  --accent-soft: #ffe6e0;
+  --accent-ink: #c5371f; /* accessible coral text on light */
+
+  /* ---- Surfaces ---- */
+  --bg: #f7f9fc;
+  --bg-2: #eef2f8;
+  --bg-3: #e6ecf5;
+  --surface: #fff;
+  --surface-raised: #fff;
+  --line: #e2e8f2;
+  --line-strong: #d3dcea;
+
+  /* ---- Dark surfaces (hero / dark sections) ---- */
+  --dark-bg: var(--navy-900);
+  --dark-surface: rgba(255, 255, 255, 0.04);
+  --dark-line: rgba(255, 255, 255, 0.1);
+  --on-dark: #eaf0fb;
+  --on-dark-muted: #97a6c4;
+
+  /* ---- Ink ---- */
+  --ink: #1f2a3d;
+  --ink-2: #33425c;
+  --muted: #5d6b82;
+  --muted-2: #8a96ab;
+
+  /* ---- Semantic ---- */
+  --success: #16a37a;
+  --warning: #e0a106;
+  --danger: #e0483d;
+  --info: #2f6df6;
+
+  /* ---- Gradients ---- */
+  --grad-accent: linear-gradient(120deg, #ff6a50 0%, #ff8a73 100%);
+  --grad-brand: linear-gradient(135deg, #2b3a55 0%, #1c2c4d 100%);
+  /* Refined hero: one calm navy base + a single soft coral glow (top-right). */
+  --grad-hero:
+    radial-gradient(
+      1100px 520px at 82% -8%,
+      rgba(255, 106, 80, 0.14),
+      transparent 62%
+    ),
+    linear-gradient(165deg, #16203a 0%, #131c33 60%, #0f1728 100%);
+  --grad-text: linear-gradient(120deg, #ff8a73 0%, #ff6a50 100%);
+
+  /* ---- Typography ---- */
+  --font:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-mono:
+    "SFMono-Regular", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* Fluid type scale — calmer, cleaner (v1-like restraint) */
+  --fs-display: clamp(2.4rem, 1.6rem + 2.6vw, 3.6rem);
+  --fs-h1: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  --fs-h2: clamp(1.55rem, 1.2rem + 1.4vw, 2.25rem);
+  --fs-h3: clamp(1.25rem, 1.05rem + 0.75vw, 1.55rem);
+  --fs-h4: clamp(1.08rem, 1rem + 0.35vw, 1.2rem);
+  --fs-lead: clamp(1.05rem, 0.99rem + 0.35vw, 1.2rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.9rem;
+  --fs-xs: 0.8rem;
+  --fs-eyebrow: 0.78rem;
+
+  --lh-tight: 1.08;
+  --lh-snug: 1.25;
+  --lh-body: 1.65;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* ---- Spacing (4px base) ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+  --section-y: clamp(64px, 4vw + 40px, 112px);
+
+  /* ---- Radius ---- */
+  --r-sm: 12px;
+  --r: 18px;
+  --r-lg: 24px;
+  --r-pill: 999px;
+
+  /* ---- Elevation (subtle, clean) ---- */
+  --shadow-soft: 0 6px 20px -16px rgba(20, 32, 58, 0.18);
+  --shadow: 0 14px 34px -22px rgba(20, 32, 58, 0.22);
+  --shadow-lg: 0 34px 70px -40px rgba(20, 32, 58, 0.38);
+  --ring: 0 0 0 3px rgba(255, 106, 80, 0.4);
+
+  /* ---- Layout ---- */
+  --container: 1180px;
+  --container-wide: 1320px;
+  --container-article: 720px;
+
+  /* ---- Motion ---- */
+  --dur-fast: 0.16s;
+  --dur: 0.28s;
+  --dur-slow: 0.55s;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Z ---- */
+  --z-header: 100;
+  --z-drawer: 200;
+}

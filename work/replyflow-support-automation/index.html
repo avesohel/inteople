@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Enable the reveal-on-scroll hidden state only when JS is present, so
+         content never collapses to opacity:0 without JS. Must run before CSS. -->
+    <script>
+      document.documentElement.className += " js";
+    </script>
+
+    <title>
+      Case study: ReplyFlow — Scaling support with AI automation | Inteople
+    </title>
+    <meta
+      name="description"
+      content="How Inteople built ReplyFlow — AI reply and workflow automation that resolves routine customer conversations and elevates human agents. Problem, solution, technology, implementation, impact and metrics." />
+    <link
+      rel="canonical"
+      href="https://inteople.com/work/replyflow-support-automation/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Inteople" />
+    <meta
+      property="og:title"
+      content="Case study: ReplyFlow — Scaling support with AI automation" />
+    <meta
+      property="og:description"
+      content="AI reply and workflow automation engineered and operated by Inteople." />
+    <meta
+      property="og:url"
+      content="https://inteople.com/work/replyflow-support-automation/" />
+    <meta
+      property="og:image"
+      content="https://inteople.com/assets/images/products/replyflow.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Case study: ReplyFlow — AI support automation" />
+    <meta
+      name="twitter:description"
+      content="AI reply & workflow automation by Inteople." />
+    <meta
+      name="twitter:image"
+      content="https://inteople.com/assets/images/products/replyflow.webp" />
+
+    <link rel="icon" href="/assets/images/icons/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/icons/favicon-16.png" sizes="16x16" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/styles/tokens.css" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="/assets/styles/about.css" />
+    <link rel="stylesheet" href="/assets/styles/products.css" />
+    <link rel="stylesheet" href="/assets/styles/work.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://inteople.com/work/replyflow-support-automation/#article",
+            "headline": "ReplyFlow — Scaling support with AI automation",
+            "author": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "url": "https://inteople.com/"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Inteople",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://inteople.com/assets/images/brand/logo-256.png"
+              }
+            },
+            "image": "https://inteople.com/assets/images/products/replyflow.webp",
+            "mainEntityOfPage": "https://inteople.com/work/replyflow-support-automation/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inteople.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://inteople.com/work/"
+              },
+              { "@type": "ListItem", "position": 3, "name": "ReplyFlow" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-replyflow">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="header">
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Inteople home"
+          ><img
+            src="/assets/images/brand/logo-mark.webp"
+            alt=""
+            width="36"
+            height="36" />
+          Inteople</a
+        >
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="/company/about/">Company</a>
+          <a href="/services/">Capabilities</a>
+          <a href="/products/">Products</a>
+          <a href="/work/" aria-current="page">Work</a>
+          <a href="/insights/">Insights</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-primary btn-sm" href="#cta">Start a project</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep" aria-hidden="true">/</span>
+            <a href="/work/">Work</a
+            ><span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">ReplyFlow</span>
+          </nav>
+          <span class="pill on-dark reveal"
+            ><span class="dot"></span> Applied AI · SaaS</span
+          >
+          <h1 class="reveal" data-delay="1">
+            Scaling support <span class="grad-text">with AI automation</span>
+          </h1>
+          <p class="lead reveal" data-delay="2">
+            How Inteople built and operates ReplyFlow — an AI reply and workflow
+            engine that resolves the routine, elevates human agents, and keeps
+            people in control of every automated answer.
+          </p>
+        </div>
+      </section>
+
+      <!-- SNAPSHOT -->
+      <section class="container">
+        <div class="cs-snapshot reveal">
+          <div class="s"><b>Omnichannel</b><span>Unified inbox</span></div>
+          <div class="s"><b>RAG-grounded</b><span>Accurate replies</span></div>
+          <div class="s"><b>Human-in-loop</b><span>Confidence-gated</span></div>
+          <div class="s">
+            <b>Model-agnostic</b><span>Best model per task</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- META -->
+      <section class="section" style="padding-bottom: 0">
+        <div class="container">
+          <div class="cs-meta reveal">
+            <div class="mi">
+              <span class="k">Domain</span><span class="v">Applied AI</span>
+            </div>
+            <div class="mi">
+              <span class="k">Role</span
+              ><span class="v">Product owner &amp; engineering</span>
+            </div>
+            <div class="mi">
+              <span class="k">Disciplines</span
+              ><span class="v">AI · Software · Cloud</span>
+            </div>
+            <div class="mi">
+              <span class="k">Status</span
+              ><span class="v">Live &amp; operated</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEM / SOLUTION -->
+      <section class="section" style="padding-top: var(--sp-6)">
+        <div class="container">
+          <div class="cs-split">
+            <article class="cs-block problem reveal">
+              <span class="label">The problem</span>
+              <h3>Conversation volume outpaces teams</h3>
+              <p>
+                Support and sales teams face more messages, across more
+                channels, at all hours — and most are the same handful of
+                questions. Hiring linearly to keep up is unsustainable, yet
+                generic chatbots erode trust with vague, off-brand answers
+                customers don't believe.
+              </p>
+              <ul class="cs-list">
+                <li>Repetitive questions consume skilled agents' time</li>
+                <li>Fragmented channels mean conversations get lost</li>
+                <li>Off-the-shelf bots give inaccurate, unbranded replies</li>
+                <li>After-hours coverage is costly or simply absent</li>
+              </ul>
+            </article>
+            <article class="cs-block solution reveal" data-delay="1">
+              <span class="label">Our solution</span>
+              <h3>Automate the routine, escalate the rest</h3>
+              <p>
+                ReplyFlow reads each conversation in context, drafts a reply
+                grounded in the organization's own knowledge, and either sends
+                it or routes it to a human — governed by a confidence threshold
+                the team controls. Agents get AI assist; customers get fast,
+                accurate answers.
+              </p>
+              <ul class="cs-list">
+                <li>RAG grounding keeps answers accurate and on-brand</li>
+                <li>Confidence gating decides auto-send vs. human review</li>
+                <li>One omnichannel inbox unifies every conversation</li>
+                <li>
+                  Analytics expose resolution rate, time and automation share
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECHNOLOGY -->
+      <section class="section bg-dark" id="technology">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Technology used</span>
+            <h2>The stack behind ReplyFlow</h2>
+          </div>
+          <div class="cs-tech">
+            <div class="cs-tech-group reveal">
+              <h4>AI core</h4>
+              <div class="chips">
+                <span>LLMs (multi)</span><span>RAG</span
+                ><span>model routing</span><span>guardrails</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="1">
+              <h4>Retrieval</h4>
+              <div class="chips">
+                <span>pgvector</span><span>embeddings</span
+                ><span>reranking</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="2">
+              <h4>Backend</h4>
+              <div class="chips">
+                <span>Node.js</span><span>PostgreSQL</span><span>Redis</span
+                ><span>queues</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal">
+              <h4>Frontend</h4>
+              <div class="chips">
+                <span>React</span><span>TypeScript</span><span>realtime</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="1">
+              <h4>Integrations</h4>
+              <div class="chips">
+                <span>email</span><span>chat</span><span>social</span
+                ><span>webhooks / API</span>
+              </div>
+            </div>
+            <div class="cs-tech-group reveal" data-delay="2">
+              <h4>Cloud &amp; eval</h4>
+              <div class="chips">
+                <span>multi-tenant</span><span>autoscaling</span
+                ><span>eval harness</span><span>observability</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPLEMENTATION -->
+      <section class="section" id="implementation">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Implementation</span>
+            <h2>How we built it</h2>
+          </div>
+          <div class="cs-timeline">
+            <article class="cs-phase reveal">
+              <span class="step-k">PHASE 01 · Grounding</span>
+              <h4>Knowledge ingestion &amp; retrieval</h4>
+              <p>
+                We built the retrieval layer first — ingesting docs, FAQs and
+                past conversations so every generated reply has a verifiable
+                source.
+              </p>
+            </article>
+            <article class="cs-phase reveal" data-delay="1">
+              <span class="step-k">PHASE 02 · Generation</span>
+              <h4>Model-agnostic reply engine</h4>
+              <p>
+                A routing layer selects the right model per task, balancing
+                quality, latency and cost, with structured outputs and
+                citations.
+              </p>
+            </article>
+            <article class="cs-phase reveal" data-delay="2">
+              <span class="step-k">PHASE 03 · Control</span>
+              <h4>Confidence gating &amp; workflows</h4>
+              <p>
+                We added confidence scoring and rules so teams decide what
+                auto-sends and what a human reviews — automation never runs
+                unchecked.
+              </p>
+            </article>
+            <article class="cs-phase reveal" data-delay="3">
+              <span class="step-k">PHASE 04 · Channels</span>
+              <h4>Omnichannel unification</h4>
+              <p>
+                Connectors brought email, chat, social and messaging into one
+                inbox and workflow.
+              </p>
+            </article>
+            <article class="cs-phase reveal">
+              <span class="step-k">PHASE 05 · Evaluate &amp; operate</span>
+              <h4>Continuous evaluation</h4>
+              <p>
+                An eval harness with golden datasets gates quality on every
+                change; the platform runs multi-tenant in production under our
+                operation.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISUALS -->
+      <section class="section bg-alt" id="visuals">
+        <div class="container wide">
+          <div class="section-head reveal">
+            <span class="eyebrow">Visuals</span>
+            <h2>The product in use</h2>
+          </div>
+          <div class="cs-visuals">
+            <figure class="reveal">
+              <div class="browser">
+                <div class="browser-bar">
+                  <div class="browser-dots"><i></i><i></i><i></i></div>
+                  <div class="browser-url">aireply.com/workspace</div>
+                </div>
+                <img
+                  class="browser-shot"
+                  src="/assets/images/products/replyflow.webp"
+                  alt="ReplyFlow AI workspace"
+                  loading="lazy" />
+              </div>
+              <figcaption class="cs-figcap">
+                Agent workspace — AI-drafted replies with source grounding and
+                confidence.
+              </figcaption>
+            </figure>
+            <div class="phone-wrap reveal" data-delay="1">
+              <div class="phone">
+                <div class="ui">
+                  <div class="ui-top">
+                    <span class="ui-logo">R</span><b>Inbox</b>
+                  </div>
+                  <div class="ui-body">
+                    <div class="ui-card">
+                      <div class="k">Auto-resolved</div>
+                      <div class="v">68% <small>today</small></div>
+                    </div>
+                    <div class="ui-card ui-list">
+                      <div class="ui-row">
+                        <span class="av"></span
+                        ><span class="ln"><i></i><i></i></span
+                        ><span class="pill-mini">AI</span>
+                      </div>
+                      <div class="ui-row">
+                        <span class="av"></span
+                        ><span class="ln"><i></i><i></i></span
+                        ><span class="pill-mini">You</span>
+                      </div>
+                      <div class="ui-row">
+                        <span class="av"></span
+                        ><span class="ln"><i></i><i></i></span
+                        ><span class="pill-mini">AI</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="reveal cs-figcap">
+            Mobile view shown as an interface mock-up.
+          </p>
+        </div>
+      </section>
+
+      <!-- IMPACT + METRICS -->
+      <section class="section bg-dark" id="impact">
+        <div class="container wide">
+          <div class="cs-impact">
+            <div class="cs-impact-body reveal">
+              <div class="section-head compact">
+                <span class="eyebrow">Impact</span>
+                <h2>What it changed</h2>
+              </div>
+              <p>
+                ReplyFlow shifts the economics of customer communication: AI
+                carries the high-volume, low-complexity load while humans focus
+                on the conversations that need judgment. Service stays fast and
+                on-brand, around the clock, without scaling headcount in
+                lockstep with volume.
+              </p>
+              <p>
+                Because every reply is grounded and every automation is gated by
+                confidence, quality is measurable and controllable — teams can
+                dial automation up as trust in the system grows.
+              </p>
+            </div>
+            <div class="cs-metrics reveal" data-delay="1">
+              <div class="cs-metric">
+                <b data-count="60" data-suffix="%+">60%+</b
+                ><span>Routine load automatable</span>
+              </div>
+              <div class="cs-metric">
+                <b>Seconds</b><span>First-response time</span>
+              </div>
+              <div class="cs-metric"><b>24/7</b><span>Coverage</span></div>
+              <div class="cs-metric">
+                <b>100%</b><span>Replies grounded &amp; logged</span>
+              </div>
+            </div>
+          </div>
+          <p
+            class="reveal"
+            style="
+              margin-top: var(--sp-6);
+              font-size: var(--fs-xs);
+              color: var(--on-dark-muted);
+            ">
+            Metrics are illustrative of typical automation potential; figures
+            vary by deployment and will be replaced with published results.
+          </p>
+        </div>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="section" id="quote">
+        <div class="container">
+          <figure class="cs-quote reveal">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M7 7h4v4H9c0 2 .5 3 2 4l-1 2c-2.3-1.2-3.5-3-3.5-6V7Zm9 0h4v4h-2c0 2 .5 3 2 4l-1 2c-2.3-1.2-3.5-3-3.5-6V7Z" />
+            </svg>
+            <p>
+              The goal was never to remove people from support — it was to stop
+              wasting them on the questions a machine should answer, and let
+              them own the ones that matter.
+            </p>
+            <div class="who">
+              <b>SM Mohammad Ali</b> · Founder &amp; CTO, Inteople
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- NEXT + CTA -->
+      <section class="section bg-alt">
+        <div class="container">
+          <a class="cs-next reveal" href="/work/edunation-school-os/">
+            <div>
+              <span>Next case study</span
+              ><b>An AI operating system for schools — EduNation</b>
+            </div>
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="cta">
+        <div class="container">
+          <div class="cta reveal">
+            <span class="pill on-dark"
+              ><span class="dot"></span> ReplyFlow</span
+            >
+            <h2>Want applied AI that ships and survives production?</h2>
+            <p>
+              We bring the same grounding, guardrails and evaluation discipline
+              to partner AI builds. Let's scope yours.
+            </p>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary btn-lg"
+                href="mailto:hello@inteople.com?subject=AI%20project%20inquiry"
+                >Start a project</a
+              >
+              <a class="btn btn-on-dark btn-lg" href="/products/replyflow/"
+                >Explore ReplyFlow</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="Inteople home"
+              ><img
+                src="/assets/images/brand/logo-mark.webp"
+                alt=""
+                width="36"
+                height="36" />
+              Inteople</a
+            >
+            <p>
+              A parent technology company engineering intelligent digital
+              platforms, AI products and connected ecosystems — and operating
+              its own ventures.
+            </p>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/company/inteople/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM0 8h5v16H0V8Zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.6V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9s-2.7 1.85-2.7 3.77V24h-5V8Z" /></svg
+              ></a>
+              <a
+                href="https://twitter.com/Inteopleltd"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" /></svg
+              ></a>
+              <a
+                href="https://www.facebook.com/inteople"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.24 2.7.24v3h-1.5c-1.5 0-2 .93-2 1.9v2.2h3.4l-.55 3.5h-2.9v8.4A12 12 0 0 0 24 12Z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <a href="/work/healodex-connected-care/">Healodex</a>
+            <a href="/work/replyflow-support-automation/">ReplyFlow</a>
+            <a href="/work/edunation-school-os/">EduNation</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/services/ai-ml/">AI &amp; ML</a>
+            <a href="/services/software-engineering/">Software Engineering</a>
+            <a href="/services/cloud/">Cloud &amp; DevOps</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="/company/about/">About</a>
+            <a href="/#products">Products</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year">2026</span> Inteople Limited. All rights
+            reserved.</span
+          >
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/trust/">Trust</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </nav>
+          <span>Dhaka, Bangladesh — engineering worldwide.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/scripts/home.js" defer></script>
+  </body>
+</html>

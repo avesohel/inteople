@@ -1,0 +1,15 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "void-style": ["error", { "style": "selfclosing" }],
+    "no-trailing-whitespace": "error",
+    "no-inline-style": "off",
+    "attribute-boolean-style": "off",
+    "long-title": "off",
+    "wcag/h30": "warn",
+    "prefer-native-element": "warn",
+    "tel-non-breaking": "off",
+    "doctype-style": "off"
+  },
+  "elements": ["html5"]
+}
